@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  app:
+    build: .
+    image: friends_review
+    command: bundle exec puma -C config/puma.rb
+    ports:
+      - 5002:3000
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_ROOT_PASSWORD=password
+    volumes:
+      - .:/var/www/friends_review
+
+  db:
+    image: mysql:5.6
+    environment:
+      - MYSQL_DATABASE=friends_review_development
+      - MYSQL_ROOT_PASSWORD=password
+      - ROW_FORMAT=DYNAMIC
+    volumes:
+      - ./docker/db/etc:/etc/mysql/conf.d
+      - sql_data:/var/lib/mysql
+
+volumes:
+  sql_data:
+    driver: local
