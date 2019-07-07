@@ -26,7 +26,7 @@
               </li>
             <% else %>
               <li class="nav-item">
-                <a class="nav-link" href="#">Twitterでログイン</a>
+                <%= link_to "ツイッターでログイン", omniauth_authorize_path(:user, :twitter), class: "nav-link" %>
               </li>
             <% end %>
           </ul>
