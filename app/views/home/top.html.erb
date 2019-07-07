@@ -1,2 +1,45 @@
-<h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+<header>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <div class="col-sm-4 col-2">
+        <% if user_signed_in? %>
+          <%= image_tag current_user.image, width: "40px" %>
+        <% end %>
+      </div>
+      <div class="col-sm-4 col-8 text-center">
+        <%= image_tag "service_title.png", width: "210px", class: "" %>
+      </div>
+      <div class="col-sm-4 col-2">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse float-right" id="navbarNav">
+          <ul class="navbar-nav">
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <a class="nav-link" href="#">新着の評定</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">友達の通信簿</a>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link" %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Twitterでログイン</a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<% if user_signed_in? %>
+  <%= current_user.name %>
+  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to "ツイッターでログイン！", omniauth_authorize_path(:user, :twitter), class: "btn btn-twitter" %><br />
+<% end %>
