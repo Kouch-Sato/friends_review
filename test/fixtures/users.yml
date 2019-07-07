@@ -23,7 +23,7 @@
 #
 
 kouch:
-  email: 707335176808833024-twitter@example.com
+  email: 11@example.com
   provider: twitter
   uid: 11
   name: こーち2世
@@ -32,7 +32,7 @@ kouch:
 
 
 dara:
-  email: 728079679152742401-twitter@example.com
+  email: 22-twitter@example.com
   provider: twitter
   uid: 22
   name: だーらJr
