@@ -1,2 +1,6 @@
-<h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+<% if user_signed_in? %>
+  <%= current_user.name %>
+  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to "ツイッターでログイン！", omniauth_authorize_path(:user, :twitter), class: "btn btn-twitter" %><br />
+<% end %>
