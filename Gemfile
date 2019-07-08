@@ -32,6 +32,7 @@ gem 'omniauth-twitter'
 gem 'dotenv-rails'
 gem 'bootstrap', '~> 4.1.1'
 gem "jquery-rails"
+gem 'active_link_to'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
