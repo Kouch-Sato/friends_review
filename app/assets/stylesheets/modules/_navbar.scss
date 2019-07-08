@@ -1,0 +1,7 @@
+#bottom-navbar .bottom-nav-link {
+  color: gray;
+
+  &.active {
+    color: $info-color;
+  }
+}
