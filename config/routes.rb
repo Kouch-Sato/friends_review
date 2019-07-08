@@ -5,4 +5,6 @@ Rails.application.routes.draw do
     delete 'logout' => 'devise/sessions#destroy', as: :destroy_user_session
   end
   root "home#top"
+  get "/home/test1" => "home#test1"
+  get "/home/test2" => "home#test2"
 end
