@@ -1,22 +1,70 @@
-<h1>Books#show</h1>
-<h2>
-  <%= @book.user.name %>さんの通信簿
-</h2>
-<h3>
-  レビューしようぜ！
-</h3>
-<div>
-  <%= form_for [@book, @review] do |f| %>
-    <%= f.text_field :content, placeholder: "まじでかっこいい" %>
-    <%= f.text_field :review_type, placeholder: "1" %>
-    <%= f.submit %>
-  <% end %>
-</div>
-<h3>
-  今までのレビュー
-</h3>
-<div>
-  <% @reviews.each do |review| %>
-    <p><%= review.content %></p>
-  <% end %>
+<div class="container">
+  <section>
+    <div class="text-center mb-4">
+      <h4 class="font-weight-bold"><%= @user.name %>の通信簿をつけよう！</h4>
+    </div>
+    <div class="review-form sp-full-width">
+      <div class="review-form__bg--good">
+        <p class="review-form__label"><i class="far fa-smile-beam fa-lg mr-2"></i>よくできました</p>
+        <%= form_for [@book, @review] do |f| %>
+          <div class="form-row">
+            <div class="form-group col-md-11 col-10 pl-3">
+              <%= f.text_field :content, type: "text", class: "form-control", placeholder: "おしゃれなカフェいっぱい知ってる！" %>
+              <%= f.hidden_field :review_type, value: "1" %>
+            </div>
+            <div class="form-group review-send col-md-1 col-2">
+              <%= f.submit "送信", class: "review-send__button btn btn-sm btn-outline-info btn-round"%>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="review-form sp-full-width">
+      <div class="review-form__bg--bad">
+        <p class="review-form__label"><i class="far fa-sad-cry fa-lg mr-2"></i>がんばりましょう</p>
+        <%= form_for [@book, @review] do |f| %>
+          <div class="form-row">
+            <div class="form-group col-md-11 col-10 pl-3 mb-1">
+              <%= f.text_field :content, type: "text", class: "form-control", placeholder: "すぐ遅刻する！モニコしようか？" %>
+              <%= f.hidden_field :review_type, value: "2" %>
+            </div>
+            <div class="form-group review-send col-md-1 col-2 mb-1">
+              <%= f.submit "送信", class: "review-send__button btn btn-sm btn-outline-info btn-round"%>
+            </div>
+          </div>
+        <% end %>
+        <div class="review-form__note">
+          <small>親御さんに見られて怒られちゃうとかわいそうなので、お手柔らかに...！</small>
+        </div>
+      </div>
+    </div>
+    <div class="text-right mb-4">
+      <small>※送信した評定は、本人の承認後に反映されます。</small>
+    </div>
+  </section>
+  <section>
+    <p class="section-menu sp-full-width mb-4"><%= @user.name %>さんの通信簿</p>
+    <div class="text-center mb-4">
+      <!-- BEGIN: BookCard -->
+      <%= render partial: "shared/book-card", locals: { user: @user, reviews: @reviews } %>
+      <!-- END: BookCard -->
+      <%= link_to "自分の通信簿を作る！", "#", class: "btn btn-info btn-round btn-lg shadow-sm" %>
+    </div>
+  </section>
+  <section>
+    <p class="section-menu sp-full-width mb-4">友達の通信簿</p>
+    <%# TODO 通信簿を動的にする %>
+    <div class="row mb-3">
+      <%= link_to "#" do %>
+        <%= image_tag "book_sample.jpg", width: "100%", class: "col-md-6 offset-md-3"%>
+      <% end %>
+      <hr>
+      <%= link_to "#" do %>
+        <%= image_tag "book_sample.jpg", width: "100%", class: "col-md-6 offset-md-3"%>
+      <% end %>
+    </div>
+    <div class="text-center mb-4">
+      <%= link_to "友達の通信簿を覗く", "#", class: "btn btn-info btn-round" %>
+    </div>
+  </section>
 </div>
