@@ -5,6 +5,9 @@
 #  user_twitter_omniauth_callback GET|POST /users/auth/twitter/callback(.:format)                                                   users/omniauth_callbacks#twitter
 #            destroy_user_session DELETE   /logout(.:format)                                                                        devise/sessions#destroy
 #                            root GET      /                                                                                        home#top
+#                    book_reviews POST     /books/:book_id/reviews(.:format)                                                        reviews#create
+#                 new_book_review GET      /books/:book_id/reviews/new(.:format)                                                    reviews#new
+#                            book GET      /books/:id(.:format)                                                                     books#show
 #              rails_service_blob GET      /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 #       rails_blob_representation GET      /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
 #              rails_disk_service GET      /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
@@ -18,4 +21,7 @@ Rails.application.routes.draw do
     delete 'logout' => 'devise/sessions#destroy', as: :destroy_user_session
   end
   root "home#top"
+  resources :books, only: [:show] do
+    resources :reviews, only: [:new, :create]
+  end
 end
