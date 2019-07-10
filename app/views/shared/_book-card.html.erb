@@ -1,4 +1,4 @@
-<div class="card bg-blackboard col-md-6 offset-md-3 col-12 mb-3" data-background="color" data-radius="none">
+<div class="card bg-blackboard col-md-6 offset-md-3 col-12" data-background="color" data-radius="none">
   <div class="card-body">
     <div class="author pull-left">
       <%= image_tag user.image, class: "avatar img-raised align-middle" %>
@@ -9,7 +9,9 @@
     </span>
     <div class="clearfix"></div>
     <p class="card-description">
-      TODO：localで受け取ったreviewsを整形して、動的にきれいに生成しよう！<br> ◯イケメン ◯かっこいい！ ◯頑張ってる！ ◯イケメン ◯かっこいい！ ◯頑張ってる！ ◯イケメン ◯かっこいい！ ◯頑張ってる！ ☓だめだめ ☓こまるよーまじで ☓朝寝坊しすぎ！ ☓だめだめ ☓こまるよーまじで ☓朝寝坊しすぎ！
+      <% reviews.each do |review| %>
+        <span><%= "#{review.content}(status:#{review.review_type})" %><br></span>
+      <% end %>
     </p>
   </div>
 </div>

@@ -1,8 +1,17 @@
+// spサイズ時に、画面の右に空白ができ、横のスクロールができてしまうことを防ぐため
+.container {
+  overflow: hidden;
+}
+
+// spサイズ時に、containerのpaddingを超えて全幅表示したいとき
 @media (max-width: 575px) {
-  .sp-cancel-container-padding {
-    padding-left: 0;
-    padding-right: 0;
-    overflow: hidden;
+  .sp-full-width {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
   }
 }
 
@@ -15,4 +24,9 @@
 
 .bg-blackboard {
   background: rgb(38,68,43) !important;
+}
+
+// iosで、input入力時にズームするのを防ぐため
+input[type=text] {
+  font-size: 16px;
 }
