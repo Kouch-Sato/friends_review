@@ -1,0 +1,15 @@
+<div class="card col-md-6 offset-md-3 mb-3 col-12 bg-blackboard" data-background="color" data-color="brown" data-radius="none">
+  <div class="card-body">
+    <div class="author pull-left">
+      <%= image_tag user.image, class: "avatar img-raised align-middle" %>
+      <span class="align-middle font-weight-bold"><%= user.name %>の通信簿</span>
+    </div>
+    <span class="pull-right">
+      <%= link_to "編集", "#", class: "btn btn-sm btn-outline-warning btn-round"%>
+    </span>
+    <div class="clearfix"></div>
+    <p class="card-description">
+      TODO：localで受け取ったreviewsを整形して、動的にきれいに生成しよう！<br> ◯イケメン ◯かっこいい！ ◯頑張ってる！ ◯イケメン ◯かっこいい！ ◯頑張ってる！ ◯イケメン ◯かっこいい！ ◯頑張ってる！ ☓だめだめ ☓こまるよーまじで ☓朝寝坊しすぎ！ ☓だめだめ ☓こまるよーまじで ☓朝寝坊しすぎ！
+    </p>
+  </div>
+</div>

@@ -11,26 +11,9 @@
   <section>
     <p class="text-light bg-section-menu font-weight-bold pt-2 pb-2 mb-4 col-12">${name}さんの通信簿</p>
     <div class="col-12 text-center">
-      <%# TODO 通信簿を動的にする %>
-      <!-- BEGIN: card -->
-      <div class="card col-md-6 offset-md-3 mb-3 col-12 bg-blackboard" data-background="color" data-color="brown" data-radius="none">
-        <div class="card-body">
-          <div class="author pull-left">
-            <%= image_tag "http://pbs.twimg.com/profile_images/949657521425334273/Gict9ijg_normal.jpg", class: "avatar img-raised align-middle" %>
-            <span class="align-middle font-weight-bold">${name}の通信簿</span>
-          </div>
-          <span class="pull-right">
-            <button class="btn btn-sm btn-outline-warning btn-round">
-              編集
-            </button>
-          </span>
-          <div class="clearfix"></div>
-          <p class="card-description">
-            ◯イケメン ◯スピーチかっこいい ◯やさしい ◯イケメン ◯スピーチかっこいい ◯やさしい ◯イケメン ◯スピーチかっこいい ◯やさしい ☓だめだめ ☓最近夜型になってない？？ ☓ほんと困る〜 ☓だめだめ ☓最近夜型になってない？？ ☓ほんと困る ☓だめだめ ☓最近夜型になってない？？ ☓ほんと困る
-          </p>
-        </div>
-      </div>
-      <!-- END: card -->
+      <!-- BEGIN: BookCard -->
+      <%= render partial: "shared/book-card", locals: { user: @user, reviews: @reviews } %>
+      <!-- END: BookCard -->
       <p class="mb-2">結果をシェア & コメントをして、もっと記入してもらおう！</p>
       <%= link_to "#", class: "btn btn-info btn-round btn-lg shadow-sm mb-4" do %>
         結果をシェアする！
