@@ -1,3 +1,23 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.review-bg-good {
+  background: #FFECEC;
+}
+
+.review-bg-bad {
+  background: #E2FFF7;
+}
+
+.review-send-parent {
+  position: relative;
+  height: 40px;
+
+  button {
+    position: absolute;
+    top: 50%;
+    -webkit-transform : translateY(-50%);
+    transform : translateY(-50%);
+  }
+}
