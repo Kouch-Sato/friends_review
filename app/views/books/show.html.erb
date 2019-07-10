@@ -1,0 +1,22 @@
+<h1>Books#show</h1>
+<h2>
+  <%= @book.user.name %>さんの通信簿
+</h2>
+<h3>
+  レビューしようぜ！
+</h3>
+<div>
+  <%= form_for [@book, @review] do |f| %>
+    <%= f.text_field :content, placeholder: "まじでかっこいい" %>
+    <%= f.text_field :review_type, placeholder: "1" %>
+    <%= f.submit %>
+  <% end %>
+</div>
+<h3>
+  今までのレビュー
+</h3>
+<div>
+  <% @reviews.each do |review| %>
+    <p><%= review.content %></p>
+  <% end %>
+</div>
