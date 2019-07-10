@@ -1,27 +1,25 @@
 <div class="container sp-cancel-container-padding"> <!-- spサイズのときだけ、containerのpadding(15px)がなくなるよう調整。colのpaddingの数値が15pxで同じであり、調整可能。 -->
 <%# 募集のシェアを常に出す必要があるかは検討 %>
   <section>
-    <div class="text-center col-12">
+    <div class="text-center col-12 mb-4">
       <h4 class="font-weight-bold mb-4">多くの人にシェアして<br>評定を書いてもらおう！</h4>
-      <%= link_to "#", class: "btn btn-info btn-round btn-lg shadow-sm mb-4" do %>
-        評定を募集する！
-      <% end %>
+      <%= link_to "評定を募集する！", "#", class: "btn btn-info btn-round btn-lg shadow-sm" %>
     </div>
   </section>
   <section>
-    <p class="text-light bg-section-menu font-weight-bold pt-2 pb-2 mb-4 col-12">${name}さんの通信簿</p>
-    <div class="col-12 text-center">
+    <p class="section-menu mb-4">${name}さんの通信簿</p>
+    <div class="text-center col-12 mb-4">
       <!-- BEGIN: BookCard -->
       <%= render partial: "shared/book-card", locals: { user: @user, reviews: @reviews } %>
       <!-- END: BookCard -->
       <p class="mb-2">結果をシェア & コメントをして、もっと記入してもらおう！</p>
-      <%= link_to "#", class: "btn btn-info btn-round btn-lg shadow-sm mb-4" do %>
-        結果をシェアする！
-      <% end %>
-    </section>
-    <section>
-      <p class="text-light bg-section-menu font-weight-bold pt-2 pb-2 col-12">友達の通信簿</p>
-      <%# TODO 通信簿を動的にする %>
+      <%= link_to "結果をシェアする！", "#", class: "btn btn-info btn-round btn-lg shadow-sm" %>
+    </div>
+  </section>
+  <section>
+    <p class="section-menu mb-4">友達の通信簿</p>
+    <%# TODO 通信簿を動的にする %>
+    <div class="mb-3">
       <%= link_to "#" do %>
         <%= image_tag "book_sample.jpg", width: "100%", class: "col-md-6 offset-md-3 col-12"%>
       <% end %>
@@ -29,9 +27,9 @@
       <%= link_to "#" do %>
         <%= image_tag "book_sample.jpg", width: "100%", class: "col-md-6 offset-md-3 col-12"%>
       <% end %>
-      <div class="text-center">
-        <%= link_to "友達の通信簿を覗く", "#", class: "btn btn-info btn-round mt-3 mb-4" %>
-      </div>
-    </section>
-  </div>
+    </div>
+    <div class="text-center col-12 mb-4">
+      <%= link_to "友達の通信簿を覗く", "#", class: "btn btn-info btn-round" %>
+    </div>
+  </section>
 </div>
