@@ -18,4 +18,12 @@
 @import "templates/scss/paper-kit";
 
 // modules
-@import "modules/navbar"
+@import "modules/navbar";
+@import "modules/footer";
+
+// bases
+@import "bases/shared";
+
+// pages
+@import "books";
+@import "reviews";
