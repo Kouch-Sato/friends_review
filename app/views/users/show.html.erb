@@ -1,2 +1,54 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container sp-cancel-p-container"> <!-- spサイズのときだけ、containerのpadding(15px)がなくなるよう調整。colのpaddingの数値が15pxで同じであり、調整可能。 -->
+<%# 募集のシェアを常に出す必要があるかは検討 %>
+  <section>
+    <div class="text-center col-12">
+      <h4 class="font-weight-bold mb-4">多くの人にシェアして<br>評定を書いてもらおう！</h4>
+      <%= link_to "#", class: "btn btn-info btn-round btn-lg shadow-sm mb-4" do %>
+        評定を募集する！
+      <% end %>
+    </div>
+  </section>
+  <section>
+    <p class="text-light bg-menu font-weight-bold pt-2 pb-2 mb-4 col-12">${name}さんの通信簿</p>
+    <div class="col-12 text-center">
+      <%# TODO 通信簿を動的にする %>
+      <!-- BEGIN: card -->
+      <div class="card col-md-6 offset-md-3 mb-3 col-12 bg-blackboard" data-background="color" data-color="brown" data-radius="none">
+        <div class="card-body">
+          <div class="author pull-left">
+            <%= image_tag "http://pbs.twimg.com/profile_images/949657521425334273/Gict9ijg_normal.jpg", class: "avatar img-raised align-middle" %>
+            <span class="align-middle font-weight-bold">${name}の通信簿</span>
+          </div>
+          <span class="pull-right">
+            <button class="btn btn-sm btn-outline-warning btn-round">
+              編集
+            </button>
+          </span>
+          <div class="clearfix"></div>
+          <p class="card-description">
+            ◯イケメン ◯スピーチかっこいい ◯やさしい ◯イケメン ◯スピーチかっこいい ◯やさしい ◯イケメン ◯スピーチかっこいい ◯やさしい ☓だめだめ ☓最近夜型になってない？？ ☓ほんと困る〜 ☓だめだめ ☓最近夜型になってない？？ ☓ほんと困る ☓だめだめ ☓最近夜型になってない？？ ☓ほんと困る
+          </p>
+        </div>
+      </div>
+      <!-- END: card -->
+      <p class="mb-2">結果をシェア & コメントをして、もっと記入してもらおう！</p>
+      <%= link_to "#", class: "btn btn-info btn-round btn-lg shadow-sm mb-4" do %>
+        結果をシェアする！
+      <% end %>
+    </section>
+    <section>
+      <p class="text-light bg-menu font-weight-bold pt-2 pb-2 col-12">友達の通信簿</p>
+      <%# TODO 通信簿を動的にする %>
+      <%= link_to "#" do %>
+        <%= image_tag "book_sample.jpg", width: "100%", class: "col-md-6 offset-md-3 col-12"%>
+      <% end %>
+      <hr>
+      <%= link_to "#" do %>
+        <%= image_tag "book_sample.jpg", width: "100%", class: "col-md-6 offset-md-3 col-12"%>
+      <% end %>
+      <div class="text-center">
+        <%= link_to "友達の通信簿を覗く", "#", class: "btn btn-info btn-round mt-3 mb-4" %>
+      </div>
+    </section>
+  </div>
+</div>
