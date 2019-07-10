@@ -16,14 +16,14 @@
 }
 
 .section-menu {
-  background: #444444 !important;
+  background: #444444;
   font-weight: bold;
   color: #ffffff;
   padding: 8px 15px;
 }
 
 .bg-blackboard {
-  background: rgb(38,68,43) !important;
+  background: $blackboard;
 }
 
 // iosで、input入力時にズームするのを防ぐため

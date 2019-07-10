@@ -17,11 +17,12 @@
 @import "templates/css/bootstrap.min";
 @import "templates/scss/paper-kit";
 
+// bases
+@import "bases/original-variables";
+@import "bases/shared";
+
 // modules
 @import "modules/navbar";
-
-// bases
-@import "bases/shared";
 
 // pages
 @import "books";

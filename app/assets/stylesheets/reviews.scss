@@ -7,11 +7,11 @@
   &__bg {
 
     &--good {
-      background: #FFECEC;
+      background: $good-pink;
     }
 
     &--bad {
-      background: #E2FFF7;
+      background: $bad-blue;
     }
 
   }
