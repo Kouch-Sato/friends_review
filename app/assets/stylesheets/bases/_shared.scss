@@ -1,9 +1,4 @@
-// spサイズ時に、画面の右に空白ができ、横のスクロールができてしまうことを防ぐため
-.container {
-  overflow: hidden;
-}
-
-// spサイズ時に、containerのpaddingを超えて全幅表示したいとき
+// spサイズ時に、containerのpaddingを超えて全幅表示する
 @media (max-width: 575px) {
   .sp-full-width {
     width: 100vw;
@@ -15,15 +10,16 @@
   }
 }
 
+.page-heading {
+  font-weight: bold;
+  font-size: 22px;
+}
+
 .section-menu {
   background: #444444;
   font-weight: bold;
   color: #ffffff;
   padding: 8px 15px;
-}
-
-.bg-blackboard {
-  background: $blackboard;
 }
 
 // iosで、input入力時にズームするのを防ぐため

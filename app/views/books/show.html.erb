@@ -1,10 +1,10 @@
 <div class="container">
   <section>
     <div class="text-center mb-4">
-      <h4 class="font-weight-bold"><%= @user.name %>の通信簿をつけよう！</h4>
+      <h1 class="page-heading"><%= @user.name %>の通信簿をつけよう！</h1>
     </div>
     <div class="review-form sp-full-width">
-      <div class="review-form__bg--good">
+      <div class="review-form__container--good">
         <p class="review-form__label"><i class="far fa-smile-beam fa-lg mr-2"></i>よくできました</p>
         <%= form_for [@book, @review] do |f| %>
           <div class="form-row">
@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="review-form sp-full-width">
-      <div class="review-form__bg--bad">
+      <div class="review-form__container--bad">
         <p class="review-form__label"><i class="far fa-sad-cry fa-lg mr-2"></i>がんばりましょう</p>
         <%= form_for [@book, @review] do |f| %>
           <div class="form-row">
