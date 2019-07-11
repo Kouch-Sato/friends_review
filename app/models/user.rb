@@ -24,6 +24,7 @@
 
 class User < ApplicationRecord
   has_many :books
+
   devise :database_authenticatable,
          :registerable,
          :recoverable,
@@ -32,16 +33,15 @@ class User < ApplicationRecord
          :validatable,
          :omniauthable
 
+  def book
+    books.first
+  end
 
   def self.find_for_oauth(auth)
     user = User.where(
       uid: auth.uid,
       provider: auth.provider
     ).first
-
-    def book
-      books.first
-    end
 
     unless user
       user = User.create(
