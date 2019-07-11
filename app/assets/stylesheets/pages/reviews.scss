@@ -3,8 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .review-form {
+  overflow: hidden;
 
-  &__bg {
+  &__container {
 
     &--good {
       background: $good-pink;
@@ -13,7 +14,6 @@
     &--bad {
       background: $bad-blue;
     }
-
   }
 
   &__label {
@@ -28,7 +28,6 @@
     padding-right: 15px;
     padding-bottom: 0.25rem;
   }
-
 }
 
 .review-send {
