@@ -1,7 +1,7 @@
 <div class="container">
   <section>
-    <div class="text-center mb-4">
-      <h1 class="page-heading"><%= @user.name %>の通信簿をつけよう！</h1>
+    <div class="page-heading mb-4">
+      <h1 class="page-heading__title"><%= @user.name %>の通信簿をつけよう！</h1>
     </div>
     <div class="review-form sp-full-width">
       <div class="review-form__container--good">
@@ -42,17 +42,17 @@
       <small>※送信した評定は、本人の承認後に反映されます。</small>
     </div>
   </section>
-  <section>
-    <p class="section-menu sp-full-width mb-4"><%= @user.name %>さんの通信簿</p>
-    <div class="text-center mb-4">
+  <section class="page-section mb-4">
+    <p class="page-section__title sp-full-width mb-4"><%= @user.name %>さんの通信簿</p>
+    <div class="text-center">
       <!-- BEGIN: BookCard -->
       <%= render partial: "shared/book-card", locals: { user: @user, reviews: @reviews } %>
       <!-- END: BookCard -->
       <%= link_to "自分の通信簿を作る！", "#", class: "btn btn-info btn-round btn-lg shadow-sm" %>
     </div>
   </section>
-  <section>
-    <p class="section-menu sp-full-width mb-4">友達の通信簿</p>
+  <section class="page-section mb-4">
+    <p class="page-section__title sp-full-width mb-4">友達の通信簿</p>
     <%# TODO 通信簿を動的にする %>
     <div class="row mb-3">
       <%= link_to "#" do %>
@@ -63,7 +63,7 @@
         <%= image_tag "book_sample.jpg", width: "100%", class: "col-md-6 offset-md-3"%>
       <% end %>
     </div>
-    <div class="text-center mb-4">
+    <div class="text-center">
       <%= link_to "友達の通信簿を覗く", "#", class: "btn btn-info btn-round" %>
     </div>
   </section>

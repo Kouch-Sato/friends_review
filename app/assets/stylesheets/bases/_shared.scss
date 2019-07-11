@@ -11,15 +11,21 @@
 }
 
 .page-heading {
-  font-weight: bold;
-  font-size: 22px;
+  text-align: center;
+
+  &__title {
+    font-weight: bold;
+    font-size: 22px;
+  }
 }
 
-.section-menu {
-  background: #444444;
-  font-weight: bold;
-  color: #ffffff;
-  padding: 8px 15px;
+.page-section {
+  &__title {
+    background: #444444;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 8px 15px;
+  }
 }
 
 // iosで、input入力時にズームするのを防ぐため
