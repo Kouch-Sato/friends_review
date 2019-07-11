@@ -21,8 +21,8 @@ Rails.application.routes.draw do
     delete 'logout' => 'devise/sessions#destroy', as: :destroy_user_session
   end
   root "home#top"
-  resources :books, only: [:show] do
-    resources :reviews, only: [:new, :create]
+  resources :books, only: [:show, :edit, :update] do
+    resources :reviews, only: [:create, :destroy]
   end
   resources :users, only: [:show]
 end
