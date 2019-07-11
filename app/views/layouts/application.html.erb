@@ -16,10 +16,9 @@
   </head>
 
   <body>
-    <header>
-      <%= render "shared/top_navbar" %>
-    </header>
+    <%= render "shared/top_navbar" %>
     <%= yield %>
+    <%= render "shared/footer" %>
     <%= render "shared/bottom_navbar" %>
   </body>
 </html>
