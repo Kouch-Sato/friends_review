@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find_by(id: params[:id])
-    @book =Book.find_by(id: params[:book_id])
+    @book = Book.find_by(id: params[:book_id])
     @review.deleted!
     redirect_to edit_book_path(@book)
   end
