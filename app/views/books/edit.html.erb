@@ -1,0 +1,21 @@
+<h1>books#edit</h1>
+<div>
+  <% @unchecked_reviews.each do |review| %>
+    <%= review.content %>
+    <%= link_to '削除', book_review_path(@book, review), method: :delete  %>
+    <br>
+  <% end %>
+</div>
+
+<% if @unchecked_reviews.present? %>
+  <%= link_to 'まとめて承認', book_path(@book), method: :put  %>
+<% end %>
+
+<p>今ある評価も消せるよ</p>
+<div>
+  <% @checked_reviews.each do |review| %>
+    <%= review.content %>
+    <%= link_to '削除', book_review_path(@book, review), method: :delete  %>
+    <br>
+  <% end %>
+</div>
