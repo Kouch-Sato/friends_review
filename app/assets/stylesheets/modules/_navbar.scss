@@ -1,7 +1,27 @@
-#bottom-navbar .bottom-nav-link {
-  color: gray;
+.bottom-navbar {
+  &__link {
+    color: gray;
+    position: relative;
 
-  &.active {
-    color: $info-color;
+// gemの関係でBEM記法を使っていない
+    &.active {
+      color: $info-color;
+    }
+  }
+
+  &__notification {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -6px;
+    left: 24px;
+    border-radius: 20px;
+    background-color: $danger-color;
+    color: #fff;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    font-weight: bold;
   }
 }
