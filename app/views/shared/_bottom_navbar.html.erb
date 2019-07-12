@@ -1,20 +1,21 @@
-<div id="bottom-navbar">
+<div class="bottom-navbar">
   <nav class="navbar fixed-bottom navbar-light border-top pt-2 pb-3">
     <div class="container">
       <div class="col-4 text-center">
-        <%= active_link_to "#", class: "bottom-nav-link" do %>
+        <%= active_link_to "#", class: "bottom-navbar__link" do %>
           <i class="fas fa-home fa-lg"></i><br>
           <small>ホーム</small>
         <% end %>
       </div>
       <div class="col-4 text-center">
-        <%= active_link_to "#", class: "bottom-nav-link" do %>
+        <%= active_link_to "#", class: "bottom-navbar__link" do %>
           <i class="fas fa-box-open fa-lg"></i><br>
           <small>新着の評定</small>
+          <span class="bottom-navbar__notification">69</span>
         <% end %>
       </div>
       <div class="col-4 text-center">
-        <%= active_link_to "#", class: "bottom-nav-link" do %>
+        <%= active_link_to "#", class: "bottom-navbar__link" do %>
           <i class="fas fa-users fa-lg"></i><br>
           <small>友達の通信簿</small>
         <% end %>
