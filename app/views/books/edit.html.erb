@@ -1,21 +1,44 @@
-<h1>books#edit</h1>
-<div>
-  <% @unchecked_reviews.each do |review| %>
-    <%= review.content %>
-    <%= link_to '削除', book_review_path(@book, review), method: :delete  %>
-    <br>
-  <% end %>
+<div class="container">
+  <section class="page-heading mb-4">
+    <h1 class="page-heading__title">通信簿編集</h1>
+  </section>
+  <section class="page-section mb-4">
+    <div class="mb-3">
+      <p class="page-section__text">一度承認した評定に対してコメント / 削除ができます。</p>
+    </div>
+    <!-- BEGIN:review_table -->
+    <%= render partial: "books/review_table", locals: {reviews: @checked_reviews} %>
+    <!-- END:review_table -->
+    <% if @checked_reviews.present? %>
+      <div class="text-center">
+        <button type="button" class="btn btn-outline-danger btn-round" data-toggle="modal" data-target="#deleteConfirmationModal">
+          全ての評定を削除
+        </button>
+      </div>
+    <% end %>
+  </section>
 </div>
 
-<% if @unchecked_reviews.present? %>
-  <%= link_to 'まとめて承認', book_path(@book), method: :put  %>
-<% end %>
-
-<p>今ある評価も消せるよ</p>
-<div>
-  <% @checked_reviews.each do |review| %>
-    <%= review.content %>
-    <%= link_to '削除', book_review_path(@book, review), method: :delete  %>
-    <br>
-  <% end %>
+<!-- BEGIN:Modal -->
+<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteConfirmationModalLabel">確認</h5>
+      </div>
+      <div class="modal-body">
+        本当に全ての評定を削除しますか？
+      </div>
+      <div class="modal-footer">
+        <div class="left-side">
+          <button type="button" class="btn btn-default btn-link" data-dismiss="modal">キャンセル</button>
+        </div>
+        <div class="divider"></div>
+        <div class="right-side">
+          <%= link_to "削除", "#", class: "btn btn-danger btn-link" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<!-- END:Modal -->

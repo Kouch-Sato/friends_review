@@ -40,3 +40,50 @@
     transform : translateY(-50%);
   }
 }
+
+.review-table {
+  %__thead {
+    font-size: 14px !important;
+    @media (max-width: 767px) {
+      font-size: 12px !important;
+    }
+    font-weight: bold !important;
+    background: #E6E5E5;
+  }
+
+  &__thead {
+    @extend %__thead;
+
+    &--comment {
+      @extend %__thead;
+      width: 64px;
+      padding-right: 4px !important;
+      padding-left: 4px !important;
+      text-align: center;
+    }
+
+    &--delete {
+      @extend %__thead;
+      width: 48px;
+      padding-right: 8px !important;
+      padding-left: 4px !important;
+      text-align: center;
+    }
+  }
+
+  &__tbody {
+    &--comment {
+      width: 64px;
+      padding-right: 4px !important;
+      padding-left: 4px !important;
+      text-align: center;
+    }
+
+    &--delete {
+      width: 48px;
+      padding-right: 8px !important;
+      padding-left: 4px !important;
+      text-align: center;
+    }
+  }
+}

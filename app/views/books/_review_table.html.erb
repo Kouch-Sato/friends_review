@@ -1,0 +1,64 @@
+<table class="table review-table mb-0">
+  <thead>
+    <tr>
+      <th class="review-table__thead"><i class="far fa-smile-beam fa-lg mr-2"></i>よくできました</th>
+      <th class="review-table__thead--comment">コメント</th>
+      <th class="review-table__thead--delete">削除</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if reviews.good.present? %>
+      <% reviews.good.each do |review| %>
+        <tr>
+          <td class="review-table__tbody"><%= review.content %></td>
+          <td class="review-table__tbody--comment">
+            <%= link_to "#", class: "btn btn-twitter btn-sm btn-round btn-icon" do %>
+              <i class="far fa-comment-dots"></i>
+            <% end %>
+          </td>
+          <td class="review-table__tbody--delete">
+            <%= link_to book_review_path(@book, review), class: "btn btn-default btn-sm btn-link", method: :delete do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan="3">現在、該当する評定はありません。通信簿をシェアして募集しよう！</td>
+      <tr>
+    <% end %>
+  </tbody>
+</table>
+<table class="table review-table">
+  <thead>
+    <tr>
+      <th class="review-table__thead"><i class="far fa-sad-cry fa-lg mr-2"></i>がんばりましょう</th>
+      <th class="review-table__thead--comment">コメント</th>
+      <th class="review-table__thead--delete">削除</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if reviews.good.present? %>
+      <% reviews.bad.each do |review| %>
+        <tr>
+          <td class="review-table__tbody"><%= review.content %></td>
+          <td class="review-table__tbody--comment">
+            <%= link_to "#", class: "btn btn-twitter btn-sm btn-round btn-icon" do %>
+              <i class="far fa-comment-dots"></i>
+            <% end %>
+          </td>
+          <td class="review-table__tbody--delete">
+            <%= link_to book_review_path(@book, review), class: "btn btn-default btn-sm btn-link", method: :delete do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan="3">現在、該当する評定はありません。通信簿をシェアして募集しよう！</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
