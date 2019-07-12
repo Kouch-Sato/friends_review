@@ -25,3 +25,17 @@
     font-weight: bold;
   }
 }
+
+.top-navbar {
+  &__avatar {
+    width: 36px;
+    @media (min-width: 992px) {
+      width: 44px;
+    }
+    border-radius: 50%;
+  }
+
+  &__service-image {
+    width: 210px;
+  }
+}
