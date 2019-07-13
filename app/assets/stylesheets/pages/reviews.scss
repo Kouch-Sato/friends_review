@@ -42,7 +42,7 @@
 }
 
 .review-check-table {
-
+// 今回はTableで、CSSの共通化がしやすい（共通部分を利用している部分に差異が出にくい）ので変数を使っている。基本的には使わない方針。
   %--comment {
     width: 64px;
     padding-right: 4px !important;
