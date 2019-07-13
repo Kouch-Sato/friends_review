@@ -25,6 +25,9 @@ Rails.application.routes.draw do
 
   root "home#top"
   resources :books, only: [:show, :edit, :update] do
+    member do
+      get "check"
+    end
     resources :reviews, only: [:create, :destroy]
   end
   resources :users, only: [:show]

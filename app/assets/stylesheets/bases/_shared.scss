@@ -26,6 +26,10 @@
     color: #ffffff;
     padding: 8px 15px;
   }
+
+  &__text {
+    font-size: 14px;
+  }
 }
 
 // iosで、input入力時にズームするのを防ぐため
