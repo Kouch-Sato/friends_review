@@ -17,7 +17,7 @@
           <ul class="navbar-nav">
             <% if user_signed_in? %>
               <li class="nav-item">
-                <%= link_to "新着の評定", "#", class: "nav-link pl-0" %>
+                <%= link_to "新着の評定", check_book_path(current_user.book), class: "nav-link pl-0" %>
               </li>
               <li class="nav-item">
                 <%= link_to "友達の通信簿", "#", class: "nav-link pl-0" %>
