@@ -41,15 +41,7 @@
   }
 }
 
-.review-table {
-  %__thead {
-    font-size: 14px;
-    @media (max-width: 767px) {
-      font-size: 12px;
-    }
-    font-weight: bold;
-    background: #E6E5E5;
-  }
+.review-check-table {
 
   %--comment {
     width: 64px;
@@ -66,15 +58,18 @@
   }
 
   &__thead {
-    @extend %__thead;
+    font-size: 14px !important;
+    @media (max-width: 767px) {
+      font-size: 12px !important;
+    }
+    font-weight: bold !important;
+    background: #E6E5E5;
 
     &--comment {
-      @extend %__thead;
       @extend %--comment;
     }
 
     &--delete {
-      @extend %__thead;
       @extend %--delete;
     }
   }
