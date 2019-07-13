@@ -1,21 +1,13 @@
-<h1>books#edit</h1>
-<div>
-  <% @unchecked_reviews.each do |review| %>
-    <%= review.content %>
-    <%= link_to '削除', book_review_path(@book, review), method: :delete  %>
-    <br>
-  <% end %>
-</div>
-
-<% if @unchecked_reviews.present? %>
-  <%= link_to 'まとめて承認', book_path(@book), method: :put  %>
-<% end %>
-
-<p>今ある評価も消せるよ</p>
-<div>
-  <% @checked_reviews.each do |review| %>
-    <%= review.content %>
-    <%= link_to '削除', book_review_path(@book, review), method: :delete  %>
-    <br>
-  <% end %>
+<div class="container">
+  <section class="page-heading mb-4">
+    <h1 class="page-heading__title">通信簿編集</h1>
+  </section>
+  <section class="page-section mb-4">
+    <div class="mb-3">
+      <p class="page-section__text">一度承認した評定に対してコメント / 削除ができます。</p>
+    </div>
+    <!-- BEGIN:review_table -->
+    <%= render partial: "books/review_check_table", locals: {reviews: @checked_reviews} %>
+    <!-- END:review_table -->
+  </section>
 </div>

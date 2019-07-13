@@ -8,8 +8,12 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find_by(id: params[:id])
-    @unchecked_reviews = @book.reviews.unchecked
     @checked_reviews = @book.reviews.checked
+  end
+
+  def check
+    @book = Book.find_by(id: params[:id])
+    @unchecked_reviews = @book.reviews.unchecked
   end
 
   def update

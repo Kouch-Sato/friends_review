@@ -40,3 +40,47 @@
     transform : translateY(-50%);
   }
 }
+
+.review-check-table {
+// 今回はTableで、CSSの共通化がしやすい（共通部分を利用している部分に差異が出にくい）ので変数を使っている。基本的には使わない方針。
+  %--comment {
+    width: 64px;
+    padding-right: 4px !important;
+    padding-left: 4px !important;
+    text-align: center;
+  }
+
+  %--delete {
+    width: 48px;
+    padding-right: 8px !important;
+    padding-left: 4px !important;
+    text-align: center;
+  }
+
+  &__thead {
+    font-size: 14px !important;
+    @media (max-width: 767px) {
+      font-size: 12px !important;
+    }
+    font-weight: bold !important;
+    background: #E6E5E5;
+
+    &--comment {
+      @extend %--comment;
+    }
+
+    &--delete {
+      @extend %--delete;
+    }
+  }
+
+  &__tbody {
+    &--comment {
+      @extend %--comment;
+    }
+
+    &--delete {
+      @extend %--delete;
+    }
+  }
+}
