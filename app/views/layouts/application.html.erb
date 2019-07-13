@@ -17,6 +17,10 @@
   </head>
 
   <body>
+<!--    TODO:flashはview作成時に綺麗にする-->
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+    <% end %>
     <%= render "shared/top_navbar" %>
     <%= yield %>
     <%= render "shared/footer" %>
