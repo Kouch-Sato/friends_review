@@ -39,7 +39,7 @@
     </tr>
   </thead>
   <tbody>
-    <% if reviews.good.present? %>
+    <% if reviews.bad.present? %>
       <% reviews.bad.each do |review| %>
         <tr>
           <td class="review-table__tbody"><%= review.content %></td>
