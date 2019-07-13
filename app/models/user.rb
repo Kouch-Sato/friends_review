@@ -37,6 +37,10 @@ class User < ApplicationRecord
     books.first
   end
 
+  def unchecked_review_count
+    book.reviews.unchecked.count
+  end
+
   def self.find_by_sns_account(sns_account)
     self.where(
       uid: sns_account.uid,
