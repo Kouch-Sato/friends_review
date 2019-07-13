@@ -1,10 +1,14 @@
 <div class="container">
   <section class="page-heading mb-4">
-    <h1 class="page-heading__title">新着の評定</h1>
+    <h1 class="page-heading__title">
+      新着の評定
+    </h1>
   </section>
   <section class="page-section mb-4">
     <div class="mb-3">
-      <p class="page-section__text">承認した評定のみが公開されます。<br>ちょっと親に見られたくない評定は、こっそり消しちゃいましょう...！</p>
+      <p class="page-section__text">
+        承認した評定のみが公開されます。<br>ちょっと親に見られたくない評定は、こっそり消しちゃいましょう...！
+      </p>
     </div>
     <!-- BEGIN:review_table -->
     <%= render partial: "books/review_check_table", locals: {reviews: @unchecked_reviews} %>
@@ -27,7 +31,9 @@
         <h5 class="modal-title" id="deleteConfirmationModalLabel">選択</h5>
       </div>
       <div class="modal-body">
-        <p class="text-center mb-4">結果をシェアして、さらに評定を記入してもらおう！</p>
+        <p class="text-center mb-4">
+          結果をシェアして、さらに評定を記入してもらおう！
+        </p>
         <%= link_to "今回承認分をTwitterでシェア！", "#", class: "btn btn-twitter btn-sm btn-block mb-3" %>
         <%= link_to "シェアせずに承認する", book_path(@book), class: "btn btn-default btn-sm btn-block mb-3", method: :put %>
         <button type="button" class="btn btn-default btn-link btn-block" data-dismiss="modal">戻る</button>

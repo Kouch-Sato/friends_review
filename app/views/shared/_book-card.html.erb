@@ -2,7 +2,9 @@
   <div class="card-body">
     <div class="author pull-left">
       <%= image_tag user.image, class: "avatar img-raised align-middle" %>
-      <span class="align-middle font-weight-bold"><%= user.name %>の通信簿</span>
+      <span class="align-middle font-weight-bold">
+        <%= user.name %>の通信簿
+      </span>
     </div>
     <span class="pull-right">
       <%= link_to "編集", edit_book_path(@book), class: "btn btn-sm btn-outline-warning btn-round" %>
@@ -10,7 +12,9 @@
     <div class="clearfix"></div>
     <p class="card-description">
       <% reviews.each do |review| %>
-        <span><%= "#{review.content}(status:#{review.review_type})" %><br></span>
+        <span>
+          <%= "#{review.content}(status:#{review.review_type})" %><br>
+        </span>
       <% end %>
     </p>
   </div>

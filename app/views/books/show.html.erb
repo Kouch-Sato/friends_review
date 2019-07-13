@@ -1,11 +1,15 @@
 <div class="container">
-  <section>
+  <section class="mb-4">
     <div class="page-heading mb-4">
-      <h1 class="page-heading__title"><%= @user.name %>の通信簿をつけよう！</h1>
+      <h1 class="page-heading__title">
+        <%= @user.name %>の通信簿をつけよう！
+      </h1>
     </div>
     <div class="review-form sp-full-width">
       <div class="review-form__container--good">
-        <p class="review-form__label"><i class="far fa-smile-beam fa-lg mr-2"></i>よくできました</p>
+        <p class="review-form__label">
+          <i class="far fa-smile-beam fa-lg mr-2"></i>よくできました
+        </p>
         <%= form_for [@book, @review] do |f| %>
           <div class="form-row">
             <div class="form-group col-md-11 col-10 pl-3">
@@ -23,7 +27,9 @@
     </div>
     <div class="review-form sp-full-width">
       <div class="review-form__container--bad">
-        <p class="review-form__label"><i class="far fa-sad-cry fa-lg mr-2"></i>がんばりましょう</p>
+        <p class="review-form__label">
+          <i class="far fa-sad-cry fa-lg mr-2"></i>がんばりましょう
+        </p>
         <%= form_for [@book, @review] do |f| %>
           <div class="form-row">
             <div class="form-group col-md-11 col-10 pl-3 mb-1">
@@ -38,16 +44,17 @@
           </div>
         <% end %>
         <div class="review-form__note">
-          <small>親御さんに見られて怒られちゃうとかわいそうなので、お手柔らかに...！</small>
+          <small>
+            親御さんに見られて怒られちゃうとかわいそうなので、お手柔らかに...！
+          </small>
         </div>
       </div>
     </div>
-    <div class="text-right mb-4">
-      <small>※送信した評定は、本人の承認後に反映されます。</small>
-    </div>
   </section>
   <section class="page-section mb-4">
-    <p class="page-section__title sp-full-width mb-4"><%= @user.name %>さんの通信簿</p>
+    <p class="page-section__title sp-full-width mb-4">
+      <%= @user.name %>さんの通信簿
+    </p>
     <div class="text-center">
       <!-- BEGIN: BookCard -->
       <%= render partial: "shared/book-card", locals: { user: @user, reviews: @reviews } %>
@@ -56,7 +63,9 @@
     </div>
   </section>
   <section class="page-section mb-4">
-    <p class="page-section__title sp-full-width mb-4">友達の通信簿</p>
+    <p class="page-section__title sp-full-width mb-4">
+      友達の通信簿
+    </p>
     <%# TODO 通信簿を動的にする %>
     <div class="row mb-3">
       <%= link_to "#" do %>

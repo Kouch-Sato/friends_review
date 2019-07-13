@@ -1,16 +1,24 @@
 <table class="table review-check-table mb-0">
   <thead>
     <tr>
-      <th class="review-check-table__thead"><i class="far fa-smile-beam fa-lg mr-2"></i>よくできました</th>
-      <th class="review-check-table__thead review-check-table__thead--comment">コメント</th>
-      <th class="review-check-table__thead review-check-table__thead--delete">削除</th>
+      <th class="review-check-table__thead">
+        <i class="far fa-smile-beam fa-lg mr-2"></i>よくできました
+      </th>
+      <th class="review-check-table__thead review-check-table__thead--comment">
+        コメント
+      </th>
+      <th class="review-check-table__thead review-check-table__thead--delete">
+        削除
+      </th>
     </tr>
   </thead>
   <tbody>
     <% if reviews.good.present? %>
       <% reviews.good.each do |review| %>
         <tr>
-          <td class="review-check-table__tbody"><%= review.content %></td>
+          <td class="review-check-table__tbody">
+            <%= review.content %>
+          </td>
           <td class="review-check-table__tbody review-check-table__tbody--comment">
             <%= link_to "#", class: "btn btn-twitter btn-sm btn-round btn-icon" do %>
               <i class="far fa-comment-dots"></i>
@@ -25,7 +33,9 @@
       <% end %>
     <% else %>
       <tr>
-        <td colspan="3">現在、該当する評定はありません。通信簿をシェアして募集しよう！</td>
+        <td colspan="3">
+          現在、該当する評定はありません。通信簿をシェアして募集しよう！
+        </td>
       <tr>
     <% end %>
   </tbody>
@@ -33,16 +43,24 @@
 <table class="table review-check-table">
   <thead>
     <tr>
-      <th class="review-check-table__thead"><i class="far fa-sad-cry fa-lg mr-2"></i>がんばりましょう</th>
-      <th class="review-check-table__thead review-check-table__thead--comment">コメント</th>
-      <th class="review-check-table__thead review-check-table__thead--delete">削除</th>
+      <th class="review-check-table__thead">
+        <i class="far fa-sad-cry fa-lg mr-2"></i>がんばりましょう
+      </th>
+      <th class="review-check-table__thead review-check-table__thead--comment">
+        コメント
+      </th>
+      <th class="review-check-table__thead review-check-table__thead--delete">
+        削除
+      </th>
     </tr>
   </thead>
   <tbody>
     <% if reviews.bad.present? %>
       <% reviews.bad.each do |review| %>
         <tr>
-          <td class="review-check-table__tbody"><%= review.content %></td>
+          <td class="review-check-table__tbody">
+            <%= review.content %>
+          </td>
           <td class="review-check-table__tbody review-check-table__tbody--comment">
             <%= link_to "#", class: "btn btn-twitter btn-sm btn-round btn-icon" do %>
               <i class="far fa-comment-dots"></i>
