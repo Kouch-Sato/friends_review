@@ -37,30 +37,31 @@ class User < ApplicationRecord
     books.first
   end
 
-  def self.find_for_oauth(auth)
-    user = User.where(
-      uid: auth.uid,
-      provider: auth.provider
+  def unchecked_review_count
+    book.reviews.unchecked.count
+  end
+
+  def self.find_by_sns_account(sns_account)
+    self.where(
+      uid: sns_account.uid,
+      provider: sns_account.provider
     ).first
+  end
 
-    unless user
-      user = User.create(
-        email:    User.dummy_email(auth),
-        password: Devise.friendly_token[0, 20],
-        uid:      auth.uid,
-        provider: auth.provider,
-        name:     auth.info.name,
-        nickname: auth.info.nickname,
-        image:    auth.info.image,
-        )
-    end
-
-    user
+  def self.create_by_sns_account(sns_account)
+    self.create(
+      email:    User.dummy_email(sns_account),
+      password: Devise.friendly_token[0, 20],
+      uid:      sns_account.uid,
+      provider: sns_account.provider,
+      name:     sns_account.info.name,
+      nickname: sns_account.info.nickname,
+      image:    sns_account.info.image,
+    )
   end
 
   private
-  def self.dummy_email(auth)
-    "#{auth.uid}-#{auth.provider}@example.com"
+  def self.dummy_email(sns_account)
+    "#{sns_account.uid}-#{sns_account.provider}@example.com"
   end
-
 end

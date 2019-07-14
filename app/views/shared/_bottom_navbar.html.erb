@@ -1,31 +1,35 @@
 <div class="bottom-navbar">
   <nav class="navbar fixed-bottom navbar-light border-top pt-2 pb-3">
     <div class="container">
-      <div class="col-4 text-center">
-        <%= active_link_to "#", class: "bottom-navbar__link" do %>
-          <i class="fas fa-home fa-lg"></i><br>
-          <small>
-            ホーム
-          </small>
-        <% end %>
-      </div>
-      <div class="col-4 text-center">
-        <%= active_link_to "#", class: "bottom-navbar__link" do %>
-          <i class="fas fa-box-open fa-lg"></i><br>
-          <small>
-            新着の評定
-          </small>
-          <span class="bottom-navbar__notification">69</span>
-        <% end %>
-      </div>
-      <div class="col-4 text-center">
-        <%= active_link_to "#", class: "bottom-navbar__link" do %>
-          <i class="fas fa-users fa-lg"></i><br>
-          <small>
-            友達の通信簿
-          </small>
-        <% end %>
-      </div>
+      <% if user_signed_in? %>
+        <div class="col-4 text-center">
+          <%= active_link_to user_path(current_user), class: "bottom-navbar__link" do %>
+            <i class="fas fa-home fa-lg"></i><br>
+            <small>
+              ホーム
+            </small>
+          <% end %>
+        </div>
+        <div class="col-4 text-center">
+          <%= active_link_to check_book_path(current_user.book), class: "bottom-navbar__link" do %>
+            <i class="fas fa-box-open fa-lg"></i><br>
+            <small>
+              新着の評定
+            </small>
+            <span class="bottom-navbar__notification">
+              <%= current_user.unchecked_review_count %>
+            </span>
+          <% end %>
+        </div>
+        <div class="col-4 text-center">
+          <%= active_link_to "#", class: "bottom-navbar__link" do %>
+            <i class="fas fa-users fa-lg"></i><br>
+            <small>
+              友達の通信簿
+            </small>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </nav>
 </div>

@@ -5,7 +5,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   private
   def callback_from(provider)
-    @user = User.find_for_oauth(request.env['omniauth.auth'])
+    sns_account = request.env['omniauth.auth']
+    @user = User.find_by_sns_account(sns_account)
+    if @user.nil?
+      @user = User.create_by_sns_account(sns_account)
+      @user.books.create
+    end
 
     if @user.persisted?
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
@@ -13,8 +18,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       # 今後user_rootを設定する必要あるかも。
       sign_in_and_redirect @user, event: :authentication
     else
-      session["devise.#{provider}_data"] = request.env['omniauth.auth']
+      # 基本的にこの処理は通らないが安全のため
+      flash[:notice] = "Twitterログインに失敗しました"
       redirect_to root_url
     end
+  end
+
+  # ログイン後のpathを指定
+  def after_sign_in_path_for(user)
+    user_path(user)
   end
 end
