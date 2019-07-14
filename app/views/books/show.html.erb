@@ -56,9 +56,8 @@
       <%= @user.name %>さんの通信簿
     </p>
     <div class="text-center">
-      <!-- BEGIN: BookCard -->
       <%= render partial: "shared/book-card", locals: { user: @user, reviews: @reviews } %>
-      <!-- END: BookCard -->
+
       <%= link_to "自分の通信簿を作る！", "#", class: "btn btn-info btn-round btn-lg shadow-sm" %>
     </div>
   </section>

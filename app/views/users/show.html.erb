@@ -11,9 +11,8 @@
       <%= @user.name %>さんの通信簿
     </p>
     <div class="text-center">
-      <!-- BEGIN: BookCard -->
       <%= render partial: "shared/book-card", locals: { user: @user, reviews: @reviews } %>
-      <!-- END: BookCard -->
+
       <p class="mb-2">
         結果をシェア & コメントをして、もっと記入してもらおう！
       </p>
