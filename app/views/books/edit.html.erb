@@ -10,8 +10,7 @@
         一度承認した評定に対してコメント / 削除ができます。
       </p>
     </div>
-    <!-- BEGIN:review_table -->
-    <%= render partial: "books/review_check_table", locals: {reviews: @checked_reviews} %>
-    <!-- END:review_table -->
+
+    <%= render partial: "books/review_check_table", locals: { reviews: @checked_reviews } %>
   </section>
 </div>
