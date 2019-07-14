@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     end
     @review.status = "unchecked"
     if @review.save
-      redirect_to book_path(@book)
+      redirect_to book_path(@book), notice: "評価を送信しました"
     else
       # urlが"books/:id/reviews"になるのでrenderは使わない
       redirect_to book_path(@book), alert: "1文字以上30文字以内で入力してください"
@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
     @review = Review.find_by(id: params[:id])
     @book = Book.find_by(id: params[:book_id])
     @review.deleted!
-    redirect_to edit_book_path(@book)
+    redirect_to edit_book_path(@book), notice: "評価を削除しました"
   end
 
   private
