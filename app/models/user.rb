@@ -26,12 +26,12 @@ class User < ApplicationRecord
   has_many :books
   has_many :reviews, through: :books
 
-  validates :email, presence: true
+  validates :email,    presence: true
   validates :provider, presence: true
-  validates :uid, presence: true
-  validates :name, presence: true
+  validates :uid,      presence: true
+  validates :name,     presence: true
   validates :nickname, presence: true
-  validates :image, presence: true
+  validates :image,    presence: true
 
   devise :database_authenticatable,
          :registerable,

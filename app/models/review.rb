@@ -18,8 +18,8 @@ class Review < ApplicationRecord
   belongs_to :user, optional: true
 
   validates :review_type, presence: true
-  validates :content, presence: true, length: { minimum: 1, maximum: 30 }
-  validates :status, presence: true
+  validates :content,     presence: true, length: { minimum: 1, maximum: 30 }
+  validates :status,      presence: true
 
   enum status: { unchecked: 10, checked: 20, deleted: 30 }
   enum review_type: { good: 1, bad: 2 }
