@@ -24,6 +24,14 @@
 
 class User < ApplicationRecord
   has_many :books
+  has_many :reviews, through: :books
+
+  validates :email,    presence: true
+  validates :provider, presence: true
+  validates :uid,      presence: true
+  validates :name,     presence: true
+  validates :nickname, presence: true
+  validates :image,    presence: true
 
   devise :database_authenticatable,
          :registerable,
@@ -38,7 +46,7 @@ class User < ApplicationRecord
   end
 
   def unchecked_review_count
-    book.reviews.unchecked.count
+    reviews.unchecked.count
   end
 
   def self.find_by_sns_account(sns_account)

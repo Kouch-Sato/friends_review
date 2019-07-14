@@ -20,6 +20,6 @@ class BooksController < ApplicationController
     @book = Book.find_by(id: params[:id])
     @reviews = @book.reviews.unchecked
     @reviews.map(&:checked!)
-    redirect_to user_path(@book.user)
+    redirect_to user_path(@book.user), notice: "評価をまとめて承認しました"
   end
 end
