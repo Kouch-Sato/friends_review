@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
     @review = Review.find_by(id: params[:id])
     @book = Book.find_by(id: params[:book_id])
     @review.deleted!
-    redirect_to edit_book_path(@book), notice: "評価を削除しました"
+    redirect_back(fallback_location: user_path(current_user), notice: "評価を削除しました")
   end
 
   private
