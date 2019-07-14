@@ -1,4 +1,7 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, only: [:delete]
+  before_action :ensure_review_owner, only: [:delete]
+
   def create
     @book = Book.find(params[:book_id])
     @review = @book.reviews.new(review_params)
@@ -24,5 +27,12 @@ class ReviewsController < ApplicationController
   private
   def review_params
     params.require(:review).permit(:review_type, :content)
+  end
+
+  def ensure_review_owner
+    @review = Review.find_by(id: params[:id])
+    unless current_user.id == @review.book.user_id
+      redirect_to user_path(current_user), alert: "他の人の評価は編集できません"
+    end
   end
 end
