@@ -13,7 +13,7 @@
     <p class="card-description">
       <% reviews.each do |review| %>
         <span>
-          <%= "#{review.content}(status:#{review.review_type})" %><br>
+          <%= "#{review.type_symbol}#{review.content}" %><br>
         </span>
       <% end %>
     </p>

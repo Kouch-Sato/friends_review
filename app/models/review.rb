@@ -23,4 +23,8 @@ class Review < ApplicationRecord
 
   enum status: { unchecked: 10, checked: 20, deleted: 30 }
   enum review_type: { good: 1, bad: 2 }
+
+  def type_symbol
+    review_type == "good" ? "○" : "×"
+  end
 end
