@@ -7,7 +7,9 @@
       </span>
     </div>
     <span class="pull-right">
-      <%= link_to "編集", edit_book_path(@book), class: "btn btn-sm btn-outline-warning btn-round" %>
+      <%= link_to "#", class: "card__twitter-share-btn btn btn-twitter btn-round btn-sm" do %>
+        <i class="fab fa-twitter mr-1" aria-hidden="true"></i>シェア！
+      <% end %>
     </span>
     <div class="clearfix"></div>
     <p class="card-description">
@@ -17,5 +19,8 @@
         </span>
       <% end %>
     </p>
+    <% if user_signed_in? && book.user_id == current_user.id %>
+      <%= link_to "編集", edit_book_path(book), class: "btn btn-sm btn-outline-warning btn-round mt-2" %>
+    <% end %>
   </div>
 </div>

@@ -28,7 +28,7 @@
     <div class="review-form sp-full-width">
       <div class="review-form__container--bad">
         <p class="review-form__label">
-          <i class="far fa-sad-cry fa-lg mr-2"></i>がんばりましょう
+          <i class="far fa-sad-cry fa-lg mr-2"></i>ココがいまひとつ！
         </p>
         <%= form_for [@book, @review] do |f| %>
           <div class="form-row">
@@ -56,9 +56,11 @@
       <%= @user.name %>さんの通信簿
     </p>
     <div class="text-center">
-      <%= render partial: "shared/book-card", locals: { user: @user, reviews: @reviews } %>
-
-      <%= link_to "自分の通信簿を作る！", "#", class: "btn btn-info btn-round btn-lg shadow-sm" %>
+      <%= render partial: "shared/book-card", locals: { user: @user, book: @book, reviews: @reviews } %>
+      <% if !user_signed_in? %>
+        <p class="mb-2">ログインして、自分の通信簿を作ってみよう！</p>
+        <%= link_to "自分の通信簿を作る！", "#", class: "btn btn-info btn-round shadow-sm" %>
+      <% end %>
     </div>
   </section>
   <section class="page-section mb-4">
@@ -76,7 +78,7 @@
       <% end %>
     </div>
     <div class="text-center">
-      <%= link_to "友達の通信簿を覗く", "#", class: "btn btn-info btn-round" %>
+      <%= link_to "友達の通信簿を覗く", "#", class: "btn btn-secondary btn-round" %>
     </div>
   </section>
 </div>
