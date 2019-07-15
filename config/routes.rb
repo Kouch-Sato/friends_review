@@ -5,6 +5,8 @@
 #  user_twitter_omniauth_callback GET|POST /users/auth/twitter/callback(.:format)                                                   users/omniauth_callbacks#twitter
 #            destroy_user_session DELETE   /logout(.:format)                                                                        devise/sessions#destroy
 #                            root GET      /                                                                                        home#top
+#                    home_privacy GET      /home/privacy(.:format)                                                                  home#privacy
+#                      home_terms GET      /home/terms(.:format)                                                                    home#terms
 #                      check_book GET      /books/:id/check(.:format)                                                               books#check
 #                    book_reviews POST     /books/:book_id/reviews(.:format)                                                        reviews#create
 #                     book_review DELETE   /books/:book_id/reviews/:id(.:format)                                                    reviews#destroy
@@ -29,6 +31,9 @@ Rails.application.routes.draw do
   end
 
   root "home#top"
+  get "home/privacy"
+  get "home/terms"
+
   resources :books, only: [:show, :edit, :update] do
     member do
       get "check"
