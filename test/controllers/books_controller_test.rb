@@ -2,7 +2,7 @@ require 'test_helper'
 
 class BooksControllerTest < ActionDispatch::IntegrationTest
   def setup
-    @current_user =users(:yuri)
+    @current_user = users(:yuri)
     @other_user = users(:dara)
     login_as(@current_user, scope: :user)
   end
