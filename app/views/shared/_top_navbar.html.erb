@@ -16,17 +16,17 @@
         <div class="collapse navbar-collapse float-right" id="navbarNav">
           <ul class="navbar-nav">
             <% if user_signed_in? %>
-              <li class="nav-item navbar-toggler">
+              <li class="nav-item">
                 <%= link_to "新着の評定", check_book_path(current_user.book), class: "nav-link pl-0" %>
               </li>
-              <li class="nav-item navbar-toggler">
+              <li class="nav-item">
                 <%= link_to "友達の通信簿", "#", class: "nav-link pl-0" %>
               </li>
-              <li class="nav-item navbar-toggler">
+              <li class="nav-item">
                 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link pl-0" %>
               </li>
             <% else %>
-              <li class="nav-item navbar-toggler">
+              <li class="nav-item">
                 <%= link_to "Twitterでログイン", omniauth_authorize_path(:user, :twitter), class: "nav-link" %>
               </li>
             <% end %>
