@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  test "should get show" do
-    get users_show_url
+  def setup
+    @current_user =users(:yuri)
+  end
+
+  def test_books_show
+    get user_path(@current_user)
     assert_response :success
   end
 end
