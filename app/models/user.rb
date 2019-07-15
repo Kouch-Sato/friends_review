@@ -49,6 +49,11 @@ class User < ApplicationRecord
     reviews.unchecked.count
   end
 
+  def is_admin?
+    admin_uids = [ENV.fetch("TWITTER_KOUCH_UID"), ENV.fetch("TWITTER_DARA_UID")]
+    admin_uids.include?(uid)
+  end
+
   def self.find_by_sns_account(sns_account)
     self.where(
       uid: sns_account.uid,
