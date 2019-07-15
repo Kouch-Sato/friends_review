@@ -1,8 +1,18 @@
 require 'test_helper'
 
 class HomeControllerTest < ActionDispatch::IntegrationTest
-  test "should get top" do
-    get home_top_url
+  def test_home_top
+    get root_path
+    assert_response :success
+  end
+
+  def test_home_privacy
+    get home_privacy_path
+    assert_response :success
+  end
+
+  def test_terms_top
+    get home_terms_path
     assert_response :success
   end
 end
