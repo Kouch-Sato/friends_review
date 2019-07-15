@@ -1,0 +1,19 @@
+<h3>
+  ここはadmin画面じゃ！！！！
+</h3>
+<table>
+  <tr>
+    <td>名前</td>
+    <td>未承認</td>
+    <td>承認</td>
+    <td>削除</td>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.book.reviews.unchecked.count %></td>
+      <td><%= user.book.reviews.checked.count %></td>
+      <td><%= user.book.reviews.deleted.count %></td>
+    </tr>
+  <% end %>
+</table>
