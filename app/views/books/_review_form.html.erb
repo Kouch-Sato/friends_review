@@ -1,0 +1,45 @@
+<div class="review-form sp-full-width">
+  <div class="review-form__container--good">
+    <p class="review-form__label">
+      <i class="far fa-smile-beam fa-lg mr-2"></i>よくできました
+    </p>
+    <%= form_for [book, review] do |f| %>
+      <div class="form-row">
+        <div class="form-group col-md-11 col-10 pl-3">
+          <%= f.text_field :content, type: "text", class: "form-control", placeholder: "おしゃれなカフェいっぱい知ってる！" %>
+          <%= f.hidden_field :review_type, value: "good" %>
+        </div>
+        <div class="form-group review-send col-md-1 col-2">
+          <%= button_tag type: "submit", class: "review-send__button btn btn-sm btn-link text-info" do %>
+            <i class="material-icons align-middle md-30">send</i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="review-form sp-full-width">
+  <div class="review-form__container--bad">
+    <p class="review-form__label">
+      <i class="far fa-sad-cry fa-lg mr-2"></i>ココがいまひとつ！
+    </p>
+    <%= form_for [book, review] do |f| %>
+      <div class="form-row">
+        <div class="form-group col-md-11 col-10 pl-3 mb-1">
+          <%= f.text_field :content, type: "text", class: "form-control", placeholder: "すぐ遅刻する！モニコしようか？" %>
+          <%= f.hidden_field :review_type, value: "bad" %>
+        </div>
+        <div class="form-group review-send col-md-1 col-2 mb-1">
+          <%= button_tag type: "submit", class: "review-send__button btn btn-sm btn-link text-info" do %>
+            <i class="material-icons align-middle md-30">send</i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <div class="review-form__note">
+      <small>
+        親御さんに見られて怒られちゃうとかわいそうなので、お手柔らかに...！
+      </small>
+    </div>
+  </div>
+</div>
