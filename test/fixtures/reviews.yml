@@ -12,25 +12,25 @@
 #  updated_at  :datetime         not null
 #
 
-yuri_reveiw1:
+yuri_review1:
   book: yuri_book1
   review_type: 1
   content: 自信家でかっこいい
   status: 10
 
-yuri_reveiw2:
+yuri_review2:
   book: yuri_book1
   review_type: 2
   content: スペ語17点
   status: 10
 
-dara_reveiw1:
+dara_review1:
   book: dara_book1
   review_type: 1
   content: スピーチうまい
   status: 10
 
-dara_reveiw2:
+dara_review2:
   book: dara_book1
   review_type: 2
   content: 2cmでイっちゃった
