@@ -45,10 +45,6 @@ class User < ApplicationRecord
     books.first
   end
 
-  def unchecked_review_count
-    reviews.unchecked.count
-  end
-
   def is_admin?
     admin_uids = [ENV.fetch("TWITTER_KOUCH_UID"), ENV.fetch("TWITTER_DARA_UID")]
     admin_uids.include?(uid)
