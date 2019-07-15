@@ -12,14 +12,14 @@
 #  updated_at  :datetime         not null
 #
 
-kouch-reveiw1:
-  book: kouch-book1
+yuri-reveiw1:
+  book: yuri-book1
   review_type: 1
   content: 自信家でかっこいい
   status: 10
 
-kouch-reveiw2:
-  book: kouch-book1
+yuri-reveiw2:
+  book: yuri-book1
   review_type: 2
   content: スペ語17点
   status: 10

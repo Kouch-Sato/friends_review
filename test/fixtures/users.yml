@@ -22,7 +22,7 @@
 #  image                  :string(255)
 #
 
-kouch:
+yuri:
   email: 11@example.com
   provider: twitter
   uid: 11
