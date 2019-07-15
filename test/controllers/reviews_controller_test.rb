@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ReviewsControllerTest < ActionDispatch::IntegrationTest
   def setup
-    @current_user =users(:yuri)
+    @current_user = users(:yuri)
     @other_user = users(:dara)
     @my_review = reviews(:yuri_review1)
     @other_review = reviews(:dara_review1)

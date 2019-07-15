@@ -17,7 +17,7 @@
               新着の評定
             </small>
             <span class="bottom-navbar__notification">
-              <%= current_user.unchecked_review_count %>
+              <%= current_user.reviews.unchecked.count %>
             </span>
           <% end %>
         </div>
