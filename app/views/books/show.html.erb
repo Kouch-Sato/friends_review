@@ -29,7 +29,7 @@
       <%= render partial: "books/book_card", locals: { user: @user, book: @book, reviews: @reviews } %>
       <% if !user_signed_in? %>
         <p class="mb-2">ログインして、自分の通信簿を作ってみよう！</p>
-        <%= link_to "自分の通信簿を作る！", "#", class: "btn btn-info btn-round shadow-sm disabled" %>
+        <%= link_to "自分の通信簿を作る！", root_path, class: "btn btn-info btn-round shadow-sm" %>
       <% end %>
     </div>
     <% if user_signed_in? && @user.id == current_user.id %>
