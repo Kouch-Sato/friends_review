@@ -34,7 +34,7 @@
         <p class="text-center mb-4">
           結果をシェアして、さらに評定を記入してもらおう！
         </p>
-        <%= link_to "今回承認分をTwitterでシェア！", "#", class: "btn btn-twitter btn-sm btn-block mb-3" %>
+        <%= link_to "今回承認分をTwitterでシェア！", "#", class: "btn btn-twitter btn-sm btn-block mb-3 disabled" %>
         <%= link_to "シェアせずに承認する", book_path(@book), class: "btn btn-default btn-sm btn-block mb-3", method: :put %>
         <button type="button" class="btn btn-default btn-link btn-block" data-dismiss="modal">戻る</button>
       </div>
