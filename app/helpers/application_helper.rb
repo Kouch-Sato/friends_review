@@ -7,7 +7,6 @@ module ApplicationHelper
       charset: 'utf-8',
       description: '匿名で、普段の様子についての成績をつけられるサービスです！',
       keywords: 'みんなの通信簿, 通信簿, みんなの通知表, friends review, 他己評価',
-      canonical: request.original_url,
       separator: '|',
       og: {
         site_name: :site,
