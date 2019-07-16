@@ -5,7 +5,7 @@
       <h1 class="page-heading__title mb-4">
         多くの人にシェアして<br>評定を書いてもらおう！
       </h1>
-      <%= link_to "評定を募集する！", "#", class: "btn btn-info btn-round btn-lg shadow-sm" %>
+      <%= link_to "評定を募集する！", "#", class: "btn btn-info btn-round btn-lg shadow-sm disabled" %>
     </section>
   <% else %>
     <section class="mb-4">
@@ -30,7 +30,7 @@
       <%= render partial: "books/book_card", locals: { user: @user, book: @book, reviews: @reviews } %>
       <% if !user_signed_in? %>
         <p class="mb-2">ログインして、自分の通信簿を作ってみよう！</p>
-        <%= link_to "自分の通信簿を作る！", "#", class: "btn btn-info btn-round shadow-sm" %>
+        <%= link_to "自分の通信簿を作る！", root_path, class: "btn btn-info btn-round shadow-sm" %>
       <% end %>
     </div>
     <% if user_signed_in? && @user.id == current_user.id %>
@@ -55,7 +55,7 @@
           <%= image_tag "book_sample.jpg", width: "100%", class: "col-md-6 offset-md-3"%>
         <% end %>
         <div class="text-center mt-3">
-          <%= link_to "友達の通信簿を覗く", "#", class: "btn btn-secondary btn-round" %>
+          <%= link_to "友達の通信簿を覗く", "#", class: "btn btn-secondary btn-round disabled" %>
         </div>
       </div>
     </div>
