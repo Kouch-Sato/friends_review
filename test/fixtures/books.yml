@@ -8,8 +8,8 @@
 #  updated_at :datetime         not null
 #
 
-kouch-book1:
-  user: kouch
+yuri_book1:
+  user: yuri
 
-dara-book1:
+dara_book1:
   user: dara

@@ -1,7 +1,7 @@
 <div class="container">
   <section class="page-heading mb-4">
     <h1 class="page-heading__title">
-      新着の評定
+      <%= @book.user.name %>さんへの新着の評定
     </h1>
   </section>
   <section class="page-section mb-4">
@@ -10,9 +10,9 @@
         承認した評定のみが公開されます。<br>ちょっと親に見られたくない評定は、こっそり消しちゃいましょう...！
       </p>
     </div>
-    <!-- BEGIN:review_table -->
-    <%= render partial: "books/review_check_table", locals: {reviews: @unchecked_reviews} %>
-    <!-- END:review_table -->
+
+    <%= render partial: "books/review_check_table", locals: { reviews: @unchecked_reviews } %>
+
     <% if @unchecked_reviews.present? %>
       <div class="text-center">
         <button type="button" class="btn btn-info btn-round btn-lg" data-toggle="modal" data-target="#afterApproveModal">

@@ -1,7 +1,7 @@
 <div class="container">
   <section class="page-heading mb-4">
     <h1 class="page-heading__title">
-      通信簿編集
+      <%= @book.user.name %>さんの通信簿編集
     </h1>
   </section>
   <section class="page-section mb-4">
@@ -10,8 +10,7 @@
         一度承認した評定に対してコメント / 削除ができます。
       </p>
     </div>
-    <!-- BEGIN:review_table -->
-    <%= render partial: "books/review_check_table", locals: {reviews: @checked_reviews} %>
-    <!-- END:review_table -->
+
+    <%= render partial: "books/review_check_table", locals: { reviews: @checked_reviews } %>
   </section>
 </div>

@@ -22,13 +22,13 @@
 #  image                  :string(255)
 #
 
-kouch:
+yuri:
   email: 11@example.com
   provider: twitter
   uid: 11
-  name: こーち2世
-  nickname: Iamkouch2
-  image: http://pbs.twimg.com/profile_images/1117644111891197952/8Mn7kvRE_normal.png
+  name: ゆり
+  nickname: Lisbeth60090132
+  image: https://pbs.twimg.com/profile_images/1031917763537788928/6C5u7XQR_normal.jpg
 
 
 dara:
