@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
       redirect_to book_path(@book), notice: "評価を送信しました"
     else
       # urlが"books/:id/reviews"になるのでrenderは使わない
-      redirect_to book_path(@book), alert: "1文字以上30文字以内で入力してください"
+      redirect_to book_path(@book), alert: "1文字以上50文字以内で入力してください"
     end
   end
 
