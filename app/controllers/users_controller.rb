@@ -3,6 +3,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @book = @user.book
     @review = Review.new
-    @reviews = @book.reviews.checked
+    @reviews = @book.reviews.checked.order("review_type")
   end
 end
