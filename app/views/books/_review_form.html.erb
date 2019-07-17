@@ -7,10 +7,11 @@
       <div class="form-row">
         <div class="form-group col-md-11 col-10 pl-3">
           <%= f.text_field :content, type: "text", class: "form-control", placeholder: "おしゃれなカフェいっぱい知ってる！" %>
+          <input type="text" name="dummy" class="d-none"> <!-- enterキーで送信されないようにするため http://www.koikikukan.com/archives/2012/01/20-015555.php -->
           <%= f.hidden_field :review_type, value: "good" %>
         </div>
         <div class="form-group review-send col-md-1 col-2">
-          <%= button_tag type: "submit", class: "review-send__button btn btn-sm btn-link text-info" do %>
+          <%= f.button type: "button", onclick: "submit()", class: "review-send__button btn btn-sm btn-link text-info" do %>
             <i class="material-icons align-middle md-30">send</i>
           <% end %>
         </div>
@@ -27,10 +28,11 @@
       <div class="form-row">
         <div class="form-group col-md-11 col-10 pl-3 mb-1">
           <%= f.text_field :content, type: "text", class: "form-control", placeholder: "すぐ遅刻する！モニコしようか？" %>
+          <input type="text" name="dummy" class="d-none"> <!-- enterキーで送信されないようにするため http://www.koikikukan.com/archives/2012/01/20-015555.php -->
           <%= f.hidden_field :review_type, value: "bad" %>
         </div>
         <div class="form-group review-send col-md-1 col-2 mb-1">
-          <%= button_tag type: "submit", class: "review-send__button btn btn-sm btn-link text-info" do %>
+          <%= f.button type: "button", onclick: "submit()", class: "review-send__button btn btn-sm btn-link text-info" do %>
             <i class="material-icons align-middle md-30">send</i>
           <% end %>
         </div>
