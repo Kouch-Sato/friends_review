@@ -6,7 +6,7 @@ class BooksController < ApplicationController
     @book = Book.find_by(id: params[:id])
     @user = @book.user
     @review = Review.new
-    @reviews = @book.reviews.checked
+    @reviews = @book.reviews.checked.order("review_type")
   end
 
   def edit

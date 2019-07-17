@@ -58,7 +58,7 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to book_path(@other_user.book)
-    assert_equal flash[:alert], "1文字以上30文字以内で入力してください"
+    assert_equal flash[:alert], "1文字以上50文字以内で入力してください"
   end
 
   def test_review_delete_owner
