@@ -32,6 +32,7 @@ gem 'bootstrap', '~> 4.1.1'
 gem "jquery-rails"
 gem 'active_link_to'
 gem 'meta-tags'
+gem 'google-analytics-rails'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
