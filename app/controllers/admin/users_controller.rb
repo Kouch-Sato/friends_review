@@ -5,7 +5,7 @@ class Admin::UsersController < AdminController
 
   def show
     @user = User.find_by(id: params[:id])
-    @review = @user.reviews
-    @review_to_others = @user.review_to_others
+    @reviews = @user.reviews
+    @reviews_to_others = @user.reviews_to_others
   end
 end
