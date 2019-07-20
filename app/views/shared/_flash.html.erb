@@ -1,25 +1,38 @@
 <% if flash[:notice] %>
   <div class="alert alert-success">
-  <div class="alert-wrapper">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <i class="fas fa-times"></i>
-    </button>
-    <div class="message">
-      <%= flash[:notice] %>
+    <div class="alert-wrapper">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="message">
+        <%= flash[:notice] %>
+      </div>
     </div>
   </div>
-</div>
 <% end %>
 
 <% if flash[:alert] %>
   <div class="alert alert-danger">
-  <div class="alert-wrapper">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <i class="fas fa-times"></i>
-    </button>
-    <div class="message">
-      <%= flash[:alert] %>
+    <div class="alert-wrapper">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="message">
+        <%= flash[:alert] %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
+
+<% if !user_signed_in? %>
+  <div class="alert alert-warning">
+    <div class="alert-wrapper">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="message">
+        <u><%= link_to "ログイン", root_path, class: "text-white" %></u>して、新着の評価を確認しよう！
+      </div>
+    </div>
+  </div>
 <% end %>
