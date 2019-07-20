@@ -1,89 +1,87 @@
-<div class="container">
-  <h2>
-    <%= image_tag @user.image, class: "top-navbar__avatar mr-2" %>
-    <%= @user.name %>
-  </h2>
-  <h3>
-    <%= @user.name %>へのコメント
-  </h3>
-  <table class="table">
-    <thead>
+<h2>
+  <%= image_tag @user.image, class: "top-navbar__avatar mr-2" %>
+  <%= @user.name %>
+</h2>
+<h3>
+  <%= @user.name %>へのコメント
+</h3>
+<table class="table">
+  <thead>
+  <tr>
+    <td>
+      コメント
+    </td>
+    <td>
+      コメントした人
+    </td>
+    <td>
+      status
+    </td>
+    <td>
+      作成日時
+    </td>
+  </tr>
+  </thead>
+  <tbody>
+  <% @reviews.each do |review| %>
     <tr>
       <td>
-        コメント
+        <%= "#{review_type_symbol(review)}#{review.content}" %>
       </td>
       <td>
-        コメントした人
+        <% if review.user %>
+          <%= image_tag review.user.image, class: "admin-user-table__avatar mr-2" %>
+          <%= review.user.name %>
+        <% end %>
       </td>
       <td>
-        status
+        <i class="fas <%= review_status_favicon(review) %>"></i>
       </td>
       <td>
-        作成日時
+        <%= review.created_at %>
       </td>
     </tr>
-    </thead>
-    <tbody>
-    <% @reviews.each do |review| %>
-      <tr>
-        <td>
-          <%= "#{review_type_symbol(review)}#{review.content}" %>
-        </td>
-        <td>
-          <% if review.user %>
-            <%= image_tag review.user.image, class: "admin-user-table__avatar mr-2" %>
-            <%= review.user.name %>
-          <% end %>
-        </td>
-        <td>
-          <i class="fas <%= review_status_favicon(review) %>"></i>
-        </td>
-        <td>
-          <%= review.created_at %>
-        </td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+  <% end %>
+  </tbody>
+</table>
 
-  <h3>
-    <%= @user.name %>の他の人へのコメント
-  </h3>
-  <table class="table">
-    <thead>
+<h3>
+  <%= @user.name %>の他の人へのコメント
+</h3>
+<table class="table">
+  <thead>
+  <tr>
+    <td>
+      コメント
+    </td>
+    <td>
+      コメントした相手
+    </td>
+    <td>
+      status
+    </td>
+    <td>
+      作成日時
+    </td>
+  </tr>
+  </thead>
+  <tbody>
+  <% @reviews_to_others.each do |review| %>
     <tr>
       <td>
-        コメント
+        <%= "#{review_type_symbol(review)}#{review.content}" %>
       </td>
       <td>
-        コメントした相手
+        <%= image_tag review.book.user.image, class: "admin-user-table__avatar mr-2" %>
+        <%= review.book.user.name %>
       </td>
       <td>
-        status
+        <i class="fas <%= review_status_favicon(review) %>"></i>
       </td>
       <td>
-        作成日時
+        <%= review.created_at %>
       </td>
     </tr>
-    </thead>
-    <tbody>
-    <% @reviews_to_others.each do |review| %>
-      <tr>
-        <td>
-          <%= "#{review_type_symbol(review)}#{review.content}" %>
-        </td>
-        <td>
-          <%= image_tag review.book.user.image, class: "admin-user-table__avatar mr-2" %>
-          <%= review.book.user.name %>
-        </td>
-        <td>
-          <i class="fas <%= review_status_favicon(review) %>"></i>
-        </td>
-        <td>
-          <%= review.created_at %>
-        </td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-</div>
+  <% end %>
+  </tbody>
+</table>

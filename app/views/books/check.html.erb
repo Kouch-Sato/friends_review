@@ -1,27 +1,25 @@
-<div class="container">
-  <section class="page-heading mb-4">
-    <h1 class="page-heading__title">
-      <%= @book.user.name %>さんへの新着の評定
-    </h1>
-  </section>
-  <section class="page-section mb-4">
-    <div class="mb-3">
-      <p class="page-section__text">
-        承認した評定のみが公開されます。<br>ちょっと親に見られたくない評定は、こっそり消しちゃいましょう...！
-      </p>
+<section class="page-heading mb-4">
+  <h1 class="page-heading__title">
+    <%= @book.user.name %>さんへの新着の評定
+  </h1>
+</section>
+<section class="page-section mb-4">
+  <div class="mb-3">
+    <p class="page-section__text">
+      承認した評定のみが公開されます。<br>ちょっと親に見られたくない評定は、こっそり消しちゃいましょう...！
+    </p>
+  </div>
+
+  <%= render partial: "books/review_check_table", locals: { reviews: @unchecked_reviews } %>
+
+  <% if @unchecked_reviews.present? %>
+    <div class="text-center">
+      <button type="button" class="btn btn-info btn-round btn-lg" data-toggle="modal" data-target="#afterApproveModal">
+        まとめて承認
+      </button>
     </div>
-
-    <%= render partial: "books/review_check_table", locals: { reviews: @unchecked_reviews } %>
-
-    <% if @unchecked_reviews.present? %>
-      <div class="text-center">
-        <button type="button" class="btn btn-info btn-round btn-lg" data-toggle="modal" data-target="#afterApproveModal">
-          まとめて承認
-        </button>
-      </div>
-    <% end %>
-  </section>
-</div>
+  <% end %>
+</section>
 
 <!-- BEGIN:Modal -->
 <div class="modal fade" id="afterApproveModal" tabindex="-1" role="dialog" aria-labelledby="afterApproveModalLabel" aria-hidden="true">
