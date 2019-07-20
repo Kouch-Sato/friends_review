@@ -1,19 +1,58 @@
-<h3>
-  ここはadmin画面じゃ！！！！
-</h3>
-<table>
-  <tr>
-    <td>名前</td>
-    <td>未承認</td>
-    <td>承認</td>
-    <td>削除</td>
-  </tr>
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= user.name %></td>
-      <td><%= user.book.reviews.unchecked.count %></td>
-      <td><%= user.book.reviews.checked.count %></td>
-      <td><%= user.book.reviews.deleted.count %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="container">
+  <h1>
+    Admin User一覧
+  </h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <td>
+          名前
+        </td>
+        <td>
+          未承認
+        </td>
+        <td>
+          承認
+        </td>
+        <td>
+          削除
+        </td>
+        <td>
+          コメント数
+        </td>
+        <td>
+          詳細画面
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= link_to user_path(user) do %>
+              <%= image_tag user.image, class: "top-navbar__avatar mr-2" %>
+              <%= user.name %>
+            <% end %>
+          </td>
+          <td>
+            <%= user.reviews.unchecked.count %>
+          </td>
+          <td>
+            <%= user.reviews.checked.count %>
+          </td>
+          <td>
+            <%= user.reviews.deleted.count %>
+          </td>
+          <td>
+            <%= user.reviews_to_others.count %>
+          </td>
+          <td>
+            <%= link_to admin_user_path(user) do %>
+              <i class="fas fa-external-link-alt"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

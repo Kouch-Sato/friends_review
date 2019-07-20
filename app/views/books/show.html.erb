@@ -30,12 +30,16 @@
       <% end %>
       <%= render partial: "books/book_card", locals: { user: @user, book: @book, reviews: @reviews } %>
       <% if !user_signed_in? %>
-        <p class="mb-2">ログインして、自分の通信簿を作ってみよう！</p>
+        <p class="mb-2">
+          ログインして、自分の通信簿を作ってみよう！
+        </p>
         <%= link_to "自分の通信簿を作る！", root_path, class: "btn btn-info btn-round shadow-sm" %>
       <% end %>
     </div>
     <% if user_signed_in? && @user.id == current_user.id %>
-      <p class="text-center">こっそり自分の通信簿もつけられます...！</p>
+      <p class="text-center">
+        こっそり自分の通信簿もつけられます...！
+      </p>
       <section class="mb-4">
         <%= render partial: "books/review_form", locals: { user: @user, book: @book, review: @review } %>
       </section>

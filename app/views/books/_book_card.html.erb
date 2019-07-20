@@ -15,7 +15,7 @@
     <p class="card-description">
       <% reviews.each do |review| %>
         <span>
-          <%= "#{review.type_symbol}#{review.content}" %><br>
+          <%= "#{review_type_symbol(review)}#{review.content}" %><br>
         </span>
       <% end %>
     </p>
