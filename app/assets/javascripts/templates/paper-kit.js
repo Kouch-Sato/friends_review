@@ -75,7 +75,7 @@ $(document).ready(function() {
     $('.navbar-collapse a[data-scroll="true"]').click(function() {
       setTimeout(function() {
         if (pk.misc.navbar_menu_visible == 1) {
-          // $('html').removeClass('nav-open');
+          $('html').removeClass('nav-open');
           pk.misc.navbar_menu_visible = 0;
           $('#bodyClick').remove();
           setTimeout(function() {
@@ -194,7 +194,7 @@ $(document).on('click', '.navbar-toggler', function() {
   $toggle = $(this);
 
   if (pk.misc.navbar_menu_visible == 1) {
-    // $('html').removeClass('nav-open');
+    $('html').removeClass('nav-open');
     pk.misc.navbar_menu_visible = 0;
     $('#bodyClick').remove();
     setTimeout(function() {
