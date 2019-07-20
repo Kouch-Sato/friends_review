@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     end
     @review.status = "unchecked"
     if @review.save
-      redirect_to book_path(@book), notice: "評価を送信しました"
+      redirect_to book_path(@book), notice: "評価を送信しました。本人の承認後に公開されます。"
     else
       # urlが"books/:id/reviews"になるのでrenderは使わない
       redirect_to book_path(@book), alert: "1文字以上50文字以内で入力してください"
