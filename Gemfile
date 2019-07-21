@@ -33,6 +33,7 @@ gem "jquery-rails"
 gem 'active_link_to'
 gem 'meta-tags'
 gem 'google-analytics-rails'
+gem 'twitter'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
