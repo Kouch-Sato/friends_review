@@ -20,11 +20,13 @@
 #  name                        :string(255)
 #  nickname                    :string(255)
 #  image                       :string(255)
-#  twitter_access_token        :string(255)
-#  twitter_access_token_secret :string(255)
+#  twitter_access_token        :binary(65535)
+#  twitter_access_token_secret :binary(65535)
 #
 
 class User < ApplicationRecord
+  crypt_keeper :twitter_access_token, :twitter_access_token_secret, encryptor: :active_support, key: ENV.fetch("CRYPT_KEEPER_KEY"), salt: ENV.fetch("CRYPT_KEEPER_SALT")
+
   has_many :books
   has_many :reviews, through: :books
   has_many :reviews_to_others, class_name: "Review"
