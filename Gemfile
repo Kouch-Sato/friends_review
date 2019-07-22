@@ -34,6 +34,7 @@ gem 'active_link_to'
 gem 'meta-tags'
 gem 'google-analytics-rails'
 gem 'twitter'
+gem 'crypt_keeper'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
