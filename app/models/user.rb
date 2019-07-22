@@ -71,6 +71,8 @@ class User < ApplicationRecord
       name:     sns_account.info.name,
       nickname: sns_account.info.nickname,
       image:    sns_account.info.image,
+      twitter_access_token:        sns_account.credentials.token,
+      twitter_access_token_secret: sns_account.credentials.secret,
     )
   end
 
