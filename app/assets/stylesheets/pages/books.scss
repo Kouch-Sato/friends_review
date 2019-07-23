@@ -47,7 +47,7 @@
     }
   }
 
-  %__text {
+  &__text {
     position: absolute;
     display: block;
     color: gold;
@@ -65,18 +65,13 @@
       width: 74%;
       font-size: 12px;
     }
-  }
 
-  &__text {
     &--first {
-      @extend %__text;
       top: 65%;
     }
 
     &--second {
-      @extend %__text;
       top: 75%;
     }
   }
-
 }

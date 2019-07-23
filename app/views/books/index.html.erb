@@ -25,10 +25,10 @@
               <%= image_tag first_review.present? ? "board_without_text.jpg" : "board_with_text.jpg", width: "100%", class: "col-md-6 offset-md-3" %>
               <span class="book-thumbnail__name">1年1組 <%= book.user.name %></span>
               <% if first_review %>
-                <span class="book-thumbnail__text--first"><%= "#{review_type_symbol(first_review)}#{first_review.content}" %></span>
+                <span class="book-thumbnail__text book-thumbnail__text--first"><%= "#{review_type_symbol(first_review)}#{first_review.content}" %></span>
               <% end %>
               <% if second_review %>
-                <span class="book-thumbnail__text--second"><%= "#{review_type_symbol(second_review)}#{second_review.content}" %></span>
+                <span class="book-thumbnail__text book-thumbnail__text--second"><%= "#{review_type_symbol(second_review)}#{second_review.content}" %></span>
               <% end %>
             </div>
           <% end %>
