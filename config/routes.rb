@@ -42,7 +42,12 @@ Rails.application.routes.draw do
     end
     resources :reviews, only: [:create, :destroy]
   end
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    member do
+      get "commented", to: "books#commented_index"
+      get "following", to: "books#following_index"
+    end
+  end
 
   namespace :admin do
     resources :users, only: [:index, :show]
