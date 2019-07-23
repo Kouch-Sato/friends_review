@@ -12,3 +12,71 @@
     opacity: 1;
   }
 }
+
+.nav-tabs {
+  border-bottom: solid 0.1px #E6E6E6;
+}
+
+.nav-tabs .nav-item .nav-link.active:before,
+.nav-tabs .nav-item .nav-link.active:hover:before,
+.nav-tabs .nav-item .nav-link.active:focus:before {
+  content: none;
+}
+
+.nav-tabs .nav-item .nav-link.active,
+.nav-tabs .nav-item .nav-link.active:hover,
+.nav-tabs .nav-item .nav-link.active:focus {
+  border-bottom: solid 2px gray;
+}
+
+.book-thumbnail {
+  position: relative;
+
+  &__name {
+    position: absolute;
+    color: white;
+    top: 45%;
+    right: 30.5%;
+    font-size: 32px;
+    @media (max-width: 991px) {
+      font-size: 22px;
+    }
+    @media (max-width: 767px) {
+      right: 12%;
+      font-size: 22px;
+    }
+  }
+
+  %__text {
+    position: absolute;
+    display: block;
+    color: gold;
+    font-size: 16px;
+    left: 31%;
+    width: 38%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @media (max-width: 991px) {
+      font-size: 12px;
+    }
+    @media (max-width: 767px) {
+      left: 13%;
+      width: 74%;
+      font-size: 12px;
+    }
+  }
+
+  &__text {
+    &--first {
+      @extend %__text;
+      top: 65%;
+    }
+
+    &--second {
+      @extend %__text;
+      top: 75%;
+    }
+  }
+
+}

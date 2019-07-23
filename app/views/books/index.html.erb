@@ -1,0 +1,46 @@
+<section class="page-heading mb-4">
+  <h1 class="page-heading__title">
+    友達の通信簿
+  </h1>
+</section>
+<section class="mb-4">
+  <ul class="nav nav-tabs nav-justified">
+    <li class="nav-item">
+      <%= active_link_to "書き込んだ人", commented_user_path(current_user), class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= active_link_to "フォロー中", following_user_path(current_user), class: "nav-link" %>
+    </li>
+  </ul>
+</section>
+<section class="mb-4">
+  <% if @books.present? %>
+    <div class="row">
+      <div class="col-12">
+        <% @books.each do |book| %>
+          <% first_review  = book.reviews.checked.first %>
+          <% second_review = book.reviews.checked.second %>
+          <%= link_to book_path(book) do %>
+            <div class="book-thumbnail">
+              <%= image_tag first_review.present? ? "board_without_text.jpg" : "board_with_text.jpg", width: "100%", class: "col-md-6 offset-md-3" %>
+              <span class="book-thumbnail__name">1年1組 <%= book.user.name %></span>
+              <% if first_review %>
+                <span class="book-thumbnail__text--first"><%= "#{review_type_symbol(first_review)}#{first_review.content}" %></span>
+              <% end %>
+              <% if second_review %>
+                <span class="book-thumbnail__text--second"><%= "#{review_type_symbol(second_review)}#{second_review.content}" %></span>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+        <div class="mt-3">
+          <%= paginate @books, window: 1 %>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="text-center">
+      <h2 class="page-heading__title">表示できる通信簿はありません。</h2>
+    </div>
+  <% end %>
+</section>
