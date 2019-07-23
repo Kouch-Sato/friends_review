@@ -13,7 +13,6 @@ class BooksController < ApplicationController
 
   # TODO：今は全てのbooksを取得しているので直す
   def following_index
-    @user = User.find(params[:id])
     @books = Book.page(params[:page]).per(PER)
     render "books/index"
   end
