@@ -10,6 +10,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user.nil?
       @user = User.create_by_sns_account(sns_account)
       @user.books.create
+    else
+      @user.update_by_sns_account(sns_account)
     end
 
     if @user.persisted?
