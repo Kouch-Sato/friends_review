@@ -25,7 +25,7 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
     assert_equal Review.last.user_id, @current_user.id
     assert_equal Review.last.content, "お前は最高だぜ！"
     assert_equal Review.last.review_type, "good"
-    assert_equal flash[:notice], "評価を送信しました"
+    assert_equal flash[:notice], "評価を送信しました。本人の承認後に公開されます。"
   end
 
   def test_review_create_not_login_user
@@ -43,7 +43,7 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
     assert_nil Review.last.user_id
     assert_equal Review.last.content, "お前は最高だぜ！"
     assert_equal Review.last.review_type, "good"
-    assert_equal flash[:notice], "評価を送信しました"
+    assert_equal flash[:notice], "評価を送信しました。本人の承認後に公開されます。"
   end
 
   def test_review_create_with_empty_content
