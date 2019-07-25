@@ -38,6 +38,19 @@
 }
 
 // iosで、input入力時にズームするのを防ぐため
-input[type=text] {
+.no-input-zoom {
   font-size: 16px;
+}
+
+.align-middle {
+  &__parent {
+    position: relative;
+  }
+
+  &__child {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+  }
 }
