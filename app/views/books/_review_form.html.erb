@@ -6,7 +6,7 @@
     <%= form_for [book, review] do |f| %>
       <div class="form-row">
         <div class="form-group col-md-11 col-10 pl-3">
-          <%= f.text_field :content, type: "text", class: "form-control", placeholder: "おしゃれなカフェいっぱい知ってる！" %>
+          <%= f.text_field :content, type: "text", class: "form-control no-input-zoom", placeholder: "おしゃれなカフェいっぱい知ってる！" %>
           <input type="text" name="dummy" class="d-none"> <!-- enterキーで送信されないようにするため http://www.koikikukan.com/archives/2012/01/20-015555.php -->
           <%= f.hidden_field :review_type, value: "good" %>
         </div>
@@ -27,7 +27,7 @@
     <%= form_for [book, review] do |f| %>
       <div class="form-row">
         <div class="form-group col-md-11 col-10 pl-3 mb-1">
-          <%= f.text_field :content, type: "text", class: "form-control", placeholder: "すぐ遅刻する！モニコしようか？" %>
+          <%= f.text_field :content, type: "text", class: "form-control no-input-zoom", placeholder: "すぐ遅刻する！モニコしようか？" %>
           <input type="text" name="dummy" class="d-none"> <!-- enterキーで送信されないようにするため http://www.koikikukan.com/archives/2012/01/20-015555.php -->
           <%= f.hidden_field :review_type, value: "bad" %>
         </div>
