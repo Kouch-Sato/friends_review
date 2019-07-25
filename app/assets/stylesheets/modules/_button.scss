@@ -1,0 +1,29 @@
+// btn-twitterのデフォルト設定で、disabled状態でもhoverすると押せるように見えるため修正
+.btn-twitter.disabled,
+.btn-twitter.disabled:hover,
+.btn-twitter.disabled:focus,
+.btn-twitter.disabled.focus,
+.btn-twitter.disabled:active,
+.btn-twitter.disabled.active,
+.btn-twitter:disabled,
+.btn-twitter:disabled:hover,
+.btn-twitter:disabled:focus,
+.btn-twitter:disabled.focus,
+.btn-twitter:disabled:active,
+.btn-twitter:disabled.active,
+.btn-twitter[disabled],
+.btn-twitter[disabled]:hover,
+.btn-twitter[disabled]:focus,
+.btn-twitter[disabled].focus,
+.btn-twitter[disabled]:active,
+.btn-twitter[disabled].active,
+fieldset[disabled] .btn-twitter,
+fieldset[disabled] .btn-twitter:hover,
+fieldset[disabled] .btn-twitter:focus,
+fieldset[disabled] .btn-twitter.focus,
+fieldset[disabled] .btn-twitter:active,
+fieldset[disabled] .btn-twitter.active {
+  background-color: #403D39 !important;
+  border-color: #403D39 !important;
+  opacity: 0.5;
+}
