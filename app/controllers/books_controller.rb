@@ -28,14 +28,16 @@ class BooksController < ApplicationController
   def check
     @book = Book.find_by(id: params[:id])
     @unchecked_reviews = @book.reviews.unchecked
+    @reply = Reply.new
   end
 
-  def update
-    @book = Book.find_by(id: params[:id])
-    @reviews = @book.reviews.unchecked
-    @reviews.map(&:checked!)
-    redirect_to user_path(@book.user), notice: "評価をまとめて承認しました"
-  end
+  ## reviewが1つ1つ承認になったため削除
+  # def update
+  #   @book = Book.find_by(id: params[:id])
+  #   @reviews = @book.reviews.unchecked
+  #   @reviews.map(&:checked!)
+  #   redirect_to user_path(@book.user), notice: "評価をまとめて承認しました"
+  # end
 
   private
   def ensure_book_owner
