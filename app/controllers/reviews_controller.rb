@@ -17,12 +17,21 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def update
+    @review = Review.find(params[:id])
+    @book = Book.find(params[:book_id])
+    @review.checked!
+    redirect_to check_book_path(@book), notice: "評価を承認しました"
+  end
+
   def destroy
     @review = Review.find_by(id: params[:id])
     @book = Book.find_by(id: params[:book_id])
     @review.deleted!
     redirect_back(fallback_location: user_path(current_user), notice: "評価を削除しました")
   end
+
+  # TODO: reviews#showを作る
 
   private
   def review_params
