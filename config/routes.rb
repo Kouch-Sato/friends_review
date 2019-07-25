@@ -9,12 +9,14 @@
 #                      home_terms GET      /home/terms(.:format)                                                                    home#terms
 #                      check_book GET      /books/:id/check(.:format)                                                               books#check
 #                    book_reviews POST     /books/:book_id/reviews(.:format)                                                        reviews#create
-#                     book_review DELETE   /books/:book_id/reviews/:id(.:format)                                                    reviews#destroy
+#                     book_review GET      /books/:book_id/reviews/:id(.:format)                                                    reviews#show
+#                                 PATCH    /books/:book_id/reviews/:id(.:format)                                                    reviews#update
+#                                 PUT      /books/:book_id/reviews/:id(.:format)                                                    reviews#update
+#                                 DELETE   /books/:book_id/reviews/:id(.:format)                                                    reviews#destroy
 #                       edit_book GET      /books/:id/edit(.:format)                                                                books#edit
 #                            book GET      /books/:id(.:format)                                                                     books#show
-#                                 PATCH    /books/:id(.:format)                                                                     books#update
-#                                 PUT      /books/:id(.:format)                                                                     books#update
 #                            user GET      /users/:id(.:format)                                                                     users#show
+#                         replies POST     /replies(.:format)                                                                       replies#create
 #                     admin_users GET      /admin/users(.:format)                                                                   admin/users#index
 #                      admin_user GET      /admin/users/:id(.:format)                                                               admin/users#show
 #              rails_service_blob GET      /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
@@ -36,13 +38,14 @@ Rails.application.routes.draw do
   get "home/privacy"
   get "home/terms"
 
-  resources :books, only: [:show, :edit, :update] do
+  resources :books, only: [:show, :edit] do
     member do
       get "check"
     end
-    resources :reviews, only: [:create, :destroy]
+    resources :reviews, only: [:create, :show, :update, :destroy]
   end
   resources :users, only: [:show]
+  resources :replies, only: [:create]
 
   namespace :admin do
     resources :users, only: [:index, :show]
