@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :check, :update]
-  before_action :ensure_book_owner, only: [:edit, :check, :update]
+  before_action :authenticate_user!, only: [:edit, :check]
+  before_action :ensure_book_owner, only: [:edit, :check]
 
   def show
     @book = Book.find_by(id: params[:id])
@@ -17,14 +17,16 @@ class BooksController < ApplicationController
   def check
     @book = Book.find_by(id: params[:id])
     @unchecked_reviews = @book.reviews.unchecked
+    @reply = Reply.new
   end
 
-  def update
-    @book = Book.find_by(id: params[:id])
-    @reviews = @book.reviews.unchecked
-    @reviews.map(&:checked!)
-    redirect_to user_path(@book.user), notice: "評価をまとめて承認しました"
-  end
+  ## reviewが1つ1つ承認になったため削除
+  # def update
+  #   @book = Book.find_by(id: params[:id])
+  #   @reviews = @book.reviews.unchecked
+  #   @reviews.map(&:checked!)
+  #   redirect_to user_path(@book.user), notice: "評価をまとめて承認しました"
+  # end
 
   private
   def ensure_book_owner
