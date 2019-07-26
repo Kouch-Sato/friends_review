@@ -1,20 +1,16 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :check, :update, :commented_index, :following_index]
+  before_action :authenticate_user!, only: [:edit, :check, :update, :commented, :following]
   before_action :ensure_book_owner, only: [:edit, :check, :update]
-  before_action :ensure_corrent_user, only: [:commented_index, :following_index]
 
-  # TODO PERは後に大きくする（テスト用）
-  PER = 2
+  PER = 20
 
-  def commented_index
+  def commented
     @books = Book.commented_by(current_user).page(params[:page]).per(PER)
-    render "books/index"
   end
 
   # TODO：今は全てのbooksを取得しているので直す
-  def following_index
+  def following
     @books = Book.page(params[:page]).per(PER)
-    render "books/index"
   end
 
   def show
@@ -46,12 +42,6 @@ class BooksController < ApplicationController
     @book = Book.find_by(id: params[:id])
     unless current_user.id == @book.user_id
       redirect_to user_path(current_user), alert: "他の人の通信簿は編集できません"
-    end
-  end
-
-  def ensure_corrent_user
-    unless current_user.id == params[:id].to_i
-      redirect_to user_path(current_user), alert: "権限がありません"
     end
   end
 end

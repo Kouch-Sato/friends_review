@@ -37,17 +37,16 @@ Rails.application.routes.draw do
   get "home/terms"
 
   resources :books, only: [:show, :edit, :update] do
+    collection do
+      get "commented"
+      get "following"
+    end
     member do
       get "check"
     end
     resources :reviews, only: [:create, :destroy]
   end
-  resources :users, only: [:show] do
-    member do
-      get "commented", to: "books#commented_index"
-      get "following", to: "books#following_index"
-    end
-  end
+  resources :users, only: [:show]
 
   namespace :admin do
     resources :users, only: [:index, :show]
