@@ -12,3 +12,50 @@
     opacity: 1;
   }
 }
+
+.book-thumbnail {
+  position: relative;
+
+  &__name {
+    position: absolute;
+    color: white;
+    top: 45%;
+    right: 30.5%;
+    font-size: 32px;
+    @media (max-width: 991px) {
+      font-size: 22px;
+    }
+    @media (max-width: 767px) {
+      right: 12%;
+      font-size: 22px;
+    }
+  }
+
+  &__text {
+    position: absolute;
+    display: block;
+    color: gold;
+    font-size: 16px;
+    left: 31%;
+    width: 38%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @media (max-width: 991px) {
+      font-size: 12px;
+    }
+    @media (max-width: 767px) {
+      left: 13%;
+      width: 74%;
+      font-size: 12px;
+    }
+
+    &--first {
+      top: 65%;
+    }
+
+    &--second {
+      top: 75%;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<% if books.present? %>
+  <div class="row">
+    <div class="col-12">
+      <% books.each do |book| %>
+        <%= link_to book_path(book) do %>
+          <div class="book-thumbnail">
+            <%= image_tag book.checked_review(0).present? ? "board_without_text.jpg" : "board_with_text.jpg", class: "col-md-6 offset-md-3 w-100" %>
+            <span class="book-thumbnail__name">1年1組 <%= book.user.name %></span>
+            <% if book.checked_review(0) %>
+              <span class="book-thumbnail__text book-thumbnail__text--first"><%= "#{review_type_symbol(book.checked_review(0))}#{book.checked_review(0).content}" %></span>
+            <% end %>
+            <% if book.checked_review(1) %>
+              <span class="book-thumbnail__text book-thumbnail__text--second"><%= "#{review_type_symbol(book.checked_review(1))}#{book.checked_review(1).content}" %></span>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+      <div class="mt-3">
+        <%= paginate books, window: 1 %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="text-center">
+    <h2 class="page-heading__title">表示できる通信簿はありません。</h2>
+  </div>
+<% end %>

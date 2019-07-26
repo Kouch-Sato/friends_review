@@ -1,0 +1,11 @@
+<section class="page-heading mb-4">
+  <h1 class="page-heading__title">
+    友達の通信簿
+  </h1>
+</section>
+<section class="mb-4">
+  <%= render partial: "books/index_tabs" %>
+</section>
+<section class="mb-4">
+  <%= render partial: "books/index_contents", locals: { books: @books } %>
+</section>

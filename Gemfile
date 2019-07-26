@@ -33,6 +33,8 @@ gem "jquery-rails"
 gem 'active_link_to'
 gem 'meta-tags'
 gem 'google-analytics-rails'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
 gem 'twitter'
 gem 'crypt_keeper'
 

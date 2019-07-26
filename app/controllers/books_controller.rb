@@ -1,6 +1,17 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :check, :update]
+  before_action :authenticate_user!, only: [:edit, :check, :update, :commented, :following]
   before_action :ensure_book_owner, only: [:edit, :check, :update]
+
+  PER = 20
+
+  def commented
+    @books = current_user.commented_books.page(params[:page]).per(PER)
+  end
+
+  # TODO：今は全てのbooksを取得しているので直す
+  def following
+    @books = current_user.following_books.page(params[:page]).per(PER)
+  end
 
   def show
     @book = Book.find_by(id: params[:id])

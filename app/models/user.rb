@@ -50,6 +50,16 @@ class User < ApplicationRecord
     books.first
   end
 
+  def commented_books
+    commented_book_ids = reviews_to_others.pluck(:book_id).uniq
+    Book.where(id: commented_book_ids)
+  end
+
+  # TODO: twitter_access_tokenを使って修正
+  def following_books
+    Book.all
+  end
+
   def is_admin?
     admin_uids = [ENV.fetch("TWITTER_KOUCH_UID"), ENV.fetch("TWITTER_DARA_UID")]
     admin_uids.include?(uid)
