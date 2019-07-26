@@ -38,7 +38,9 @@ Rails.application.routes.draw do
   get "home/privacy"
   get "home/terms"
 
-  resources :books, only: [:show, :edit, :update] do
+  # TODO: shallow: trueを使ってネストを浅くする
+  # https://railsguides.jp/routing.html#%E3%83%8D%E3%82%B9%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E5%9B%9E%E6%95%B0%E3%81%AE%E4%B8%8A%E9%99%90
+  resources :books, only: [:show, :edit] do
     collection do
       get "commented"
       get "following"
