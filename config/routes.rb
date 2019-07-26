@@ -39,6 +39,10 @@ Rails.application.routes.draw do
   get "home/terms"
 
   resources :books, only: [:show, :edit] do
+    collection do
+      get "commented"
+      get "following"
+    end
     member do
       get "check"
     end

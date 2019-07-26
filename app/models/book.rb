@@ -11,4 +11,8 @@
 class Book < ApplicationRecord
   belongs_to :user
   has_many :reviews
+
+  def checked_review(num=0)
+    reviews.checked[num]
+  end
 end

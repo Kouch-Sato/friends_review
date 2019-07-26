@@ -15,13 +15,13 @@
 yuri_review1:
   book: yuri_book1
   review_type: 1
-  content: 自信家でかっこいい
+  content: 日銀で日本経済を牛耳る
   status: 10
 
 yuri_review2:
   book: yuri_book1
   review_type: 2
-  content: スペ語17点
+  content: 部屋が汚いらしい
   status: 10
 
 dara_review1:
