@@ -2,17 +2,15 @@
   <div class="row">
     <div class="col-12">
       <% books.each do |book| %>
-        <% first_review  = book.reviews.checked.first %>
-        <% second_review = book.reviews.checked.second %>
         <%= link_to book_path(book) do %>
           <div class="book-thumbnail">
-            <%= image_tag first_review.present? ? "board_without_text.jpg" : "board_with_text.jpg", width: "100%", class: "col-md-6 offset-md-3" %>
+            <%= image_tag book.checked_review(0).present? ? "board_without_text.jpg" : "board_with_text.jpg", class: "col-md-6 offset-md-3 w-100" %>
             <span class="book-thumbnail__name">1年1組 <%= book.user.name %></span>
-            <% if first_review %>
-              <span class="book-thumbnail__text book-thumbnail__text--first"><%= "#{review_type_symbol(first_review)}#{first_review.content}" %></span>
+            <% if book.checked_review(0) %>
+              <span class="book-thumbnail__text book-thumbnail__text--first"><%= "#{review_type_symbol(book.checked_review(0))}#{book.checked_review(0).content}" %></span>
             <% end %>
-            <% if second_review %>
-              <span class="book-thumbnail__text book-thumbnail__text--second"><%= "#{review_type_symbol(second_review)}#{second_review.content}" %></span>
+            <% if book.checked_review(1) %>
+              <span class="book-thumbnail__text book-thumbnail__text--second"><%= "#{review_type_symbol(book.checked_review(1))}#{book.checked_review(1).content}" %></span>
             <% end %>
           </div>
         <% end %>
