@@ -13,22 +13,6 @@
   }
 }
 
-.nav-tabs {
-  border-bottom: solid 0.1px #E6E6E6;
-}
-
-.nav-tabs .nav-item .nav-link.active:before,
-.nav-tabs .nav-item .nav-link.active:hover:before,
-.nav-tabs .nav-item .nav-link.active:focus:before {
-  content: none;
-}
-
-.nav-tabs .nav-item .nav-link.active,
-.nav-tabs .nav-item .nav-link.active:hover,
-.nav-tabs .nav-item .nav-link.active:focus {
-  border-bottom: solid 2px gray;
-}
-
 .book-thumbnail {
   position: relative;
 
