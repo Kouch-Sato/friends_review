@@ -15,8 +15,8 @@ $(document).on('turbolinks:load', function() {
 
   $('#reply-textarea').keyup(function() {
     var count = $(this).val().length;
-    $('#textlength').text("残り" + (140 - count) + "文字");
     var tweet_button = $('#reply-submit');
+    $('#textlength').text("残り" + (140 - count) + "文字");
     if ( count > 140 ) {
       tweet_button.prop("disabled", true);
     } else {
