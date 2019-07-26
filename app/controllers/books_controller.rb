@@ -5,12 +5,12 @@ class BooksController < ApplicationController
   PER = 20
 
   def commented
-    @books = Book.commented_by(current_user).page(params[:page]).per(PER)
+    @books = current_user.commented_books.page(params[:page]).per(PER)
   end
 
   # TODO：今は全てのbooksを取得しているので直す
   def following
-    @books = Book.page(params[:page]).per(PER)
+    @books = current_user.following_books.page(params[:page]).per(PER)
   end
 
   def show

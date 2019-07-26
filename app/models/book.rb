@@ -11,6 +11,4 @@
 class Book < ApplicationRecord
   belongs_to :user
   has_many :reviews
-
-  scope :commented_by, -> (user) { where(id: user.reviews_to_others.pluck(:book_id).uniq) }
 end
