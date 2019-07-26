@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, only: [:destroy]
-  before_action :ensure_review_owner, only: [:destroy]
+  before_action :authenticate_user!, only: [:update, :destroy]
+  before_action :ensure_review_owner, only: [:update, :destroy]
 
   def create
     @book = Book.find(params[:book_id])
