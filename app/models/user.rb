@@ -64,13 +64,13 @@ class User < ApplicationRecord
 
   def self.create_by_sns_account(sns_account)
     self.create(
-      email:    User.dummy_email(sns_account),
-      password: Devise.friendly_token[0, 20],
-      uid:      sns_account.uid,
-      provider: sns_account.provider,
-      name:     sns_account.info.name,
-      nickname: sns_account.info.nickname,
-      image:    sns_account.info.image,
+      email:               User.dummy_email(sns_account),
+      password:            Devise.friendly_token[0, 20],
+      uid:                 sns_account.uid,
+      provider:            sns_account.provider,
+      name:                sns_account.info.name,
+      nickname:            sns_account.info.nickname,
+      image:               sns_account.info.image,
       access_token:        sns_account.credentials.token,
       access_token_secret: sns_account.credentials.secret,
     )
