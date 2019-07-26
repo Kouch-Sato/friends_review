@@ -20,6 +20,8 @@
 #  name                   :string(255)
 #  nickname               :string(255)
 #  image                  :string(255)
+#  access_token           :binary(65535)
+#  access_token_secret    :binary(65535)
 #
 
 yuri:

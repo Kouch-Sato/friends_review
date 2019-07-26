@@ -20,9 +20,13 @@
 #  name                   :string(255)
 #  nickname               :string(255)
 #  image                  :string(255)
+#  access_token           :binary(65535)
+#  access_token_secret    :binary(65535)
 #
 
 class User < ApplicationRecord
+  crypt_keeper :access_token, :access_token_secret, encryptor: :active_support, key: ENV.fetch("CRYPT_KEEPER_KEY"), salt: ENV.fetch("CRYPT_KEEPER_SALT")
+
   has_many :books
   has_many :reviews, through: :books
   has_many :reviews_to_others, class_name: "Review"
@@ -60,13 +64,22 @@ class User < ApplicationRecord
 
   def self.create_by_sns_account(sns_account)
     self.create(
-      email:    User.dummy_email(sns_account),
-      password: Devise.friendly_token[0, 20],
-      uid:      sns_account.uid,
-      provider: sns_account.provider,
-      name:     sns_account.info.name,
-      nickname: sns_account.info.nickname,
-      image:    sns_account.info.image,
+      email:               User.dummy_email(sns_account),
+      password:            Devise.friendly_token[0, 20],
+      uid:                 sns_account.uid,
+      provider:            sns_account.provider,
+      name:                sns_account.info.name,
+      nickname:            sns_account.info.nickname,
+      image:               sns_account.info.image,
+      access_token:        sns_account.credentials.token,
+      access_token_secret: sns_account.credentials.secret,
+    )
+  end
+
+  def update_by_sns_account(sns_account)
+    self.update(
+      access_token:        sns_account.credentials.token,
+      access_token_secret: sns_account.credentials.secret,
     )
   end
 
