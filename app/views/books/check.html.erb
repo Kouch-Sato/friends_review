@@ -47,7 +47,7 @@
         <p class="review-content mb-2"></p>
         <%= form_for @reply do |f| %>
           <div class="form-group">
-            <%= f.text_area :content, class: "form-control no-input-zoom mb-2", rows:"5", onKeyUp: "countLength(value);" %>
+            <%= f.text_area :content, class: "form-control no-input-zoom mb-2", rows:"5", id: "reply-textarea" %>
             <p id="textlength" class="text-right">残り文字数</p>
             <%= f.hidden_field :review_id, class: "hidden-review-id" %>
             <%= f.submit "コメントをツイートして承認", class: "btn btn-twitter btn-sm btn-block mb-3", id: "reply-submit" %>
@@ -60,29 +60,3 @@
   </div>
 </div>
 <!-- END:Modal -->
-
-<script>
-  $('#afterApproveModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget); //モーダルを呼び出すときに使われたボタンを取得
-    var review_type = button.data('review-type')
-    var review_content = button.data('review-content');
-    var tweet_url = button.data('tweet-url');
-    var review_id = button.data('review-id');
-    var approve_path = button.data('approve-path');
-    var modal = $(this);  //モーダルを取得
-    modal.find('.review-content').text(review_type + review_content)
-    modal.find('textarea').val("\n" + tweet_url + " #みんなの通信簿");
-    modal.find('.hidden-review-id').val(review_id);
-    modal.find('.btn-review-approve').attr('href', approve_path);
-  })
-
-  function countLength(text) {
-    document.getElementById('textlength').innerHTML = "残り" + (140 - text.length) + "文字";
-    var tweet_button = document.getElementById('reply-submit');
-    if ( text.length > 140 ) {
-      tweet_button.disabled = true;
-    } else {
-      tweet_button.disabled = false;
-    }
-  }
-</script>
