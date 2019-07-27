@@ -7,14 +7,17 @@
 #                            root GET      /                                                                                        home#top
 #                    home_privacy GET      /home/privacy(.:format)                                                                  home#privacy
 #                      home_terms GET      /home/terms(.:format)                                                                    home#terms
+#                 commented_books GET      /books/commented(.:format)                                                               books#commented
+#                 following_books GET      /books/following(.:format)                                                               books#following
 #                      check_book GET      /books/:id/check(.:format)                                                               books#check
 #                    book_reviews POST     /books/:book_id/reviews(.:format)                                                        reviews#create
-#                     book_review DELETE   /books/:book_id/reviews/:id(.:format)                                                    reviews#destroy
+#                     book_review PATCH    /books/:book_id/reviews/:id(.:format)                                                    reviews#update
+#                                 PUT      /books/:book_id/reviews/:id(.:format)                                                    reviews#update
+#                                 DELETE   /books/:book_id/reviews/:id(.:format)                                                    reviews#destroy
 #                       edit_book GET      /books/:id/edit(.:format)                                                                books#edit
 #                            book GET      /books/:id(.:format)                                                                     books#show
-#                                 PATCH    /books/:id(.:format)                                                                     books#update
-#                                 PUT      /books/:id(.:format)                                                                     books#update
 #                            user GET      /users/:id(.:format)                                                                     users#show
+#                         replies POST     /replies(.:format)                                                                       replies#create
 #                     admin_users GET      /admin/users(.:format)                                                                   admin/users#index
 #                      admin_user GET      /admin/users/:id(.:format)                                                               admin/users#show
 #              rails_service_blob GET      /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
@@ -36,7 +39,9 @@ Rails.application.routes.draw do
   get "home/privacy"
   get "home/terms"
 
-  resources :books, only: [:show, :edit, :update] do
+  # TODO: shallow: trueを使ってネストを浅くする
+  # https://railsguides.jp/routing.html#%E3%83%8D%E3%82%B9%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E5%9B%9E%E6%95%B0%E3%81%AE%E4%B8%8A%E9%99%90
+  resources :books, only: [:show, :edit] do
     collection do
       get "commented"
       get "following"
@@ -44,9 +49,10 @@ Rails.application.routes.draw do
     member do
       get "check"
     end
-    resources :reviews, only: [:create, :destroy]
+    resources :reviews, only: [:create, :update, :destroy]
   end
   resources :users, only: [:show]
+  resources :replies, only: [:create]
 
   namespace :admin do
     resources :users, only: [:index, :show]
