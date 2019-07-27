@@ -47,7 +47,7 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
   end
 
   def test_review_create_with_empty_content
-    assert_difference('@other_user.book.reviews.count', 0) do
+    assert_no_difference('@other_user.book.reviews.count') do
       post book_reviews_path(@other_user.book),
            params: {
              review: {
@@ -74,7 +74,7 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
   def test_review_update_other
     login_as(@current_user, scope: :user)
 
-    assert_difference('@other_user.book.reviews.checked.count', 0) do
+    assert_no_difference('@other_user.book.reviews.checked.count') do
       put book_review_path(@other_user.book, @other_review)
     end
 
@@ -95,7 +95,7 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
   def test_review_delete_other
     login_as(@current_user, scope: :user)
 
-    assert_difference('@other_user.book.reviews.deleted.count', 0) do
+    assert_no_difference('@other_user.book.reviews.deleted.count') do
       delete book_review_path(@other_user.book, @other_review)
     end
 
