@@ -9,7 +9,6 @@
       承認した評定のみが公開されます。
     </p>
   </div>
-
   <% if @unchecked_reviews.present? %>
     <% @unchecked_reviews.each do |review| %>
       <div class="card no-transition">
@@ -30,9 +29,9 @@
           </div>
         </div>
       </div>
-      <!-- BEGIN:Modal -->
+
       <%= render partial: "check_modal", locals: { book: @book, review: review, reply: @reply } %>
-      <!-- END:Modal -->
+
     <% end %>
   <% else %>
     <h3 class="text-center">新着評価はありません</h3>
