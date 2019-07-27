@@ -3,9 +3,9 @@ class RepliesController < ApplicationController
   before_action :ensure_review_owner, only: [:create]
 
   def create
-    @reply = Reply.new(reply_params)
-    @review = Review.find(@reply[:review_id])
+    @review = Review.find(params[:review_id])
     @book = @review.book
+    @reply = @review.replies.new(reply_params)
     # TODO: Tweetする機能の実装
     # TODO: replyモデルに保存するときに、urlとハッシュタグを削除する
     if @reply.save!
@@ -18,11 +18,11 @@ class RepliesController < ApplicationController
 
   private
   def reply_params
-    params.require(:reply).permit(:review_id, :content)
+    params.require(:reply).permit(:content)
   end
 
   def ensure_review_owner
-    @review = Review.find_by(id: params[:reply][:review_id])
+    @review = Review.find(params[:review_id])
     unless current_user.id == @review.book.user_id
       redirect_to user_path(current_user), alert: "権限がありません"
     end
