@@ -49,10 +49,11 @@ Rails.application.routes.draw do
     member do
       get "check"
     end
-    resources :reviews, only: [:create, :update, :destroy]
+    resources :reviews, only: [:create, :update, :destroy] do
+      resources :replies, only: [:create]
+    end
   end
   resources :users, only: [:show]
-  resources :replies, only: [:create]
 
   namespace :admin do
     resources :users, only: [:index, :show]
