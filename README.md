@@ -30,7 +30,14 @@ $ git push heroku use_heroku:master --force
 ```
 
 ### 環境変数の設定
+- herokuの本番サーバー
 ```
 $ heroku config:add TWITTER_API_SECRET=aaaaaaaaaaaaaaaaaaaaaaa
+```
+
+- circleCIに設定する
+以下のリンクから環境変数を追加
+```
+https://circleci.com/gh/Kouch-Sato/friends_review/edit#env-vars
 ```
 
