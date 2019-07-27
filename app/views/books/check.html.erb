@@ -6,37 +6,35 @@
 <section class="page-section mb-4">
   <div class="mb-3">
     <p class="page-section__text">
-      承認した評定のみが公開されます。<br>ちょっと親に見られたくない評定は、こっそり消しちゃいましょう...！
+      承認した評定のみが公開されます。
     </p>
   </div>
 
-  <%= render partial: "books/review_check_table", locals: { reviews: @unchecked_reviews } %>
-
   <% if @unchecked_reviews.present? %>
-    <div class="text-center">
-      <button type="button" class="btn btn-info btn-round btn-lg" data-toggle="modal" data-target="#afterApproveModal">
-        まとめて承認
-      </button>
-    </div>
+    <% @unchecked_reviews.each do |review| %>
+      <div class="card no-transition">
+        <div class="container">
+          <div class="row">
+            <div class="card-body col-md-10 col-9">
+              <%= review_type_symbol(review) %><%= review.content %>
+            </div>
+            <div class="col-md-1 col-2 pl-0 pr-0 align-middle__parent">
+              <%= button_tag "承認", class: "btn btn-sm btn-info btn-round align-middle__child modal-show",
+                  data: {toggle: "modal", target: "#afterApproveModal#{review.id}", review_id: "#{review.id}" } %>
+            </div>
+            <div class="col-md-1 col-1 pl-0 pr-0 align-middle__parent">
+              <%= link_to book_review_path(@book, review), class: "btn btn-default btn-sm btn-link pl-0 align-middle__child", method: :delete do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- BEGIN:Modal -->
+      <%= render partial: "check_modal", locals: { book: @book, review: review, reply: @reply } %>
+      <!-- END:Modal -->
+    <% end %>
+  <% else %>
+    <h3 class="text-center">新着評価はありません</h3>
   <% end %>
 </section>
-
-<!-- BEGIN:Modal -->
-<div class="modal fade" id="afterApproveModal" tabindex="-1" role="dialog" aria-labelledby="afterApproveModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="deleteConfirmationModalLabel">選択</h5>
-      </div>
-      <div class="modal-body">
-        <p class="text-center mb-4">
-          結果をシェアして、さらに評定を記入してもらおう！
-        </p>
-        <%= link_to "今回承認分をTwitterでシェア！", "#", class: "btn btn-twitter btn-sm btn-block mb-3 disabled" %>
-        <%= link_to "シェアせずに承認する", book_path(@book), class: "btn btn-default btn-sm btn-block mb-3", method: :put %>
-        <button type="button" class="btn btn-default btn-link btn-block" data-dismiss="modal">戻る</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- END:Modal -->
