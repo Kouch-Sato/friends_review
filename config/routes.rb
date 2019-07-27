@@ -10,6 +10,7 @@
 #                 commented_books GET      /books/commented(.:format)                                                               books#commented
 #                 following_books GET      /books/following(.:format)                                                               books#following
 #                      check_book GET      /books/:id/check(.:format)                                                               books#check
+#             book_review_replies POST     /books/:book_id/reviews/:review_id/replies(.:format)                                     replies#create
 #                    book_reviews POST     /books/:book_id/reviews(.:format)                                                        reviews#create
 #                     book_review PATCH    /books/:book_id/reviews/:id(.:format)                                                    reviews#update
 #                                 PUT      /books/:book_id/reviews/:id(.:format)                                                    reviews#update
@@ -17,7 +18,6 @@
 #                       edit_book GET      /books/:id/edit(.:format)                                                                books#edit
 #                            book GET      /books/:id(.:format)                                                                     books#show
 #                            user GET      /users/:id(.:format)                                                                     users#show
-#                         replies POST     /replies(.:format)                                                                       replies#create
 #                     admin_users GET      /admin/users(.:format)                                                                   admin/users#index
 #                      admin_user GET      /admin/users/:id(.:format)                                                               admin/users#show
 #              rails_service_blob GET      /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
