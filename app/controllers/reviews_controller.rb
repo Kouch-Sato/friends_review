@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, only: [:destroy]
-  before_action :ensure_review_owner, only: [:destroy]
+  before_action :authenticate_user!, only: [:update, :destroy]
+  before_action :ensure_review_owner, only: [:update, :destroy]
 
   def create
     @book = Book.find(params[:book_id])
@@ -15,6 +15,15 @@ class ReviewsController < ApplicationController
       # urlが"books/:id/reviews"になるのでrenderは使わない
       redirect_to book_path(@book), alert: "1文字以上50文字以内で入力してください"
     end
+  end
+
+  # TODO: reviews#showを作る
+
+  def update
+    @review = Review.find(params[:id])
+    @book = Book.find(params[:book_id])
+    @review.checked!
+    redirect_to check_book_path(@book), notice: "評価を承認しました"
   end
 
   def destroy
