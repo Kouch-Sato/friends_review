@@ -61,6 +61,27 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
     assert_equal flash[:alert], "1文字以上50文字以内で入力してください"
   end
 
+  def test_review_update_owner
+    login_as(@current_user, scope: :user)
+
+    assert_difference('@current_user.book.reviews.checked.count') do
+      put book_review_path(@current_user.book, @my_review)
+    end
+
+    assert_equal flash[:notice], "評価を承認しました"
+  end
+
+  def test_review_update_other
+    login_as(@current_user, scope: :user)
+
+    assert_difference('@other_user.book.reviews.checked.count', 0) do
+      put book_review_path(@other_user.book, @other_review)
+    end
+
+    assert_redirected_to user_path(@current_user)
+    assert_equal flash[:alert], "他の人の評価は編集できません"
+  end
+
   def test_review_delete_owner
     login_as(@current_user, scope: :user)
 
