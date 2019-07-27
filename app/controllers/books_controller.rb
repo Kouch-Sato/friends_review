@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :check, :update, :commented, :following]
-  before_action :ensure_book_owner, only: [:edit, :check, :update]
+  before_action :authenticate_user!, only: [:edit, :check, :commented, :following]
+  before_action :ensure_book_owner, only: [:edit, :check]
 
   PER = 20
 
@@ -28,13 +28,7 @@ class BooksController < ApplicationController
   def check
     @book = Book.find_by(id: params[:id])
     @unchecked_reviews = @book.reviews.unchecked
-  end
-
-  def update
-    @book = Book.find_by(id: params[:id])
-    @reviews = @book.reviews.unchecked
-    @reviews.map(&:checked!)
-    redirect_to user_path(@book.user), notice: "評価をまとめて承認しました"
+    @reply = Reply.new
   end
 
   private
