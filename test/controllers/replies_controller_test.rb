@@ -11,14 +11,13 @@ class RepliesControllerTest < ActionDispatch::IntegrationTest
   def test_create_reply_to_own_review
     login_as(@current_user, scope: :user)
 
-    assert_difference('Reply.all.count') do
-      post replies_path,
-            params: {
-              reply: {
-                review_id: @my_review.id,
-                content: "そんな評価送られたら嬉しくなっちゃう"
-              }
-            }
+    assert_difference('@my_review.replies.count') do
+      post book_review_replies_path(@current_user.book, @my_review),
+           params: {
+             reply: {
+               content: "そんな評価送られたら嬉しくなっちゃう"
+             }
+           }
     end
 
     assert_redirected_to check_book_path(@current_user.book)
@@ -30,14 +29,13 @@ class RepliesControllerTest < ActionDispatch::IntegrationTest
   def test_create_reply_to_other_review
     login_as(@current_user, scope: :user)
 
-    assert_no_difference('Reply.all.count') do
-      post replies_path,
-            params: {
-              reply: {
-                review_id: @other_review.id,
-                content: "そんな評価送られたら嬉しくなっちゃう"
-              }
-            }
+    assert_no_difference('@other_review.replies.count') do
+      post book_review_replies_path(@other_user.book, @other_review),
+           params: {
+             reply: {
+               content: "そんな評価送られたら嬉しくなっちゃう"
+             }
+           }
     end
 
     assert_redirected_to user_path(@current_user)
@@ -45,14 +43,13 @@ class RepliesControllerTest < ActionDispatch::IntegrationTest
   end
 
   def test_create_reply_not_login_user
-    assert_no_difference('Reply.all.count') do
-      post replies_path,
-            params: {
-              reply: {
-                review_id: @other_review.id,
-                content: "そんな評価送られたら嬉しくなっちゃう"
-              }
-            }
+    assert_no_difference('@other_review.replies.count') do
+      post book_review_replies_path(@other_user.book, @other_review),
+           params: {
+             reply: {
+               content: "そんな評価送られたら嬉しくなっちゃう"
+             }
+           }
     end
 
     assert_redirected_to root_path
