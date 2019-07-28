@@ -25,6 +25,10 @@
               <li class="nav-item">
                 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: {"turbolinks" => false}, class: "nav-link pl-0" %>
               </li>
+<!--              TODO tooltipにする-->
+              <li class="nav-item">
+                <%= link_to 'アカウント削除', user_path(current_user), method: :delete, data: {"turbolinks" => false}, class: "nav-link pl-0" %>
+              </li>
             <% else %>
               <li class="nav-item">
                 <%= link_to "Twitterでログイン", root_path, data: {"turbolinks" => false}, class: "nav-link" %>
