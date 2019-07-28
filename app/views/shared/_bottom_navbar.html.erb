@@ -22,7 +22,7 @@
           <% end %>
         </div>
         <div class="col-4 text-center">
-          <%= link_to "#", class: "bottom-navbar__link" do %>
+          <%= active_link_to commented_books_path, class: "bottom-navbar__link", active: [['books'], ['commented', 'following']] do %>
             <i class="fas fa-users fa-lg"></i><br>
             <small>
               友達の通信簿
