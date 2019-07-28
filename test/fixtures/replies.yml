@@ -9,12 +9,18 @@
 #  review_id  :integer
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+yuri_reply1:
+ review: yuri_review1
+ content: 私がこの世界を創ったのだ
 
-# one:
-#   review_id: 1
-#   content: MyText
+yuri_reply2:
+ review_id: yuri_review2
+ content: 家にコンタクトが落ちてる
 
-# two:
-#   review_id: 1
-#   content: MyText
+dara_reply1:
+ review: dara_review1
+ content: あざっす〜〜
+
+dara_reply2:
+ review_id: dara_review2
+ content: ゆうちんごめん
