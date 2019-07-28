@@ -46,4 +46,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to user_path(@current_user)
     assert_equal flash[:alert], "権限がありません"
   end
+
+  def test_destroy_user_not_login_user
+    delete user_path(@other_user)
+
+    assert_redirected_to root_path
+  end
 end
