@@ -7,6 +7,8 @@
 #                            root GET      /                                                                                        home#top
 #                    home_privacy GET      /home/privacy(.:format)                                                                  home#privacy
 #                      home_terms GET      /home/terms(.:format)                                                                    home#terms
+#                 commented_books GET      /books/commented(.:format)                                                               books#commented
+#                 following_books GET      /books/following(.:format)                                                               books#following
 #                      check_book GET      /books/:id/check(.:format)                                                               books#check
 #                    book_reviews POST     /books/:book_id/reviews(.:format)                                                        reviews#create
 #                     book_review DELETE   /books/:book_id/reviews/:id(.:format)                                                    reviews#destroy
