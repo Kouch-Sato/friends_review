@@ -17,11 +17,11 @@
             <div class="card-body col-md-10 col-9">
               <%= review_type_symbol(review) %><%= review.content %>
             </div>
-            <div class="col-md-1 col-2 pl-0 pr-0 align-middle__parent">
+            <div class="col-md-1 col-2 pl-0 pr-0 d-flex-align-middle">
               <%= button_tag "承認", class: "btn btn-sm btn-info btn-round align-middle__child modal-show",
                   data: {toggle: "modal", target: "#afterApproveModal#{review.id}", review_id: "#{review.id}" } %>
             </div>
-            <div class="col-md-1 col-1 pl-0 pr-0 align-middle__parent">
+            <div class="col-md-1 col-1 pl-0 pr-0 d-flex-align-middle">
               <%= link_to book_review_path(@book, review), class: "btn btn-default btn-sm btn-link pl-0 align-middle__child", method: :delete do %>
                 <i class="far fa-trash-alt"></i>
               <% end %>
@@ -30,7 +30,7 @@
         </div>
       </div>
 
-      <%= render partial: "check_modal", locals: { book: @book, review: review, reply: @reply } %>
+      <%= render partial: "review_approve_modal", locals: { book: @book, review: review, reply: @reply } %>
 
     <% end %>
   <% else %>
