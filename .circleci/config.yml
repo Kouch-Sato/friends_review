@@ -13,6 +13,10 @@ jobs:
           MYSQL_ROOT_PASSWORD: password
           ROW_FORMAT: DYNAMIC
       - image: circleci/mysql:5.6
+        environment:
+          MYSQL_DATABASE: friends_review_test
+          MYSQL_ROOT_PASSWORD: password
+          ROW_FORMAT: DYNAMIC
 
     working_directory: ~/friends_review
 
