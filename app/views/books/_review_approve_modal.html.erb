@@ -8,9 +8,12 @@
         <%= review_type_symbol(review) %><%= review.content %>
         <%= form_for [book, review, reply] do |f| %>
           <div class="form-group">
-            <%= f.text_area :content, class: "form-control no-input-zoom mb-2 reply-textarea", rows:"5", value: "\n#{book_review_url(book, review)} #みんなの通信簿", data: { review_id: review.id } %>
+            <%# FIXME: Twitter機能実装までコメントアウト %>
+            <%#= f.text_area :content, class: "form-control no-input-zoom mb-2 reply-textarea", rows:"5", value: "\n#{book_review_url(book, review)} #みんなの通信簿", data: { review_id: review.id } %>
+            <%= f.text_area :content, class: "form-control no-input-zoom mb-2 reply-textarea", rows:"5", value: "ツイート機能を現在開発中です。「コメントせず承認」ボタンを押してください。 \n #みんなの通信簿", disabled: true %>
             <p class="text-right" data-length-show="<%= review.id %>">残り文字数</p>
-            <%= f.submit "コメントをツイートして承認", class: "btn btn-sm btn-block btn-share-twitter mb-3", data: { reply_tweet_btn: review.id } %>
+            <%#= f.submit "コメントをツイートして承認", class: "btn btn-sm btn-block btn-share-twitter mb-3", data: { reply_tweet_btn: review.id } %>
+            <%= f.submit "コメントをツイートして承認（開発中）", class: "btn btn-sm btn-block btn-share-twitter mb-3", data: { reply_tweet_btn: review.id }, disabled: true %>
           </div>
         <% end %>
         <%= link_to "コメントせず承認", book_review_path(book, review), class: "btn btn-default btn-sm btn-block mb-3", method: :put %>
