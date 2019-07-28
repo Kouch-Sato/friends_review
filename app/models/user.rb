@@ -27,6 +27,7 @@
 class User < ApplicationRecord
   has_many :books, dependent: :destroy
   has_many :reviews, through: :books
+  has_many :replies, through: :reviews
   has_many :reviews_to_others, class_name: "Review", dependent: :nullify
 
   validates :email,    presence: true
