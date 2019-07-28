@@ -1,0 +1,21 @@
+<div class="modal fade" id="afterApproveModal<%= review.id %>" tabindex="-1" role="dialog" aria-labelledby="afterApproveModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title modal__title" id="afterApproveModalLabel">コメントしよう！</h2>
+      </div>
+      <div class="modal-body pr-3 pl-3">
+        <%= review_type_symbol(review) %><%= review.content %>
+        <%= form_for [book, review, reply] do |f| %>
+          <div class="form-group">
+            <%= f.text_area :content, class: "form-control no-input-zoom mb-2 reply-textarea", rows:"5", value: "\n#{book_review_url(book, review)} #みんなの通信簿", data: { review_id: review.id } %>
+            <p class="text-right" data-length-show="<%= review.id %>">残り文字数</p>
+            <%= f.submit "コメントをツイートして承認", class: "btn btn-sm btn-block btn-share-twitter mb-3", data: { reply_tweet_btn: review.id } %>
+          </div>
+        <% end %>
+        <%= link_to "コメントせず承認", book_review_path(book, review), class: "btn btn-default btn-sm btn-block mb-3", method: :put %>
+        <button type="button" class="btn btn-default btn-link btn-block" data-dismiss="modal">戻る</button>
+      </div>
+    </div>
+  </div>
+</div>

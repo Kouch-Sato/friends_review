@@ -38,6 +38,11 @@
 }
 
 // iosで、input入力時にズームするのを防ぐため
-input[type=text] {
+.no-input-zoom {
   font-size: 16px;
+}
+
+.d-flex-align-middle {
+  display: flex;
+  align-items: center;
 }

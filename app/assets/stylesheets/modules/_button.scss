@@ -1,0 +1,29 @@
+.btn-share-twitter {
+  background-color: #55acee;
+  border-color: #55acee;
+  opacity: 0.9;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: #55acee !important;
+    border-color: #55acee !important;
+    opacity: 1;
+  }
+
+  &:disabled {
+    background-color: #55acee;
+    border-color: #55acee;
+    opacity: 0.6;
+    cursor: default;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: #55acee;
+      border-color: #55acee;
+      opacity: 0.6;
+      cursor: default;
+    }
+  }
+}
