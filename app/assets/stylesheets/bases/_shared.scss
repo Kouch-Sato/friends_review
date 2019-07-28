@@ -42,15 +42,7 @@
   font-size: 16px;
 }
 
-.align-middle {
-  &__parent {
-    position: relative;
-  }
-
-  &__child {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-  }
+.d-flex-align-middle {
+  display: flex;
+  align-items: center;
 }
