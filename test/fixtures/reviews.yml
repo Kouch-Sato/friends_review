@@ -29,6 +29,7 @@ dara_review1:
   review_type: 1
   content: スピーチうまい
   status: 10
+  user: yuri
 
 dara_review2:
   book: dara_book1
