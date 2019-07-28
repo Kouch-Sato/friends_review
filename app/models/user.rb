@@ -25,10 +25,9 @@
 #
 
 class User < ApplicationRecord
-
-  has_many :books
+  has_many :books, dependent: :destroy
   has_many :reviews, through: :books
-  has_many :reviews_to_others, class_name: "Review"
+  has_many :reviews_to_others, class_name: "Review", dependent: :nullify
 
   validates :email,    presence: true
   validates :provider, presence: true
