@@ -3,8 +3,8 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
-#  access_token           :binary(65535)
-#  access_token_secret    :binary(65535)
+#  access_token           :string(255)
+#  access_token_secret    :string(255)
 #  current_sign_in_at     :datetime
 #  current_sign_in_ip     :string(255)
 #  email                  :string(255)      default(""), not null
@@ -25,7 +25,6 @@
 #
 
 class User < ApplicationRecord
-  crypt_keeper :access_token, :access_token_secret, encryptor: :active_support, key: ENV.fetch("CRYPT_KEEPER_KEY"), salt: ENV.fetch("CRYPT_KEEPER_SALT")
 
   has_many :books
   has_many :reviews, through: :books
