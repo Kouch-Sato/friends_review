@@ -17,6 +17,15 @@
 
     <!-- google analytics -->
     <%= analytics_init if Rails.env.production? %>
+
+    <!-- google adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-2135555051486554",
+        enable_page_level_ads: true
+      });
+    </script>
   </head>
 
   <body>
