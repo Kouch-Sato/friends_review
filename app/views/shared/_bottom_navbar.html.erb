@@ -39,41 +39,26 @@
           <% end %>
         </div>
         <div class="col-4 text-center">
-          <button class="bottom-navbar__link btn-neutral" data-toggle="modal" data-target="#loginModal">
+          <%= link_to "#", class: "bottom-navbar__link btn-neutral", data: { toggle: "modal", target: "#requireLoginModal" } do %>
             <i class="fas fa-box-open fa-lg"></i><br>
             <small>
               新着の評定
             </small>
-          </button>
+          <% end %>
         </div>
         <div class="col-4 text-center">
-          <button class="bottom-navbar__link btn-neutral" data-toggle="modal" data-target="#loginModal">
+          <%= link_to "#", class: "bottom-navbar__link btn-neutral", data: { toggle: "modal", target: "#requireLoginModal" } do %>
             <i class="fas fa-users fa-lg"></i><br>
             <small>
               友達の通信簿
             </small>
-          </button>
+          <% end %>
         </div>
       <% end %>
     </div>
   </nav>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title modal__title" id="loginModalLabel">
-          登録 / ログインしましょう！
-        </h2>
-      </div>
-      <div class="modal-body text-center">
-        <%= link_to "TOPページへ", root_path, class: "btn btn-info btn-block"  %>
-        <button type="button" class="btn btn-default btn-link mt-3" data-dismiss="modal">
-          閉じる
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
+<% if !user_signed_in? %>
+  <%= render partial: "shared/require_login_modal" %>
+<% end %>
