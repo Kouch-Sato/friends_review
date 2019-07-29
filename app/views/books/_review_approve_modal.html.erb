@@ -16,7 +16,7 @@
             <%= f.submit "コメントをツイートして承認（開発中）", class: "btn btn-sm btn-block btn-share-twitter mb-3", data: { reply_tweet_btn: review.id }, disabled: true %>
           </div>
         <% end %>
-        <%= link_to "コメントせず承認", book_review_path(book, review), class: "btn btn-default btn-sm btn-block mb-3", method: :put %>
+        <%= link_to "コメントせず承認", book_review_path(book, review), class: "btn btn-outline-default btn-sm btn-block mb-3", method: :put %>
         <button type="button" class="btn btn-default btn-link btn-block" data-dismiss="modal">戻る</button>
       </div>
     </div>
