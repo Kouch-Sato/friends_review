@@ -10,7 +10,7 @@
 
 class Book < ApplicationRecord
   belongs_to :user
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   def checked_review(num=0)
     reviews.checked[num]
