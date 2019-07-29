@@ -3,7 +3,15 @@
     <div class="container">
       <div class="col-md-4 col-2">
         <% if user_signed_in? %>
-          <%= image_tag current_user.image, class: "top-navbar__avatar" %>
+          <div class="btn-group">
+            <%= link_to "#", class: "dropdown-toggle dropdown-toggle-split", data: { toggle: "dropdown"}, aria: { haspopup: false, expanded: false } do %>
+              <%= image_tag current_user.image, class: "top-navbar__avatar" %>
+            <% end %>
+            <div class="dropdown-menu">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: {turbolinks: false}, class: "dropdown-item" %>
+              <%= link_to 'アカウント削除', "#", data: {turbolinks: false, toggle: "modal", target: "#destroyUserModal"}, class: "dropdown-item" %>
+            </div>
+          </div>
         <% end %>
       </div>
       <div class="col-md-4 col-8 text-center">
@@ -17,21 +25,14 @@
           <ul class="navbar-nav">
             <% if user_signed_in? %>
               <li class="nav-item">
-                <%= link_to "新着の評定", check_book_path(current_user.book), data: {"turbolinks" => false}, class: "nav-link pl-0" %>
+                <%= link_to "新着の評定", check_book_path(current_user.book), data: {turbolinks: false}, class: "nav-link pl-0" %>
               </li>
               <li class="nav-item">
-                <%= link_to "友達の通信簿", commented_books_path, data: {"turbolinks" => false}, class: "nav-link pl-0" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: {"turbolinks" => false}, class: "nav-link pl-0" %>
-              </li>
-<!--              TODO tooltipにする-->
-              <li class="nav-item">
-                <%= link_to 'アカウント削除', user_path(current_user), method: :delete, data: {"turbolinks" => false}, class: "nav-link pl-0" %>
+                <%= link_to "友達の通信簿", commented_books_path, data: {turbolinks: false}, class: "nav-link pl-0" %>
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to "Twitterでログイン", root_path, data: {"turbolinks" => false}, class: "nav-link" %>
+                <%= link_to "Twitterでログイン", root_path, data: {turbolinks: false}, class: "nav-link" %>
               </li>
             <% end %>
           </ul>
@@ -40,3 +41,7 @@
     </div>
   </nav>
 </header>
+
+<% if user_signed_in? %>
+  <%= render partial: "shared/destroy_user_modal" %>
+<% end %>

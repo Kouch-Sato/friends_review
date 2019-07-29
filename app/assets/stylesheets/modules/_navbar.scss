@@ -38,4 +38,8 @@
   &__service-image {
     width: 210px;
   }
+
+  & .dropdown-toggle::after {
+    content: none;
+  }
 }
