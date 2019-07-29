@@ -15,7 +15,7 @@
 class Review < ApplicationRecord
   belongs_to :book
   belongs_to :user, optional: true
-  has_many   :replies
+  has_many   :replies, dependent: :destroy
 
   validates :review_type, presence: true
   validates :content,     presence: true, length: { minimum: 1, maximum: 50 }

@@ -18,6 +18,7 @@
 #                       edit_book GET      /books/:id/edit(.:format)                                                                books#edit
 #                            book GET      /books/:id(.:format)                                                                     books#show
 #                            user GET      /users/:id(.:format)                                                                     users#show
+#                                 DELETE   /users/:id(.:format)                                                                     users#destroy
 #                     admin_users GET      /admin/users(.:format)                                                                   admin/users#index
 #                      admin_user GET      /admin/users/:id(.:format)                                                               admin/users#show
 #              rails_service_blob GET      /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
@@ -53,7 +54,7 @@ Rails.application.routes.draw do
       resources :replies, only: [:create]
     end
   end
-  resources :users, only: [:show]
+  resources :users, only: [:show, :destroy]
 
   namespace :admin do
     resources :users, only: [:index, :show]
