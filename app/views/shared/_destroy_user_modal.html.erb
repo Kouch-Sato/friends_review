@@ -1,0 +1,24 @@
+<div class="modal fade" id="destroyUserModal" tabindex="-1" role="dialog" aria-labelledby="destroyUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title modal__title" id="destroyUserModalLabel">
+          確認
+        </h2>
+      </div>
+      <div class="modal-body">
+        本当にアカウントを削除しますか？<br>
+        アカウントを削除すると、あなたに届いた全ての評価も削除され、二度と復元できません。
+      </div>
+      <div class="modal-footer">
+        <div class="left-side">
+          <button type="button" class="btn btn-default btn-link" data-dismiss="modal">戻る</button>
+        </div>
+        <div class="divider"></div>
+        <div class="right-side">
+          <%= link_to 'アカウント削除', user_path(current_user), class: "btn btn-danger btn-link", method: :delete, data: {turbolinks: false} %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
