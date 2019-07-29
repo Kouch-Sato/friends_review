@@ -8,9 +8,15 @@ jobs:
     docker:
       - image: circleci/ruby:2.5.3-node-browsers
         environment:
-           RAILS_ENV: test
+          RAILS_ENV: test
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_ROOT_PASSWORD: password
+          ROW_FORMAT: DYNAMIC
       - image: circleci/mysql:5.6
-
+        environment:
+          MYSQL_DATABASE: friends_review_test
+          MYSQL_ROOT_PASSWORD: password
+          ROW_FORMAT: DYNAMIC
 
     working_directory: ~/friends_review
 

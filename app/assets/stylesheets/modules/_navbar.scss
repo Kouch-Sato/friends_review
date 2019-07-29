@@ -3,9 +3,11 @@
     color: gray;
     position: relative;
 
-// gemの関係でBEM記法を使っていない
+    &:hover,
+    &:active,
+    &:focus,
     &.active {
-      color: $info-color;
+      color: $service-color;
     }
   }
 

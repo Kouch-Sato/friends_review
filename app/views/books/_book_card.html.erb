@@ -1,8 +1,8 @@
-<div class="card card__container--blackbord col-md-6 offset-md-3 col-12" data-background="color" data-radius="none">
+<div class="card card__container--service-light col-md-6 offset-md-3 col-12" data-background="color" data-radius="none">
   <div class="card-body">
     <div class="author pull-left">
       <%= image_tag user.image, class: "avatar img-raised align-middle" %>
-      <span class="align-middle font-weight-bold">
+      <span class="align-middle font-weight-bold card__text">
         <%= user.name %>の通信簿
       </span>
     </div>
@@ -14,13 +14,13 @@
     <div class="clearfix"></div>
     <p class="card-description">
       <% reviews.each do |review| %>
-        <span>
+        <span class="card__text">
           <%= "#{review_type_symbol(review)}#{review.content}" %><br>
         </span>
       <% end %>
     </p>
     <% if user_signed_in? && book.user_id == current_user.id %>
-      <%= link_to "編集", edit_book_path(book), class: "btn btn-sm btn-outline-warning btn-round mt-2" %>
+      <%= link_to "編集", edit_book_path(book), class: "btn btn-sm btn-outline-default btn-round mt-2" %>
     <% end %>
   </div>
 </div>
