@@ -6,7 +6,7 @@
   overflow: hidden;
 
   &__container {
-    background: #f5f5f5;
+    background: $original-light-gray;
   }
 
   &__label {
@@ -16,11 +16,11 @@
     font-weight: bold;
 
     &--good {
-      color: $good-pink;
+      color: $original-good-pink;
     }
 
     &--bad {
-      color: $bad-blue;
+      color: $original-bad-blue;
     }
   }
 

@@ -6,7 +6,7 @@
   &__container {
     &--service-light {
       background: $service-light-color;
-      color: #444444;
+      color: $original-darker-text;
     }
   }
 
@@ -15,7 +15,7 @@
   }
 
   &__text {
-    color: #444444;
+    color: $original-darker-text;
   }
 }
 
