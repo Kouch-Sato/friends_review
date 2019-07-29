@@ -6,13 +6,7 @@
   overflow: hidden;
 
   &__container {
-    &--good {
-      background: $good-pink;
-    }
-
-    &--bad {
-      background: $bad-blue;
-    }
+    background: $original-light-gray;
   }
 
   &__label {
@@ -20,6 +14,14 @@
     padding-left: 15px;
     margin-bottom: 5px;
     font-weight: bold;
+
+    &--good {
+      color: $original-good-pink;
+    }
+
+    &--bad {
+      color: $original-bad-blue;
+    }
   }
 
   &__note {

@@ -1,27 +1,57 @@
 .btn-share-twitter {
-  background-color: #55acee;
-  border-color: #55acee;
+  background-color: $social-twitter;
+  border-color: $social-twitter;
   opacity: 0.9;
 
   &:hover,
   &:active,
   &:focus {
-    background-color: #55acee !important;
-    border-color: #55acee !important;
+    background-color: $social-twitter !important;
+    border-color: $social-twitter !important;
     opacity: 1;
   }
 
   &:disabled {
-    background-color: #55acee;
-    border-color: #55acee;
+    background-color: $social-twitter;
+    border-color: $social-twitter;
     opacity: 0.6;
     cursor: default;
 
     &:hover,
     &:active,
     &:focus {
-      background-color: #55acee;
-      border-color: #55acee;
+      background-color: $social-twitter;
+      border-color: $social-twitter;
+      opacity: 0.6;
+      cursor: default;
+    }
+  }
+}
+
+.btn-service {
+  background-color: $service-color;
+  border-color: $service-color;
+  opacity: 0.9;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $service-color !important;
+    border-color: $service-color !important;
+    opacity: 1;
+  }
+
+  &:disabled {
+    background-color: $service-color;
+    border-color: $service-color;
+    opacity: 0.6;
+    cursor: default;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $service-color;
+      border-color: $service-color;
       opacity: 0.6;
       cursor: default;
     }
