@@ -4,12 +4,18 @@
 
 .card {
   &__container {
-    &--blackbord {
-      background: $blackboard;
+    &--service-light {
+      background: $service-light-color;
+      color: #444444;
     }
   }
+
   &__twitter-share-btn {
     opacity: 1;
+  }
+
+  &__text {
+    color: #444444;
   }
 }
 

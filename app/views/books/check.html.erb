@@ -18,7 +18,7 @@
               <%= review_type_symbol(review) %><%= review.content %>
             </div>
             <div class="col-md-1 col-2 pl-0 pr-0 d-flex-align-middle">
-              <%= button_tag "承認", class: "btn btn-sm btn-info btn-round align-middle__child modal-show",
+              <%= button_tag "承認", class: "btn btn-sm btn-service btn-round align-middle__child modal-show",
                   data: {toggle: "modal", target: "#afterApproveModal#{review.id}", review_id: "#{review.id}" } %>
             </div>
             <div class="col-md-1 col-1 pl-0 pr-0 d-flex-align-middle">

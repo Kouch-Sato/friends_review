@@ -1,0 +1,23 @@
+.pagination-service > li > a,
+.pagination-service > li > span,
+.pagination-service > li:first-child > a,
+.pagination-service > li:first-child > span,
+.pagination-service > li:last-child > a,
+.pagination-service > li:last-child > span {
+  border: 2px solid $service-color;
+  color: $service-color;
+}
+
+.pagination-service > li > a:hover,
+.pagination-service > li > a:focus,
+.pagination-service > li > a:active,
+.pagination-service > li.active > a,
+.pagination-service > li.active > span,
+.pagination-service > li.active > a:hover,
+.pagination-service > li.active > span:hover,
+.pagination-service > li.active > a:focus,
+.pagination-service > li.active > span:focus {
+  background-color: $service-color !important;
+  border-color: $service-color !important;
+  color: $white-color;
+}

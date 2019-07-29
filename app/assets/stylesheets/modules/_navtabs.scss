@@ -12,5 +12,6 @@
 .nav-tabs .nav-item .nav-link.active,
 .nav-tabs .nav-item .nav-link.active:hover,
 .nav-tabs .nav-item .nav-link.active:focus {
-  border-bottom: solid 2px gray;
+  border-bottom: solid 2px $service-color;
+  color: $service-color;
 }

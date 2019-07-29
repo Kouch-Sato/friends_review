@@ -27,3 +27,33 @@
     }
   }
 }
+
+.btn-service {
+  background-color: $service-color;
+  border-color: $service-color;
+  opacity: 0.9;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $service-color !important;
+    border-color: $service-color !important;
+    opacity: 1;
+  }
+
+  &:disabled {
+    background-color: $service-color;
+    border-color: $service-color;
+    opacity: 0.6;
+    cursor: default;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $service-color;
+      border-color: $service-color;
+      opacity: 0.6;
+      cursor: default;
+    }
+  }
+}
