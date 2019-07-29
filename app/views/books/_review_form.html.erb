@@ -1,6 +1,6 @@
 <div class="review-form sp-full-width">
-  <div class="review-form__container--good">
-    <p class="review-form__label">
+  <div class="review-form__container">
+    <p class="review-form__label review-form__label--good pt-3">
       <i class="far fa-smile-beam fa-lg mr-2"></i>よくできました
     </p>
     <%= form_for [book, review] do |f| %>
@@ -20,8 +20,8 @@
   </div>
 </div>
 <div class="review-form sp-full-width">
-  <div class="review-form__container--bad">
-    <p class="review-form__label">
+  <div class="review-form__container">
+    <p class="review-form__label review-form__label--bad">
       <i class="far fa-sad-cry fa-lg mr-2"></i>ココがいまひとつ！
     </p>
     <%= form_for [book, review] do |f| %>
