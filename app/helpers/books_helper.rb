@@ -1,5 +1,6 @@
 module BooksHelper
   require 'base64'
+
   def books_show_meta_tags
     {
       title: "#{@user.name}の通信簿",
@@ -13,7 +14,7 @@ module BooksHelper
   def books_show_og_image_url(user)
     base_image_name    = "book_top.png"
     base_image_version = "v1564473266"
-    encoded_avatar     = Base64.encode64(user.image)
+    encoded_avatar     = Base64.strict_encode64(user.image)
     option             = "l_fetch:#{encoded_avatar},w_1.8,y_70,r_50"
     ImageUrlGenerator.cloudinary_share_url(option, base_image_version, base_image_name)
   end
