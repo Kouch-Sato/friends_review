@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: user_twitter_followings
+#
+#  id                    :bigint           not null, primary key
+#  twitter_following_uid :bigint
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#  user_id               :integer
+#
+
+yuri_to_dara:
+  user: yuri
+  twitter_following_uid: 22
+
+dara_to_yuri:
+  user: dara
+  twitter_following_uid: 11
