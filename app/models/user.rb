@@ -61,7 +61,7 @@ class User < ApplicationRecord
   end
 
   def is_admin?
-    admin_uids = [ENV.fetch("TWITTER_KOUCH_UID"), ENV.fetch("TWITTER_DARA_UID")]
+    admin_uids = [ENV.fetch("TWITTER_KOUCH_UID").to_i, ENV.fetch("TWITTER_DARA_UID").to_i]
     admin_uids.include?(uid)
   end
 
