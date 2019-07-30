@@ -56,9 +56,8 @@ class User < ApplicationRecord
     Book.where(id: commented_book_ids)
   end
 
-  # TODO: twitter_access_tokenを使って修正
   def following_books
-    Book.all
+    Book.where(user_id: twitter_followers.pluck(:id))
   end
 
   def is_admin?

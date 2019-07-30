@@ -8,7 +8,6 @@ class BooksController < ApplicationController
     @books = current_user.commented_books.page(params[:page]).per(PER)
   end
 
-  # TODO：今は全てのbooksを取得しているので直す
   def following
     @books = current_user.following_books.page(params[:page]).per(PER)
   end
