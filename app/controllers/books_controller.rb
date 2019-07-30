@@ -1,11 +1,11 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :check, :commented, :following]
+  before_action :authenticate_user!, only: [:edit, :check, :reviewed, :following]
   before_action :ensure_book_owner, only: [:edit, :check]
 
   PER = 20
 
-  def commented
-    @books = current_user.commented_books.page(params[:page]).per(PER)
+  def reviewed
+    @books = current_user.reviewed_books.page(params[:page]).per(PER)
   end
 
   def following

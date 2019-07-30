@@ -51,9 +51,9 @@ class User < ApplicationRecord
     books.first
   end
 
-  def commented_books
-    commented_book_ids = reviews_to_others.pluck(:book_id).uniq
-    Book.where(id: commented_book_ids)
+  def reviewed_books
+    reviewed_book_ids = reviews_to_others.pluck(:book_id).uniq
+    Book.where(id: reviewed_book_ids)
   end
 
   def following_books
