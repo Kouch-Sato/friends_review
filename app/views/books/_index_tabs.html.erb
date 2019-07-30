@@ -3,8 +3,6 @@
     <%= active_link_to "書き込んだ人", commented_books_path, class: "nav-link" %>
   </li>
   <li class="nav-item">
-    <%# FIXME: Twitter機能実装までコメントアウト %>
-    <%#= active_link_to "フォロー中", following_books_path, class: "nav-link" %>
-    <%= active_link_to "全ユーザー", following_books_path, class: "nav-link" %>
+    <%= active_link_to "フォロワー", following_books_path, class: "nav-link" %>
   </li>
 </ul>

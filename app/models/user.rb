@@ -29,6 +29,8 @@ class User < ApplicationRecord
   has_many :reviews, through: :books
   has_many :replies, through: :reviews
   has_many :reviews_to_others, class_name: "Review", dependent: :nullify
+  has_many :user_twitter_followers
+  has_many :twitter_followers, through: :user_twitter_followers
 
   validates :email,    presence: true
   validates :provider, presence: true
@@ -54,9 +56,8 @@ class User < ApplicationRecord
     Book.where(id: commented_book_ids)
   end
 
-  # TODO: twitter_access_tokenを使って修正
   def following_books
-    Book.all
+    Book.where(user_id: twitter_followers.pluck(:id))
   end
 
   def is_admin?

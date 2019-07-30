@@ -48,4 +48,15 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     get commented_books_path
     assert_redirected_to root_path
   end
+
+  def test_books_following_login_user
+    login_as(@current_user, scope: :user)
+    get following_books_path
+    assert_response :success
+  end
+
+  def test_books_following_not_login_user
+    get following_books_path
+    assert_redirected_to root_path
+  end
 end

@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: user_twitter_followers
+#
+#  id                   :bigint           not null, primary key
+#  twitter_follower_uid :bigint
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  user_id              :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+yuri_to_dara:
+  user: yuri
+  twitter_follower_uid: 22
+
+dara_to_yuri:
+  user: dara
+  twitter_follower_uid: 11
