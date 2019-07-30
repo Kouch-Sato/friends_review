@@ -11,3 +11,61 @@
     font-size: 12px;
   }
 }
+
+.lp-heading {
+  text-align: center;
+
+  &__title {
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1.5;
+  }
+
+  &__text {
+    &--small {
+      font-size: 80%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    br {
+      display: none;
+    }
+  }
+}
+
+.lp-content {
+  background: #f5f5f5;
+  text-align: center;
+
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &__subtitle {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &__image {
+    &--w-100 {
+      width: 100%;
+    }
+
+    &--w-40 {
+      width: 40%;
+    }
+
+    &--w-30 {
+      width: 30%;
+    }
+  }
+
+  &__card {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
