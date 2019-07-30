@@ -1,5 +1,5 @@
 module ImageUrlGenerator
-  def self.cloudinary_share_url(font_size, text, option, version, image)
-    "https://res.cloudinary.com/dsjn31fay/image/upload/l_text:Sawarabi%20Gothic_#{font_size}:#{text},#{option}/#{version}/friends_review/#{image}"
+  def self.cloudinary_share_url(option, base_image_version, base_image_name)
+    "https://res.cloudinary.com/dsjn31fay/image/upload/#{option}/#{base_image_version}/friends_review/#{base_image_name}"
   end
 end
