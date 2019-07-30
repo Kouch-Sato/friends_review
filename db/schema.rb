@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_29_124556) do
+ActiveRecord::Schema.define(version: 2019_07_30_063224) do
 
   create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(version: 2019_07_29_124556) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_twitter_followers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "user_twitter_followings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
-    t.bigint "twitter_follower_uid"
+    t.bigint "twitter_following_uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

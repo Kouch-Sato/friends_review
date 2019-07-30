@@ -15,7 +15,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
 
     twitter_client = SnsClient::TwitterClient.new(@user)
-    twitter_client.update_twitter_follower
+    twitter_client.update_twitter_following
 
     if @user.persisted?
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
