@@ -38,14 +38,14 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     assert_equal flash[:alert], "他の人の通信簿は編集できません"
   end
 
-  def test_books_commented_login_user
+  def test_books_reviewed_login_user
     login_as(@current_user, scope: :user)
-    get commented_books_path
+    get reviewed_books_path
     assert_response :success
   end
 
-  def test_books_commented_not_login_user
-    get commented_books_path
+  def test_books_reviewed_not_login_user
+    get reviewed_books_path
     assert_redirected_to root_path
   end
 

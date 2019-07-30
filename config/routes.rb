@@ -7,7 +7,7 @@
 #                            root GET      /                                                                                        home#top
 #                    home_privacy GET      /home/privacy(.:format)                                                                  home#privacy
 #                      home_terms GET      /home/terms(.:format)                                                                    home#terms
-#                 commented_books GET      /books/commented(.:format)                                                               books#commented
+#                 reviewed_books GET      /books/reviewed(.:format)                                                               books#reviewed
 #                 following_books GET      /books/following(.:format)                                                               books#following
 #                      check_book GET      /books/:id/check(.:format)                                                               books#check
 #             book_review_replies POST     /books/:book_id/reviews/:review_id/replies(.:format)                                     replies#create
@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   # https://railsguides.jp/routing.html#%E3%83%8D%E3%82%B9%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E5%9B%9E%E6%95%B0%E3%81%AE%E4%B8%8A%E9%99%90
   resources :books, only: [:show, :edit] do
     collection do
-      get "commented"
+      get "reviewed"
       get "following"
     end
     member do
