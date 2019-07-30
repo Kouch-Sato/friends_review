@@ -9,9 +9,9 @@ module SnsClient
     def update_twitter_following
       @user.user_twitter_followings.delete_all
 
-      follower_uids = @client.friend_ids
-      follower_uids.each do |follower_uid|
-        @user.user_twitter_followings.create(twitter_following_uid: follower_uid)
+      following_uids = @client.friend_ids
+      following_uids.each do |following_uid|
+        @user.user_twitter_followings.create(twitter_following_uid: following_uid)
       end
     end
 
