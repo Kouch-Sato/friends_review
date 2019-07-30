@@ -1,19 +1,72 @@
-<div class="text-center mb-4">
-  <section class="page-heading">
-    <h1 class="page-heading__title mb-3">
-      きれいなトップページを作成中です
+<section class="mb-4">
+  <div class="lp-heading">
+    <h1 class="lp-heading__title mt-5 mb-4">
+      あなただけの<br>通信簿を作ろう！
     </h1>
-    <p>
-      テストユーザーの皆さん、ありがとうございます！
-    </p>
-    <p>
-      Twitterでログインして、自分の通信簿を作りましょう！
-    </p>
     <%= link_to "Twitterログイン", omniauth_authorize_path(:user, :twitter), class: "btn btn-twitter btn-round shadow-sm mt-3" %>
     <div class="mt-3">
-      <small>
+      <span class="lp-heading__text--small">
         <%= link_to "利用規約", home_terms_path %>と<%= link_to "プライバシーポリシー", home_privacy_path %>に同意の上ご利用ください。
-      </small>
+      </span>
     </div>
-  </section>
-</div>
+  </div>
+</section>
+<section>
+  <div class="container lp-content sp-full-width pb-4">
+    <h2 class="lp-content__title pt-5 mb-5">
+      匿名で評価が届きます！
+    </h2>
+    <div class="row">
+      <div class="col-md-6 col-12 mb-5">
+        <div class="card no-transition text-center lp-content__card">
+          <div class="card-body pt-3">
+            <%= image_tag "lp_good_review.png", class: "lp-content__image--w-100" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-12 mb-5">
+        <div class="card no-transition text-center lp-content__card">
+          <div class="card-body pt-3">
+            <%= image_tag "lp_bad_review.png", class: "lp-content__image--w-100" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div>
+    <h2 class="lp-content__title mt-5 mb-5">
+      使い方
+    </h2>
+    <div class="row">
+      <div class="col-md-4 col-12 text-center mb-5">
+        <%= image_tag "lp_share", class: "lp-content__image--w-30" %>
+        <h3 class="lp-content__subtitle mt-0 mb-2">
+          SNSで通信簿をシェア
+        </h3>
+        <span>
+          多くの人に通信簿をつけてもらいましょう。
+        </span>
+      </div>
+      <div class="col-md-4 col-12 text-center mb-5 mt-5 mt-md-0">
+        <%= image_tag "lp_check", class: "lp-content__image--w-40" %>
+        <h3 class="lp-content__subtitle mt-3 mb-2">
+          届いた評価を承認・コメント
+        </h3>
+        <span>
+          公開したくない評価は消すことができます。
+        </span>
+      </div>
+      <div class="col-md-4 col-12 text-center mb-5 mt-5 mt-md-0">
+        <%= image_tag "lp_friends", class: "lp-content__image--w-40" %>
+        <h3 class="lp-content__subtitle mt-2 mb-2">
+          友達の通信簿を覗く
+        </h3>
+        <span>
+          フォローしている人の通信簿を覗くことができます。
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
