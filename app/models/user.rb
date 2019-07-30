@@ -19,7 +19,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string(255)
 #  sign_in_count          :integer          default(0), not null
-#  uid                    :string(255)
+#  uid                    :bigint
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
@@ -61,7 +61,7 @@ class User < ApplicationRecord
   end
 
   def is_admin?
-    admin_uids = [ENV.fetch("TWITTER_KOUCH_UID"), ENV.fetch("TWITTER_DARA_UID")]
+    admin_uids = [ENV.fetch("TWITTER_KOUCH_UID").to_i, ENV.fetch("TWITTER_DARA_UID").to_i]
     admin_uids.include?(uid)
   end
 
