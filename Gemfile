@@ -36,8 +36,6 @@ gem 'google-analytics-rails'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'twitter'
-gem 'rails-i18n'
-gem 'devise-i18n'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
