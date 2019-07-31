@@ -16,7 +16,7 @@ module BooksHelper
     base_image_version = "v1564473266"
     encoded_avatar     = Base64.strict_encode64(user.image)
     option             = "l_fetch:#{encoded_avatar},w_1.8,y_70,r_50"
-    ImageUrlGenerator.cloudinary_share_url(option, base_image_version, base_image_name)
+    ImageUrlGenerator.cloudinary_share_url(base_image_version, base_image_name, option)
   end
 
   def books_show_twitter_share_url(user)
