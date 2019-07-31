@@ -5,7 +5,9 @@
         <h2 class="modal-title modal__title" id="afterApproveModalLabel">コメントしよう！</h2>
       </div>
       <div class="modal-body pr-3 pl-3">
-        <%= review_type_symbol(review) %><%= review.content %>
+        <div class="mb-2">
+          <i class="<%= review_type_symbol(review) %> mr-2"></i><%= review.content %>
+        </div>
         <%= form_for [book, review, reply] do |f| %>
           <div class="form-group">
             <%# FIXME: Twitter機能実装までコメントアウト %>
