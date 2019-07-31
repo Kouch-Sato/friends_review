@@ -12,11 +12,13 @@ module BooksHelper
   end
 
   def books_show_og_image_url(user)
-    base_image_name    = "book_top.png"
-    base_image_version = "v1564473266"
     encoded_avatar     = Base64.strict_encode64(user.image)
-    option             = "l_fetch:#{encoded_avatar},w_1.8,y_70,r_50"
-    ImageUrlGenerator.cloudinary_share_url(base_image_version, base_image_name, option)
+    width              = 1.8
+    y_axis             = 70
+    radius             = 50
+    base_image_version = "v1564473266"
+    base_image_name    = "book_top.png"
+    ImageUrlGenerator.cloudinary_books_show_url(encoded_avatar, width, y_axis, radius, base_image_version, base_image_name)
   end
 
   def books_show_twitter_share_url(user)
