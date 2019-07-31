@@ -18,9 +18,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     twitter_client.update_twitter_following
 
     if @user.persisted?
-      flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
-      # TODO：sign_in_and_redirectは、user_root_pathを最優先で探し、なければrootに行く。（https://qiita.com/masarakki/items/52751a49f9ec487169e4）
-      # 今後user_rootを設定する必要あるかも。
+      flash[:notice] = I18n.t('devise.sessions.signed_in')
       sign_in_and_redirect @user, event: :authentication
     else
       # 基本的にこの処理は通らないが安全のため
