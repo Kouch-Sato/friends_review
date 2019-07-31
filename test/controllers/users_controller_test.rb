@@ -51,5 +51,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     delete user_path(@other_user)
 
     assert_redirected_to root_path
+    assert_equal flash[:alert], "ログインまたは登録が必要です。"
+  end
+
+  def test_logout_user
+    login_as(@current_user, scope: :user)
+
+    delete destroy_user_session_path
+    assert_redirected_to root_path
+    assert_equal flash[:notice], "ログアウトしました。"
   end
 end

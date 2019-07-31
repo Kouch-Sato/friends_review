@@ -53,5 +53,6 @@ class RepliesControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to root_path
+    assert_equal flash[:alert], "ログインまたは登録が必要です。"
   end
 end

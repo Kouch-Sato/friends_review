@@ -47,6 +47,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   def test_books_reviewed_not_login_user
     get reviewed_books_path
     assert_redirected_to root_path
+    assert_equal flash[:alert], "ログインまたは登録が必要です。"
   end
 
   def test_books_following_login_user
@@ -58,5 +59,6 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   def test_books_following_not_login_user
     get following_books_path
     assert_redirected_to root_path
+    assert_equal flash[:alert], "ログインまたは登録が必要です。"
   end
 end
