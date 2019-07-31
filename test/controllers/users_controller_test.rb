@@ -52,4 +52,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to root_path
   end
+
+  def test_logout_user
+    login_as(@current_user, scope: :user)
+
+    delete destroy_user_session_path
+    assert_redirected_to root_path
+    assert_equal flash[:notice], I18n.t('devise.sessions.signed_out')
+  end
 end
