@@ -6,7 +6,7 @@
       </div>
       <div class="modal-body pr-3 pl-3">
         <div class="mb-2">
-          <i class="<%= review_type_symbol(review) %> mr-2"></i><%= review.content %>
+          <i class="<%= review_type_symbol(review) %>"></i><%= review.content %>
         </div>
         <%= form_for [book, review, reply] do |f| %>
           <div class="form-group">
