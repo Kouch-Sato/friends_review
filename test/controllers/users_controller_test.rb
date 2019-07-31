@@ -51,6 +51,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     delete user_path(@other_user)
 
     assert_redirected_to root_path
+    assert_equal flash[:alert], "ログインまたは登録が必要です。"
   end
 
   def test_logout_user
@@ -58,6 +59,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
     delete destroy_user_session_path
     assert_redirected_to root_path
-    assert_equal flash[:notice], I18n.t('devise.sessions.signed_out')
+    assert_equal flash[:notice], "ログアウトしました。"
   end
 end
