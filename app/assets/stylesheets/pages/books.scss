@@ -17,22 +17,47 @@
   &__text {
     color: $original-darker-text;
   }
+
+  &__review-symbol {
+    &--good {
+    }
+
+    &--bad {
+      padding-left: 2px;
+      padding-right: 2px;
+    }
+  }
 }
 
 .book-thumbnail {
   position: relative;
 
-  &__name {
+  &__avatar {
     position: absolute;
-    color: white;
-    top: 45%;
-    right: 30.5%;
-    font-size: 32px;
+    top: 20%;
+    left: 47%;
+    width: 6%;
+    border-radius: 50%;
+    @media (max-width: 767px) {
+      left: 44%;
+      width: 12%;
+    }
+  }
+
+  &__title {
+    position: absolute;
+    width: 50%;
+    top: 46%;
+    left: 25%;
+    display: block;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    font-size: 28px;
     @media (max-width: 991px) {
-      font-size: 22px;
+      font-size: 20px;
     }
     @media (max-width: 767px) {
-      right: 12%;
       font-size: 22px;
     }
   }
@@ -40,9 +65,9 @@
   &__text {
     position: absolute;
     display: block;
-    color: gold;
+    color: black;
     font-size: 16px;
-    left: 31%;
+    left: 32%;
     width: 38%;
     white-space: nowrap;
     overflow: hidden;
@@ -51,17 +76,17 @@
       font-size: 12px;
     }
     @media (max-width: 767px) {
-      left: 13%;
+      left: 14%;
       width: 74%;
       font-size: 12px;
     }
 
     &--first {
-      top: 65%;
+      top: 70%;
     }
 
     &--second {
-      top: 75%;
+      top: 80%;
     }
   }
 }

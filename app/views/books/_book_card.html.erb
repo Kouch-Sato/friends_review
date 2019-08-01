@@ -12,10 +12,10 @@
       <% end %>
     </span>
     <div class="clearfix"></div>
-    <p class="card-description">
+    <p class="card-description text-left">
       <% reviews.each do |review| %>
         <span class="card__text">
-          <%= "#{review_type_symbol(review)}#{review.content}" %><br>
+          <i class="<%= review_type_symbol(review) %>"></i><%= review.content %><br>
         </span>
       <% end %>
     </p>
