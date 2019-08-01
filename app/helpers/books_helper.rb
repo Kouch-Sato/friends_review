@@ -2,11 +2,9 @@ module BooksHelper
   require 'base64'
 
   def books_show_meta_tags
-    if @shared_review.present?
-      image_url = reviews_show_og_image_url(@shared_review)
-    else
-      image_url = books_show_og_image_url(@user)
-    end
+
+    image_url = set_image_url
+
     {
       title: "#{@user.name}の通信簿",
       og: {
@@ -44,5 +42,13 @@ module BooksHelper
     review_symbol  = review.review_type == "good" ? "◯" : "✕"
     review_content = review.content
     return review_symbol + " " + review_content
+  end
+
+  def set_image_url
+    image_url = books_show_og_image_url(@user)
+    if @shared_review.present?
+      image_url = reviews_show_og_image_url(@shared_review)
+    end
+    return image_url
   end
 end
