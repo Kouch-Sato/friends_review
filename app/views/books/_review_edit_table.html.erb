@@ -1,0 +1,68 @@
+<table class="table review-edit-table mb-0">
+  <thead>
+    <tr>
+      <th class="review-edit-table__thead">
+        <i class="far fa-smile-beam fa-lg mr-2"></i>よくできました
+      </th>
+      <th class="review-edit-table__thead review-edit-table__thead--delete">
+        削除
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if reviews.good.present? %>
+      <% reviews.good.each do |review| %>
+        <tr>
+          <td class="review-edit-table__tbody">
+            <%= review.content %>
+          </td>
+          <td class="review-edit-table__tbody review-edit-table__tbody--delete">
+            <%= link_to book_review_path(@book, review), class: "btn btn-default btn-sm btn-link", method: :delete do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan="3" class="text-center">
+          該当する評定はありません。
+        </td>
+      <tr>
+    <% end %>
+  </tbody>
+</table>
+<table class="table review-edit-table">
+  <thead>
+    <tr>
+      <th class="review-edit-table__thead">
+        <i class="far fa-sad-cry fa-lg mr-2"></i>ココがいまひとつ！
+      </th>
+      <th class="review-edit-table__thead review-edit-table__thead--delete">
+        削除
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if reviews.bad.present? %>
+      <% reviews.bad.each do |review| %>
+        <tr>
+          <td class="review-edit-table__tbody">
+            <%= review.content %>
+          </td>
+          <td class="review-edit-table__tbody review-edit-table__tbody--delete">
+            <%= link_to book_review_path(@book, review), class: "btn btn-default btn-sm btn-link", method: :delete do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan="3" class="text-center">
+          該当する評定はありません。
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
