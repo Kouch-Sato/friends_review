@@ -80,7 +80,7 @@ class User < ApplicationRecord
       provider:            sns_account.provider,
       name:                sns_account.info.name,
       nickname:            sns_account.info.nickname,
-      image:               User.secure_image_url(sns_account),
+      image:               User.secure_image_url(sns_account.info.image),
       access_token:        sns_account.credentials.token,
       access_token_secret: sns_account.credentials.secret,
     )
@@ -98,8 +98,7 @@ class User < ApplicationRecord
     "#{sns_account.uid}-#{sns_account.provider}@example.com"
   end
 
-  def self.secure_image_url(sns_account)
-    image_url = sns_account.info.image
+  def self.secure_image_url(image_url)
     if image_url.start_with?("http://")
       image_url.gsub!(/http:\/\//, "https://")
     end
