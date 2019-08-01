@@ -5,6 +5,7 @@ module ApplicationHelper
       title: '',
       reverse: true,
       charset: 'utf-8',
+      icon: image_url('favicon.ico'),
       description: '匿名で、普段の様子についての成績をつけられるサービスです！',
       keywords: 'みんなの通信簿, 通信簿, みんなの通知表, friends review, 他己評価',
       separator: '|',
