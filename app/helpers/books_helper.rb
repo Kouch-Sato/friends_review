@@ -18,23 +18,18 @@ module BooksHelper
 
   def books_show_og_image_url(user)
     encoded_avatar     = Base64.strict_encode64(user.image)
-    width              = 1.8
-    y_axis             = 70
-    radius             = 50
     base_image_version = "v1564473266"
     base_image_name    = "book_top.png"
-    ImageUrlGenerator.cloudinary_books_show_url(encoded_avatar, width, y_axis, radius, base_image_version, base_image_name)
+    option             = "l_fetch:#{encoded_avatar},w_1.8,y_70,r_50"
+    OgpUrlGenerator.cloudinary_ogp_url(base_image_version, base_image_name, option)
   end
 
   def reviews_show_og_image_url(review)
-    width              = 450
-    font               = "Sawarabi%20Gothic"
-    font_size          = 30
     text               = create_review_show_text(review)
-    y_axis             = 5
-    base_image_version = "v1564554855"
+    base_image_version = "v1564637855"
     base_image_name    = "review.png"
-    ImageUrlGenerator.cloudinary_reviews_show_url(width, font, font_size, text, y_axis, base_image_version, base_image_name)
+    option             = "w_430,c_fit,l_text:Sawarabi%20Gothic_30:#{text},y_15"
+    OgpUrlGenerator.cloudinary_ogp_url(base_image_version, base_image_name, option)
   end
 
   def books_show_twitter_share_url(user)
