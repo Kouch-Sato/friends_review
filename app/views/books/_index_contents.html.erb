@@ -3,14 +3,23 @@
     <div class="col-12">
       <% books.each do |book| %>
         <%= link_to book_path(book) do %>
-          <div class="book-thumbnail">
-            <%= image_tag book.checked_review(0).present? ? "board_without_text.jpg" : "board_with_text.jpg", class: "col-md-6 offset-md-3 w-100" %>
-            <span class="book-thumbnail__name">1年1組 <%= book.user.name %></span>
+          <div class="book-thumbnail mb-3">
+            <%= image_tag "book_with_review.png", class: "col-md-6 offset-md-3 w-100" %>
+            <%= image_tag book.user.image, class: "book-thumbnail__avatar" %>
+            <span class="book-thumbnail__title"><%= book.user.name %>の通信簿</span>
             <% if book.checked_review(0) %>
-              <span class="book-thumbnail__text book-thumbnail__text--first"><%= "#{review_type_symbol(book.checked_review(0))}#{book.checked_review(0).content}" %></span>
+              <span class="book-thumbnail__text book-thumbnail__text--first">
+                <i class="<%= review_type_symbol(book.checked_review(0)) %>"></i><%= book.checked_review(0).content %>
+              </span>
+            <% else %>
+              <span class="book-thumbnail__text book-thumbnail__text--first">
+                まだ評価は届いていないようです。<br>一番乗りで評価を送ろう！
+              </span>
             <% end %>
             <% if book.checked_review(1) %>
-              <span class="book-thumbnail__text book-thumbnail__text--second"><%= "#{review_type_symbol(book.checked_review(1))}#{book.checked_review(1).content}" %></span>
+              <span class="book-thumbnail__text book-thumbnail__text--second">
+                <i class="<%= review_type_symbol(book.checked_review(1)) %>"></i><%= book.checked_review(1).content %>
+              </span>
             <% end %>
           </div>
         <% end %>
