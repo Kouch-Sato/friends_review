@@ -17,7 +17,14 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # TODO: reviews#showを作る
+  def show
+    @shared_review = Review.find(params[:id])
+    @book = @shared_review.book
+    @user = @book.user
+    @review = Review.new
+    @reviews = @book.reviews.checked.order("review_type")
+    render "books/show"
+  end
 
   def update
     @review = Review.find(params[:id])

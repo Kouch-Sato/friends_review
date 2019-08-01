@@ -7,12 +7,13 @@
 #                            root GET      /                                                                                        home#top
 #                    home_privacy GET      /home/privacy(.:format)                                                                  home#privacy
 #                      home_terms GET      /home/terms(.:format)                                                                    home#terms
-#                  reviewed_books GET      /books/reviewed(.:format)                                                               books#reviewed
+#                  reviewed_books GET      /books/reviewed(.:format)                                                                books#reviewed
 #                 following_books GET      /books/following(.:format)                                                               books#following
 #                      check_book GET      /books/:id/check(.:format)                                                               books#check
 #             book_review_replies POST     /books/:book_id/reviews/:review_id/replies(.:format)                                     replies#create
 #                    book_reviews POST     /books/:book_id/reviews(.:format)                                                        reviews#create
-#                     book_review PATCH    /books/:book_id/reviews/:id(.:format)                                                    reviews#update
+#                     book_review GET      /books/:book_id/reviews/:id(.:format)                                                    reviews#show
+#                                 PATCH    /books/:book_id/reviews/:id(.:format)                                                    reviews#update
 #                                 PUT      /books/:book_id/reviews/:id(.:format)                                                    reviews#update
 #                                 DELETE   /books/:book_id/reviews/:id(.:format)                                                    reviews#destroy
 #                       edit_book GET      /books/:id/edit(.:format)                                                                books#edit
@@ -50,7 +51,7 @@ Rails.application.routes.draw do
     member do
       get "check"
     end
-    resources :reviews, only: [:create, :update, :destroy] do
+    resources :reviews, only: [:create, :update, :show, :destroy] do
       resources :replies, only: [:create]
     end
   end
