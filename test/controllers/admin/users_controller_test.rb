@@ -25,6 +25,6 @@ class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
     get admin_users_path
 
     assert_redirected_to root_path
-    assert_equal flash[:alert], "ログインまたは登録が必要です"
+    assert_equal flash[:alert], "ログインまたは登録が必要です。"
   end
 end
