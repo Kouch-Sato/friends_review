@@ -17,6 +17,17 @@
   &__text {
     color: $original-darker-text;
   }
+
+  &__review-symbol {
+    &--good {
+    }
+
+    &--bad {
+      font-size: 16px;
+      padding-left: 2px;
+      padding-right: 2px;
+    }
+  }
 }
 
 .book-thumbnail {
