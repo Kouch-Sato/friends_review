@@ -25,7 +25,6 @@ class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
     get admin_users_path
 
     assert_redirected_to root_path
-    # TODO: deviseの日本語化したらflashを書き換える
-    # assert_equal flash[:alert], "不正なアクセスです"
+    assert_equal flash[:alert], "ログインまたは登録が必要です"
   end
 end
