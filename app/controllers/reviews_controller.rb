@@ -23,6 +23,9 @@ class ReviewsController < ApplicationController
     @user = @book.user
     @review = Review.new
     @reviews = @book.reviews.checked.order("review_type")
+    if user_signed_in?
+      @following_books = current_user.following_books.order("RAND()").limit(3)
+    end
     render "books/show"
   end
 

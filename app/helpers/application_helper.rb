@@ -15,7 +15,7 @@ module ApplicationHelper
         description: '記入する/結果を見る',
         type: 'website',
         url: request.original_url,
-        image: image_url('book_sample.jpg'),
+        image: image_url('book_sample.png'),
         locale: 'ja_JP',
       },
       twitter: {

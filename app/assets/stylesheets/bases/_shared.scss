@@ -34,8 +34,17 @@
     border-top: solid 3px $original-light-gray;
   }
 
+  &__subtitle {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
   &__text {
     font-size: 14px;
+
+    &--small {
+      font-size: 80%;
+    }
   }
 }
 

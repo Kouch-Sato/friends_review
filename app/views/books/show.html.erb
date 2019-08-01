@@ -31,10 +31,15 @@
     <% end %>
     <%= render partial: "books/book_card", locals: { user: @user, book: @book, reviews: @reviews } %>
     <% if !user_signed_in? %>
-      <p class="mb-2">
+      <p class="page-section__subtitle">
         ログインして、自分の通信簿を作ってみよう！
       </p>
-      <%= link_to "自分の通信簿を作る！", root_path, class: "btn btn-service btn-round shadow-sm" %>
+      <%= link_to "Twitterログイン", omniauth_authorize_path(:user, :twitter), class: "btn btn-twitter btn-round shadow-sm mt-3" %>
+      <div class="mt-2">
+        <span class="page-section__text--small">
+          <%= link_to "利用規約", home_terms_path %>と<%= link_to "プライバシーポリシー", home_privacy_path %>に同意の上ご利用ください。
+        </span>
+      </div>
     <% end %>
   </div>
 
@@ -52,19 +57,27 @@
   <p class="page-section__title sp-full-width mb-4">
     友達の通信簿
   </p>
-  <%# TODO 通信簿を動的にする %>
   <div class="row mb-3">
     <div class="col-12">
-      <%= link_to "#" do %>
-        <%= image_tag "book_sample.jpg", width: "100%", class: "col-md-6 offset-md-3"%>
+      <% if user_signed_in? %>
+        <%= render partial: "books/index_contents", locals: { books: @following_books } %>
+        <div class="text-center mt-3">
+          <%= link_to "友達の通信簿を覗く", reviewed_books_path, class: "btn btn-secondary btn-round" %>
+        </div>
+      <% else %>
+        <%= image_tag "book_sample.png", width: "100%", class: "col-md-6 offset-md-3"%>
+        <div class="text-center mt-4">
+          <h3 class="page-section__subtitle">
+            ログインして、フォロー中の友達の通信簿を覗きましょう！
+          </h3>
+          <%= link_to "Twitterログイン", omniauth_authorize_path(:user, :twitter), class: "btn btn-twitter btn-round shadow-sm mt-3" %>
+          <div class="mt-2">
+            <span class="page-section__text--small">
+              <%= link_to "利用規約", home_terms_path %>と<%= link_to "プライバシーポリシー", home_privacy_path %>に同意の上ご利用ください。
+            </span>
+          </div>
+        </div>
       <% end %>
-      <hr>
-      <%= link_to "#" do %>
-        <%= image_tag "book_sample.jpg", width: "100%", class: "col-md-6 offset-md-3"%>
-      <% end %>
-      <div class="text-center mt-3">
-        <%= link_to "友達の通信簿を覗く", "#", class: "btn btn-secondary btn-round disabled" %>
-      </div>
     </div>
   </div>
 </section>

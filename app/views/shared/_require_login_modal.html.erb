@@ -7,7 +7,12 @@
         </h2>
       </div>
       <div class="modal-body text-center">
-        <%= link_to "TOPページへ", root_path, class: "btn btn-info btn-block"  %>
+        <%= link_to "Twitterログイン", omniauth_authorize_path(:user, :twitter), class: "btn btn-twitter btn-block mt-3" %>
+        <div class="mt-2">
+          <span class="page-section__text--small">
+            <%= link_to "利用規約", home_terms_path %>と<%= link_to "プライバシーポリシー", home_privacy_path %>に同意の上ご利用ください。
+          </span>
+        </div>
         <button type="button" class="btn btn-default btn-link mt-3" data-dismiss="modal">
           閉じる
         </button>
