@@ -46,19 +46,26 @@
 
   &__title {
     position: absolute;
-    width: 50%;
+    width: 40%;
     top: 46%;
-    left: 25%;
+    left: 30%;
     display: block;
     text-align: center;
     color: black;
     font-weight: bold;
-    font-size: 28px;
+    font-size: 26px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     @media (max-width: 991px) {
-      font-size: 20px;
+      font-size: 18px;
+      width: 36%;
+      left: 32%;
     }
     @media (max-width: 767px) {
-      font-size: 22px;
+      font-size: 20px;
+      width: 76%;
+      left: 12%;
     }
   }
 
