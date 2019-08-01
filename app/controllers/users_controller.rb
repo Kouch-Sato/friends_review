@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @book = @user.book
     @review = Review.new
     @reviews = @book.reviews.checked.order("review_type")
+    render "books/show"
   end
 
   def destroy
