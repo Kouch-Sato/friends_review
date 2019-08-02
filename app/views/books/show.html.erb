@@ -19,7 +19,7 @@
   </section>
 <% end %>
 
-<section class="page-section mb-4">
+<section class="page-section mb-5">
   <p class="page-section__title sp-full-width mb-4">
     <%= @user.name %>の通信簿
   </p>
@@ -44,7 +44,7 @@
   </div>
 
   <% if user_signed_in? && @user.id == current_user.id %>
-    <p class="text-center mb-3">
+    <p class="text-center mb-5">
       こっそり自分の通信簿もつけられます...！
     </p>
     <section class="mb-4">
@@ -53,7 +53,7 @@
   <% end %>
 </section>
 
-<section class="page-section mb-4">
+<section class="page-section mb-5">
   <p class="page-section__title sp-full-width mb-4">
     友達の通信簿
   </p>
