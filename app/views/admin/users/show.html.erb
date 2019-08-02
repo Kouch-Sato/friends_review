@@ -2,6 +2,11 @@
   <%= image_tag @user.image, class: "top-navbar__avatar mr-2" %>
   <%= @user.name %>
 </h2>
+<div class="text-right">
+  <%= link_to twitter_url(@user), class: "btn btn-just-icon btn-border btn-twitter", target: "_blank" do %>
+    <i class="fab fa-twitter" aria-hidden="true"></i>
+  <% end %>
+</div>
 <h3>
   <%= @user.name %>へのコメント
 </h3>
@@ -26,7 +31,7 @@
   <% @reviews.each do |review| %>
     <tr>
       <td>
-        <%= "#{review_type_symbol(review)}#{review.content}" %>
+        <i class="<%= review_type_symbol(review) %>"></i><%= review.content %><br>
       </td>
       <td>
         <% if review.user %>
@@ -38,7 +43,7 @@
         <i class="fas <%= review_status_favicon(review) %>"></i>
       </td>
       <td>
-        <%= review.created_at %>
+        <%= review.created_at.strftime("%Y-%m-%d %H:%M") %>
       </td>
     </tr>
   <% end %>
@@ -69,7 +74,7 @@
   <% @reviews_to_others.each do |review| %>
     <tr>
       <td>
-        <%= "#{review_type_symbol(review)}#{review.content}" %>
+        <i class="<%= review_type_symbol(review) %>"></i><%= review.content %><br>
       </td>
       <td>
         <%= image_tag review.book.user.image, class: "admin-user-table__avatar mr-2" %>
@@ -79,7 +84,7 @@
         <i class="fas <%= review_status_favicon(review) %>"></i>
       </td>
       <td>
-        <%= review.created_at %>
+        <%= review.created_at.strftime("%Y-%m-%d %H:%M") %>
       </td>
     </tr>
   <% end %>
