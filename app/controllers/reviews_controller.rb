@@ -31,14 +31,13 @@ class ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
-    @book = Book.find(params[:book_id])
+    @book = @review.book
     @review.checked!
     redirect_to check_book_path(@book), notice: "評価を承認しました"
   end
 
   def destroy
-    @review = Review.find_by(id: params[:id])
-    @book = Book.find_by(id: params[:book_id])
+    @review = Review.find(params[:id])
     @review.deleted!
     redirect_back(fallback_location: user_path(current_user), notice: "評価を削除しました")
   end
@@ -49,7 +48,7 @@ class ReviewsController < ApplicationController
   end
 
   def ensure_review_owner
-    @review = Review.find_by(id: params[:id])
+    @review = Review.find(params[:id])
     unless current_user.id == @review.book.user_id
       redirect_to user_path(current_user), alert: "他の人の評価は編集できません"
     end

@@ -13,7 +13,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find_by(id: params[:id])
+    @book = Book.find(params[:id])
     @user = @book.user
     @review = Review.new
     @reviews = @book.reviews.checked.order("review_type")
@@ -23,19 +23,19 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Book.find_by(id: params[:id])
+    @book = Book.find(params[:id])
     @checked_reviews = @book.reviews.checked
   end
 
   def check
-    @book = Book.find_by(id: params[:id])
+    @book = Book.find(params[:id])
     @unchecked_reviews = @book.reviews.unchecked
     @reply = Reply.new
   end
 
   private
   def ensure_book_owner
-    @book = Book.find_by(id: params[:id])
+    @book = Book.find(params[:id])
     unless current_user.id == @book.user_id
       redirect_to user_path(current_user), alert: "他の人の通信簿は編集できません"
     end
