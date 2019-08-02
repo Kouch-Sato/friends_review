@@ -1,6 +1,12 @@
 <h1>
   Admin User一覧
 </h1>
+<h3>
+  User <%= @users.count %>人
+</h3>
+<h3>
+  Review <%= @reviews.count %>個
+</h3>
 <table class="table">
   <thead>
     <tr>
@@ -54,3 +60,6 @@
     <% end %>
   </tbody>
 </table>
+<div class="mt-3">
+  <%= paginate @users, window: 1 %>
+</div>
