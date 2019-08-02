@@ -1,6 +1,10 @@
 class Admin::UsersController < AdminController
+
+  PER = 10
+
   def index
-    @users = User.all.order("created_at")
+    @users = User.all.order("created_at").page(params[:page]).per(PER)
+    @reviews = Review.all
   end
 
   def show

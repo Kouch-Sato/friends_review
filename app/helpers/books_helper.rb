@@ -33,7 +33,7 @@ module BooksHelper
 
   def books_show_twitter_share_url(user)
     url             = request.url
-    text            = "#{user.name}の通信簿です！記入したり、結果を覗いたりしよう！"
+    text            = "#{user.name}の通信簿です！みんな書いてね！"
     hash_tags_array = ["みんなの通信簿"]
 
     ShareUrlGenerator.twitter_share_url(url, text, hash_tags_array)
