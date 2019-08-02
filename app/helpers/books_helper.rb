@@ -26,7 +26,7 @@ module BooksHelper
     text               = create_review_show_text(review)
     base_image_version = "v1564637855"
     base_image_name    = "review.png"
-    option             = "w_430,c_fit,l_text:Sawarabi%20Gothic_30:#{text},y_15"
+    option             = "w_430,c_fit,l_text:Sawarabi%20Gothic_30:#{text},y_25"
 
     OgpUrlGenerator.cloudinary_ogp_url(base_image_version, base_image_name, option)
   end
