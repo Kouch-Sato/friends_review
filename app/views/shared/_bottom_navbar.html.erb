@@ -14,7 +14,7 @@
           <%= active_link_to check_book_path(current_user.book), class: "bottom-navbar__link" do %>
             <i class="fas fa-box-open fa-lg"></i><br>
             <small>
-              新着の評定
+              新着の評価
             </small>
             <span class="bottom-navbar__notification">
               <%= current_user.reviews.unchecked.count %>
@@ -42,7 +42,7 @@
           <%= link_to "#", class: "bottom-navbar__link btn-neutral", data: { toggle: "modal", target: "#requireLoginModal" } do %>
             <i class="fas fa-box-open fa-lg"></i><br>
             <small>
-              新着の評定
+              新着の評価
             </small>
           <% end %>
         </div>
