@@ -7,7 +7,7 @@ class RepliesController < ApplicationController
     @book = @review.book
     @reply = @review.replies.new(reply_params)
 
-    if @reply.save!
+    if @reply.save
       @review.checked!
       twitter_client = SnsClient::TwitterClient.new(current_user)
       twitter_client.tweet(@reply.content)
