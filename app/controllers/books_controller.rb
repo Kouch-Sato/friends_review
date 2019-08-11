@@ -8,9 +8,9 @@ class BooksController < ApplicationController
     @books = current_user.reviewed_books.page(params[:page]).per(PER)
   end
 
-  def following
-    @books = current_user.following_books.page(params[:page]).per(PER)
-  end
+  # def following
+  #   @books = current_user.following_books.page(params[:page]).per(PER)
+  # end
 
   def show
     @book = Book.find(params[:id])

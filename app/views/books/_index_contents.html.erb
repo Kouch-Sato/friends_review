@@ -24,7 +24,9 @@
           </div>
         <% end %>
       <% end %>
-      <% if %w[reviewed_books following_books].any? { |name| current_page?(send("#{name}_path")) } %>
+<!--      TODO-->
+      <%# if %w[reviewed_books following_books].any? { |name| current_page?(send("#{name}_path")) } %>
+      <% if %w[reviewed_books].any? { |name| current_page?(send("#{name}_path")) } %>
         <div class="mt-3">
           <%= paginate books, window: 1 %>
         </div>

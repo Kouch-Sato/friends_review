@@ -46,7 +46,8 @@ Rails.application.routes.draw do
   resources :books, only: [:show, :edit] do
     collection do
       get "reviewed"
-      get "following"
+      # TODO
+      # get "following"
     end
     member do
       get "check"
