@@ -8,9 +8,9 @@ class BooksController < ApplicationController
     @books = current_user.reviewed_books.page(params[:page]).per(PER)
   end
 
-  def following
-    @books = current_user.following_books.page(params[:page]).per(PER)
-  end
+  # def following
+  #   @books = current_user.following_books.page(params[:page]).per(PER)
+  # end
 
   def show
     @book = Book.find(params[:id])
@@ -18,7 +18,9 @@ class BooksController < ApplicationController
     @review = Review.new
     @reviews = @book.reviews.checked.order("review_type")
     if user_signed_in?
-      @following_books = current_user.following_books.limit(3)
+      # TODO:pgの容量のバグ
+      # @following_books = current_user.following_books.limit(3)
+      @following_books = current_user.reviewed_books.limit(3)
     end
   end
 
