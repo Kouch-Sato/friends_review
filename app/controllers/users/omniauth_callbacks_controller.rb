@@ -14,8 +14,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       @user.update_by_sns_account(sns_account)
     end
 
-    twitter_client = SnsClient::TwitterClient.new(@user)
-    twitter_client.update_twitter_following
+    # TODO:pgの容量的に一旦無視
+    # twitter_client = SnsClient::TwitterClient.new(@user)
+    # twitter_client.update_twitter_following
 
     if @user.persisted?
       flash[:notice] = I18n.t('devise.sessions.signed_in')
